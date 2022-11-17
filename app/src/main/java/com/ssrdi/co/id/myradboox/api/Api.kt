@@ -28,7 +28,6 @@ interface Api {
 
     @GET("admin/detail")
     fun detailAdmin(
-        @Field("code") code:Int,
-        @Header("Authorization") Authorization: String?
+       @Header("Authorization") Authorization: String
     ): Call<VerificationResponse>
 }
