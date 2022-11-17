@@ -35,6 +35,8 @@ class VerificationActivity : AppCompatActivity() {
         var codeOtpStr: String = ed_verification.text.toString().trim()
         val codeOtpInt = codeOtpStr.toInt()
 
+        testAmbilRoleUser()
+
 
 
         btn_verification.setOnClickListener {
@@ -50,6 +52,18 @@ class VerificationActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun testAmbilRoleUser() {
+        var role = SharedPrefManager.getInstance(this).role
+        Log.d("test","role user saat ini $role")
+        Toast.makeText(this, "Role saat ini -> $role", Toast.LENGTH_SHORT).show()
+
+        // ubah data role ke admin
+        SharedPrefManager.getInstance(this).role = "admin"
+        role = SharedPrefManager.getInstance(this).role
+        Log.d("test","role user saat ini $role")
+        Toast.makeText(this, "Role saat ini -> $role", Toast.LENGTH_SHORT).show()
     }
 
     /**

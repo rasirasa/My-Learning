@@ -7,12 +7,20 @@ import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
 
 
-class SharedPrefManager private constructor(private val mCtx: Context){
-    val isLoggedIn: Boolean
-        get() {
+class SharedPrefManager private constructor(private val mCtx: Context) {
 
-            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            return sharedPreferences.getInt("id", -1) != -1
+    private val preference: SharedPreferences
+        get() = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+
+    private val editor: SharedPreferences.Editor
+        get() = preference.edit()
+
+    var isLoggedIn: Boolean
+        get() {
+            return preference.getBoolean("isLogin", false)
+        }
+        set(value) {
+            editor.putBoolean("isLogin", value).apply()
         }
 
 //    val userVerification: VerificationResponse
@@ -27,11 +35,11 @@ class SharedPrefManager private constructor(private val mCtx: Context){
 //        }
 
 
-    fun saveRoleLogin(roleLogin:String){
+    fun saveRoleLogin(roleLogin: String) {
 
-            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.putString("role", roleLogin)
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("role", roleLogin)
     }
 
 
@@ -74,16 +82,16 @@ class SharedPrefManager private constructor(private val mCtx: Context){
 
     }
 
-    fun getRole(v_role:String){
-        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("role", v_role)
-        editor.apply()
-    }
+    var role: String
+        get() = preference.getString("role", "") ?: ""
+        set(value) {
+            editor.putString("role", value).apply()
+        }
 
     companion object {
         private val SHARED_PREF_NAME = "my_shared_preff"
         private var mInstance: SharedPrefManager? = null
+
         @Synchronized
         fun getInstance(mCtx: Context): SharedPrefManager {
             if (mInstance == null) {
