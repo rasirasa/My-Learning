@@ -26,6 +26,10 @@ class DetailResponse {
 
     @SerializedName("phone")
     @Expose
+    var phone:String?=null
+
+    @SerializedName("email")
+    @Expose
     var email:String?=null
 
     @SerializedName("url_img")
@@ -43,6 +47,10 @@ class DetailResponse {
     @SerializedName("code")
     @Expose
     var code:String?=null
+
+    @SerializedName("country")
+    @Expose
+    var country:String?=null
 
 
 }

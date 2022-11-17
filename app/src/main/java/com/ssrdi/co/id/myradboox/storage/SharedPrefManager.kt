@@ -35,12 +35,12 @@ class SharedPrefManager private constructor(private val mCtx: Context){
     }
 
 
-    fun saveToken(loginTokenResponse: VerificationResponse) {
+    fun saveToken(loginTokenResponse: String) {
 
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        editor.putString("token", loginTokenResponse.token)
+        editor.putString("token", loginTokenResponse)
 
         editor.apply()
 
@@ -53,8 +53,32 @@ class SharedPrefManager private constructor(private val mCtx: Context){
         editor.apply()
     }
 
-    fun saveToken(loginTokenResponse: String) {
+    fun saveDetailAdmin(loginTokenResponse: DetailResponse) {
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
 
+        editor.putString("status", loginTokenResponse.status)
+        editor.putString("message", loginTokenResponse.message)
+        editor.putString("username", loginTokenResponse.username)
+        editor.putString("role", loginTokenResponse.role.toString())
+        editor.putString("name", loginTokenResponse.name)
+        editor.putString("phone", loginTokenResponse.phone)
+        editor.putString("email", loginTokenResponse.email)
+        editor.putString("url_img", loginTokenResponse.url_img)
+        editor.putString("address", loginTokenResponse.address)
+        editor.putString("city", loginTokenResponse.city)
+        editor.putString("code", loginTokenResponse.code)
+        editor.putString("country", loginTokenResponse.country)
+
+        editor.apply()
+
+    }
+
+    fun getRole(v_role:String){
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("role", v_role)
+        editor.apply()
     }
 
     companion object {

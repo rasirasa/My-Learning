@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
 
-        // val role = SharedPrefManager.Companion.getInstance("token")
+        //val role = SharedPrefManager.Companion.getInstance("role")
 
         Handler().postDelayed({
             startActivity(Intent(this,LoginActivity::class.java))

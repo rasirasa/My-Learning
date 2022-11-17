@@ -104,12 +104,17 @@ class VerificationActivity : AppCompatActivity() {
 
     private fun ambilDetailAdmin(loginTokenResponse: String) {
         //  ambil data detail
-        retro.detailAdmin("").enqueue(object : Callback<DetailResponse> {
+        retro.detailAdmin("Bearer $loginTokenResponse").enqueue(object : Callback<DetailResponse> {
             override fun onResponse(
                 call: Call<DetailResponse>,
                 response: Response<DetailResponse>
             ) {
-                TODO("Not yet implemented")
+                val detailAdminnya = response.body()
+                if(detailAdminnya!=null){
+                    SharedPrefManager.getInstance(applicationContext)
+                    .saveDetailAdmin(detailAdminnya)
+                }
+
             }
 
             override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
