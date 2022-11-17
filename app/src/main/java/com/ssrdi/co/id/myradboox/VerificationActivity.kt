@@ -16,28 +16,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class VerificationActivity : AppCompatActivity() {
-    // var tokenFromLogin = ""
 
-    lateinit var retro: Api
-
-    var tokenFromLogin = intent.getStringExtra("token_login") ?: ""
-
-
+    lateinit var retro:Api
+    lateinit var tokenFromLogin:String
+    val codeOtpStr: String = ed_verification.text.toString().trim()
+    val codeOtpInt= codeOtpStr.toInt()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
-
-
+        tokenFromLogin = intent.getStringExtra("token_login") ?: ""
         retro = RetrofitClient(this)
             .getRetrofitClientInstance()
             .create(Api::class.java)
 
-        var codeOtpStr: String = ed_verification.text.toString().trim()
-        val codeOtpInt = codeOtpStr.toInt()
 
         testAmbilRoleUser()
-
-
 
         btn_verification.setOnClickListener {
             // pertama cek dulu otp nya sudah diisi user belum
@@ -45,10 +38,8 @@ class VerificationActivity : AppCompatActivity() {
                 ed_verification.error = "Kode OTP Wajib Diisi"
                 ed_verification.requestFocus()
                 Toast.makeText(this, "OTP kosong, mohon isi otp", Toast.LENGTH_SHORT).show()
-            } else {
-                ed_verification.error = ""
-                prosesOtp(codeOtpInt)
             }
+            prosesOtp(codeOtpInt)
 
         }
 
@@ -60,10 +51,10 @@ class VerificationActivity : AppCompatActivity() {
         Toast.makeText(this, "Role saat ini -> $role", Toast.LENGTH_SHORT).show()
 
         // ubah data role ke admin
-        SharedPrefManager.getInstance(this).role = "admin"
-        role = SharedPrefManager.getInstance(this).role
-        Log.d("test","role user saat ini $role")
-        Toast.makeText(this, "Role saat ini -> $role", Toast.LENGTH_SHORT).show()
+//        SharedPrefManager.getInstance(this).role = "admin"
+//        role = SharedPrefManager.getInstance(this).role
+//        Log.d("test","role user saat ini $role")
+//        Toast.makeText(this, "Role saat ini -> $role", Toast.LENGTH_SHORT).show()
     }
 
     /**
