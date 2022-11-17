@@ -19,12 +19,14 @@ class VerificationActivity : AppCompatActivity() {
 
     lateinit var retro:Api
     lateinit var tokenFromLogin:String
-    val codeOtpStr: String = ed_verification.text.toString().trim()
-    val codeOtpInt= codeOtpStr.toInt()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
         tokenFromLogin = intent.getStringExtra("token_login") ?: ""
+
+
         retro = RetrofitClient(this)
             .getRetrofitClientInstance()
             .create(Api::class.java)
@@ -33,13 +35,18 @@ class VerificationActivity : AppCompatActivity() {
         testAmbilRoleUser()
 
         btn_verification.setOnClickListener {
+            val codeOtpStr: String = ed_verification.text.toString().trim()
+
+
             // pertama cek dulu otp nya sudah diisi user belum
             if (codeOtpStr.isEmpty()) {
                 ed_verification.error = "Kode OTP Wajib Diisi"
                 ed_verification.requestFocus()
                 Toast.makeText(this, "OTP kosong, mohon isi otp", Toast.LENGTH_SHORT).show()
+            }else {
+                val codeOtpInt= codeOtpStr.toInt()
+                prosesOtp(codeOtpInt)
             }
-            prosesOtp(codeOtpInt)
 
         }
 
