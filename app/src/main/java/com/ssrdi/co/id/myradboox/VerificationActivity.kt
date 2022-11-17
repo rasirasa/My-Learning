@@ -15,24 +15,24 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class VerificationActivity : AppCompatActivity() {
+    var tokenFromLogin = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
+
+        tokenFromLogin = intent.getStringExtra("token_login") ?: ""
 
         var codeOtpStr = ed_verification.text.toString().trim()
         val codeOtpInt = codeOtpStr.toInt()
         btn_verification.setOnClickListener {
             // pertama cek dulu otp nya sudah diisi user belum
             if (codeOtpStr.isEmpty()) {
-
                 ed_verification.error = "Kode OTP Wajib Diisi"
                 ed_verification.requestFocus()
                 Toast.makeText(this, "OTP kosong, mohon isi otp", Toast.LENGTH_SHORT).show()
-            }else {
+            } else {
                 ed_verification.error = ""
-
-
                 prosesOtp(codeOtpInt)
             }
 
@@ -139,11 +139,12 @@ class VerificationActivity : AppCompatActivity() {
 //        }
 //    }
     }
+
     private fun prosesOtp(codeOtpInt: Int) {
         val retro = RetrofitClient(this)
             .getRetrofitClientInstance()
             .create(Api::class.java)
-        val tokenFromLogin= getIntent().getStringExtra("token_login")
+
 
         retro.loginVerification(codeOtpInt, "Bearer $tokenFromLogin")
             .enqueue(object : Callback<VerificationResponse> {
@@ -195,8 +196,8 @@ class VerificationActivity : AppCompatActivity() {
                     // batas fungsi
 
 
-
                 }
+
                 override fun onFailure(call: Call<VerificationResponse>, t: Throwable) {
                     Log.e("tag", "gagal response")
                 }
