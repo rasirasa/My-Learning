@@ -29,8 +29,13 @@ class VerificationActivity : AppCompatActivity() {
                 ed_verification.error = "Kode OTP Wajib Diisi"
                 ed_verification.requestFocus()
                 Toast.makeText(this, "OTP kosong, mohon isi otp", Toast.LENGTH_SHORT).show()
+            }else {
+                ed_verification.error = ""
+
+
+                prosesOtp(codeOtpInt)
             }
-            prosesOtp(codeOtpInt)
+
         }
 
         /**
