@@ -17,8 +17,8 @@ import retrofit2.Response
 
 class VerificationActivity : AppCompatActivity() {
 
-    lateinit var retro:Api
-    lateinit var tokenFromLogin:String
+    lateinit var retro: Api
+    lateinit var tokenFromLogin: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +43,9 @@ class VerificationActivity : AppCompatActivity() {
                 ed_verification.error = "Kode OTP Wajib Diisi"
                 ed_verification.requestFocus()
                 Toast.makeText(this, "OTP kosong, mohon isi otp", Toast.LENGTH_SHORT).show()
-            }else {
-                val codeOtpInt= codeOtpStr.toInt()
+            } else {
+                ed_verification.error = ""
+                val codeOtpInt = codeOtpStr.toInt()
                 prosesOtp(codeOtpInt)
             }
 
@@ -54,7 +55,7 @@ class VerificationActivity : AppCompatActivity() {
 
     private fun testAmbilRoleUser() {
         var role = SharedPrefManager.getInstance(this).role
-        Log.d("test","role user saat ini $role")
+        Log.d("test", "role user saat ini $role")
         Toast.makeText(this, "Role saat ini -> $role", Toast.LENGTH_SHORT).show()
 
         // ubah data role ke admin
@@ -122,9 +123,9 @@ class VerificationActivity : AppCompatActivity() {
                 response: Response<DetailResponse>
             ) {
                 val detailAdminnya = response.body()
-                if(detailAdminnya!=null){
+                if (detailAdminnya != null) {
                     SharedPrefManager.getInstance(applicationContext)
-                    .saveDetailAdmin(detailAdminnya)
+                        .saveDetailAdmin(detailAdminnya)
                 }
 
             }
