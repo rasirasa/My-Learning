@@ -16,13 +16,27 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class VerificationActivity : AppCompatActivity() {
-   // var tokenFromLogin = ""
+    // var tokenFromLogin = ""
+
+    lateinit var retro: Api
+
     var tokenFromLogin = intent.getStringExtra("token_login") ?: ""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
+
+
+        retro = RetrofitClient(this)
+            .getRetrofitClientInstance()
+            .create(Api::class.java)
+
         var codeOtpStr: String = ed_verification.text.toString().trim()
         val codeOtpInt = codeOtpStr.toInt()
+
+
+
         btn_verification.setOnClickListener {
             // pertama cek dulu otp nya sudah diisi user belum
             if (codeOtpStr.isEmpty()) {
@@ -37,14 +51,11 @@ class VerificationActivity : AppCompatActivity() {
         }
 
     }
+
     /**
      * proses otp dengan mengirim ke API dengan retrofit
      */
     private fun prosesOtp(codeOtpInt: Int) {
-        val retro = RetrofitClient(this)
-            .getRetrofitClientInstance()
-            .create(Api::class.java)
-
 
         retro.loginVerification(codeOtpInt, "Bearer $tokenFromLogin")
             .enqueue(object : Callback<VerificationResponse> {
@@ -62,23 +73,8 @@ class VerificationActivity : AppCompatActivity() {
                         SharedPrefManager.getInstance(applicationContext)
                             .saveToken(loginVerif?.token.toString())
 
-                            //  ambil data detail
-                                retro.detailAdmin("Bearer $loginTokenResponse").enqueue(object: Callback<DetailResponse>{
-                                    override fun onResponse(
-                                        call: Call<DetailResponse>,
-                                        response: Response<DetailResponse>
-                                    ) {
-                                        TODO("Not yet implemented")
-                                    }
+                        ambilDetailAdmin(loginTokenResponse)
 
-                                    override fun onFailure(
-                                        call: Call<DetailResponse>,
-                                        t: Throwable
-                                    ) {
-                                        TODO("Not yet implemented")
-                                    }
-
-                                })
 
 //  akhir data detail
                         val intent =
@@ -104,6 +100,23 @@ class VerificationActivity : AppCompatActivity() {
             })
 
 
+    }
+
+    private fun ambilDetailAdmin(loginTokenResponse: String) {
+        //  ambil data detail
+        retro.detailAdmin("").enqueue(object : Callback<DetailResponse> {
+            override fun onResponse(
+                call: Call<DetailResponse>,
+                response: Response<DetailResponse>
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 }
 

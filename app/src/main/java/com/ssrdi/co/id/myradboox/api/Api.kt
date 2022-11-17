@@ -1,6 +1,7 @@
 package com.ssrdi.co.id.myradboox.api
 
 import android.widget.EditText
+import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.LoginResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
 import retrofit2.Call
@@ -29,5 +30,5 @@ interface Api {
     @GET("admin/detail")
     fun detailAdmin(
        @Header("Authorization") Authorization: String
-    ): Call<VerificationResponse>
+    ): Call<DetailResponse>
 }
