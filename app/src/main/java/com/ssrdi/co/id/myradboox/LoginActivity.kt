@@ -16,6 +16,7 @@ import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
@@ -25,8 +26,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initAction() {
+        var counter:Int = 0
         button_login.setOnClickListener {
             userLogin()
+            counter++
+            if (counter >=5){
+                logOff()
+            }
+
         }
     }
 
@@ -85,6 +92,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
         })
+
+    }
+
+    private fun logOff(){
+        val intent = Intent(this@LoginActivity, LogoffActivity::class.java)
+        startActivity(intent)
 
     }
 }

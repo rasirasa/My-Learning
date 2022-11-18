@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:hint="Masukkan Kode OTP"
-        android:textSize="20sp"
+        android:singleLine="true"
+        android:inputType="number"
         android:textColor="@color/black"
-        android:inputType="number"/>
+        android:textSize="20sp" />
     <Button
         android:id="@+id/btn_verification"
         android:layout_width="wrap_content"

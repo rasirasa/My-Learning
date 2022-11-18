@@ -10,29 +10,30 @@
         <item
             android:id="@+id/nav_message"
             android:icon="@drawable/ic_baseline_message_24"
-            android:title="Message" />
+            android:title="Session" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Setting" />
+            android:title="History" />
     </group>
-    <item android:title="Profile">
-        <menu>
-            <group>
-                <item
-                    android:id="@+id/nav_login"
-                    android:icon="@drawable/ic_baseline_login_24"
-                    android:title="Login" />
-            </group>
-        </menu>
-    </item>
     <item android:title="Communicate">
         <menu>
-            <group>
+            <group tools:ignore="ExtraText">
                 <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/ic_baseline_share_24"
                     android:title="Share" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Logout">
+        <menu>
+            <group tools:ignore="ExtraText">
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_baseline_logout_24"
+                    android:title="Logout" />
             </group>
         </menu>
     </item>

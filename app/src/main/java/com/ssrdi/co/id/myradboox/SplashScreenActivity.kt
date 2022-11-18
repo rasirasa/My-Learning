@@ -13,10 +13,11 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
 
-        //val role = SharedPrefManager.Companion.getInstance("role")
+
+        var role = SharedPrefManager.getInstance(this).role
 
         Handler().postDelayed({
-            startActivity(Intent(this,LoginActivity::class.java))
+            UserRoleUtils.checkUserRole(this@SplashScreenActivity, role)
             finish()
         },splashTimeOut)
     }

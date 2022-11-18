@@ -15,6 +15,14 @@
         android:theme="@style/Theme.MyRadbooX"
         tools:targetApi="31">
         <activity
+            android:name=".LogoffActivity"
+            android:theme="@style/Theme.MaterialComponents.Translucent"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AdminActivity"
             android:exported="false">
             <meta-data
@@ -47,13 +55,17 @@
             android:exported="true"
             android:theme="@style/Theme.MyRadbooX">
 
-            <!--            intent launcher tiap apps hanya ada 1, jika ada 2 intent launcher, maka nanti icon
-             appsnya yang muncul ada 2 -->
+            <!--
+             intent launcher tiap apps hanya ada 1, jika ada 2 intent launcher, maka nanti icon
+             appsnya yang muncul ada 2
+            -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <!--              intent.category.LAUNCHER  ini gunanya buat menentukan activity mana yang pertama kali dipanggil ketika user
-                 pencet icon pada hp androidnya-->
+                <!--
+                 intent.category.LAUNCHER  ini gunanya buat menentukan activity mana yang pertama kali dipanggil ketika user
+                 pencet icon pada hp androidnya
+                -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -70,7 +82,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -44,7 +44,7 @@ class VerificationActivity : AppCompatActivity() {
                 ed_verification.requestFocus()
                 Toast.makeText(this, "OTP kosong, mohon isi otp", Toast.LENGTH_SHORT).show()
             } else {
-                ed_verification.error = ""
+                ed_verification.error = null
                 val codeOtpInt = codeOtpStr.toInt()
                 prosesOtp(codeOtpInt)
             }
@@ -89,7 +89,7 @@ class VerificationActivity : AppCompatActivity() {
                         ambilDetailAdmin(loginTokenResponse)
 
 
-//  akhir data detail
+//  NANTI DISINI PEMBAGIAN ROLE AWAL --- BYPASS LANGSUNG KE RESELLERACTIVITY
                         val intent =
                             Intent(this@VerificationActivity, ResellerActivity::class.java)
                         intent.flags =
