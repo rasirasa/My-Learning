@@ -1,0 +1,245 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ssrdi.co.id.myradboox"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="20"
+8-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:5:5-67
+11-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <queries>
+13-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:7:5-13:15
+14        <intent>
+14-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:8:9-12:18
+15            <action android:name="android.intent.action.CREATE_DOCUMENT" />
+15-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:9:13-76
+15-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:9:21-73
+16
+17            <data android:mimeType="*/*" />
+17-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:11:13-44
+17-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:11:19-41
+18        </intent>
+19    </queries>
+20
+21    <application
+21-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:7:5-74:19
+22        android:allowBackup="true"
+22-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:8:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.7.0] C:\Users\Rasi\.gradle\caches\transforms-3\9df45a95e4e06a011612ef3452b5826c\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+24        android:dataExtractionRules="@xml/data_extraction_rules"
+24-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:9:9-65
+25        android:debuggable="true"
+26        android:fullBackupContent="@xml/backup_rules"
+26-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:10:9-54
+27        android:icon="@mipmap/ic_launcher"
+27-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:11:9-43
+28        android:label="@string/app_name"
+28-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:12:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:13:9-54
+30        android:supportsRtl="true"
+30-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:14:9-35
+31        android:testOnly="true"
+32        android:theme="@style/Theme.MyRadbooX" >
+32-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:15:9-47
+33        <activity
+33-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:17:9-23:20
+34            android:name="com.ssrdi.co.id.myradboox.AdminActivity"
+34-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:18:13-42
+35            android:exported="false" >
+35-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:19:13-37
+36            <meta-data
+36-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:20:13-22:36
+37                android:name="android.app.lib_name"
+37-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:21:17-52
+38                android:value="" />
+38-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:22:17-33
+39        </activity>
+40        <activity
+40-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:24:9-30:20
+41            android:name="com.ssrdi.co.id.myradboox.OperatorActivity"
+41-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:25:13-45
+42            android:exported="false" >
+42-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:26:13-37
+43            <meta-data
+43-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:20:13-22:36
+44                android:name="android.app.lib_name"
+44-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:21:17-52
+45                android:value="" />
+45-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:22:17-33
+46        </activity>
+47        <activity
+47-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:31:9-37:20
+48            android:name="com.ssrdi.co.id.myradboox.KasirActivity"
+48-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:32:13-42
+49            android:exported="false" >
+49-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:33:13-37
+50            <meta-data
+50-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:20:13-22:36
+51                android:name="android.app.lib_name"
+51-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:21:17-52
+52                android:value="" />
+52-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:22:17-33
+53        </activity>
+54        <activity
+54-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:38:9-44:20
+55            android:name="com.ssrdi.co.id.myradboox.ResellerActivity"
+55-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:39:13-45
+56            android:exported="false" >
+56-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:40:13-37
+57            <meta-data
+57-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:20:13-22:36
+58                android:name="android.app.lib_name"
+58-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:21:17-52
+59                android:value="" />
+59-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:22:17-33
+60        </activity>
+61        <activity
+61-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:45:9-63:20
+62            android:name="com.ssrdi.co.id.myradboox.SplashScreenActivity"
+62-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:46:13-49
+63            android:exported="true"
+63-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:47:13-36
+64            android:theme="@style/Theme.MyRadbooX" >
+64-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:48:13-51
+65
+66            <!--
+67             intent launcher tiap apps hanya ada 1, jika ada 2 intent launcher, maka nanti icon
+68             appsnya yang muncul ada 2
+69            -->
+70            <intent-filter>
+70-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:52:13-58:29
+71                <action android:name="android.intent.action.MAIN" />
+71-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:53:17-69
+71-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:53:25-66
+72
+73                <!--
+74                 intent.category.LAUNCHER  ini gunanya buat menentukan activity mana yang pertama kali dipanggil ketika user
+75                 pencet icon pada hp androidnya
+76                -->
+77                <category android:name="android.intent.category.LAUNCHER" />
+77-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:57:17-77
+77-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:57:27-74
+78            </intent-filter>
+79
+80            <meta-data
+80-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:20:13-22:36
+81                android:name="android.app.lib_name"
+81-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:21:17-52
+82                android:value="" />
+82-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:22:17-33
+83        </activity>
+84        <activity
+84-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:64:9-70:20
+85            android:name="com.ssrdi.co.id.myradboox.VerificationActivity"
+85-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:65:13-49
+86            android:exported="false" >
+86-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:66:13-37
+87            <meta-data
+87-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:20:13-22:36
+88                android:name="android.app.lib_name"
+88-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:21:17-52
+89                android:value="" />
+89-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:22:17-33
+90        </activity>
+91        <activity
+91-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:71:9-73:49
+92            android:name="com.ssrdi.co.id.myradboox.LoginActivity"
+92-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:72:13-42
+93            android:exported="false" />
+93-->F:\PROJECT-RADBOOX\My-RadbooX\app\src\main\AndroidManifest.xml:73:13-37
+94        <activity
+94-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:16:9-21:52
+95            android:name="com.chuckerteam.chucker.internal.ui.MainActivity"
+95-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:17:13-76
+96            android:label="@string/chucker_name"
+96-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:18:13-49
+97            android:launchMode="singleTask"
+97-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:19:13-44
+98            android:taskAffinity="com.chuckerteam.chucker.task"
+98-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:20:13-64
+99            android:theme="@style/Chucker.Theme" />
+99-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:21:13-49
+100        <activity
+100-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:22:9-25:52
+101            android:name="com.chuckerteam.chucker.internal.ui.transaction.TransactionActivity"
+101-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:23:13-95
+102            android:parentActivityName="com.chuckerteam.chucker.internal.ui.MainActivity"
+102-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:24:13-90
+103            android:theme="@style/Chucker.Theme" />
+103-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:25:13-49
+104        <activity
+104-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:26:9-29:52
+105            android:name="com.chuckerteam.chucker.internal.ui.throwable.ThrowableActivity"
+105-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:27:13-91
+106            android:parentActivityName="com.chuckerteam.chucker.internal.ui.MainActivity"
+106-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:28:13-90
+107            android:theme="@style/Chucker.Theme" />
+107-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:29:13-49
+108
+109        <service
+109-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:31:9-33:40
+110            android:name="com.chuckerteam.chucker.internal.support.ClearDatabaseService"
+110-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:32:13-89
+111            android:exported="false" />
+111-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:33:13-37
+112
+113        <provider
+113-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:35:9-43:20
+114            android:name="com.chuckerteam.chucker.internal.support.ChuckerFileProvider"
+114-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:36:13-88
+115            android:authorities="com.ssrdi.co.id.myradboox.com.chuckerteam.chucker.provider"
+115-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:37:13-84
+116            android:exported="false"
+116-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:38:13-37
+117            android:grantUriPermissions="true" >
+117-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:39:13-47
+118            <meta-data
+118-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:40:13-42:66
+119                android:name="android.support.FILE_PROVIDER_PATHS"
+119-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:41:17-67
+120                android:resource="@xml/chucker_provider_paths" />
+120-->[com.github.chuckerteam.chucker:library:3.5.2] C:\Users\Rasi\.gradle\caches\transforms-3\9d55da5f70282e3e36e154ecde687212\transformed\library-3.5.2\AndroidManifest.xml:42:17-63
+121        </provider>
+122
+123        <service
+123-->[androidx.room:room-runtime:2.3.0] C:\Users\Rasi\.gradle\caches\transforms-3\6e4581c2a86341d3fa711558be1c0b00\transformed\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
+124            android:name="androidx.room.MultiInstanceInvalidationService"
+124-->[androidx.room:room-runtime:2.3.0] C:\Users\Rasi\.gradle\caches\transforms-3\6e4581c2a86341d3fa711558be1c0b00\transformed\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
+125            android:directBootAware="true"
+125-->[androidx.room:room-runtime:2.3.0] C:\Users\Rasi\.gradle\caches\transforms-3\6e4581c2a86341d3fa711558be1c0b00\transformed\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
+126            android:exported="false" />
+126-->[androidx.room:room-runtime:2.3.0] C:\Users\Rasi\.gradle\caches\transforms-3\6e4581c2a86341d3fa711558be1c0b00\transformed\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
+127
+128        <provider
+128-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+129            android:name="androidx.startup.InitializationProvider"
+129-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+130            android:authorities="com.ssrdi.co.id.myradboox.androidx-startup"
+130-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+131            android:exported="false" >
+131-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+132            <meta-data
+132-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+133                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+133-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+134                android:value="androidx.startup" />
+134-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Rasi\.gradle\caches\transforms-3\890798958823e1ddb9191fb82e555b3f\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+135            <meta-data
+135-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Rasi\.gradle\caches\transforms-3\98559743d14cc19cc4c8b0530b0c3c74\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+136                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+136-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Rasi\.gradle\caches\transforms-3\98559743d14cc19cc4c8b0530b0c3c74\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+137                android:value="androidx.startup" />
+137-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Rasi\.gradle\caches\transforms-3\98559743d14cc19cc4c8b0530b0c3c74\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+138        </provider>
+139    </application>
+140
+141</manifest>
