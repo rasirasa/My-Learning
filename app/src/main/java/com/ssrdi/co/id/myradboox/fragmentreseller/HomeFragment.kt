@@ -9,13 +9,16 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.ssrdi.co.id.myradboox.R
+import com.ssrdi.co.id.myradboox.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_verification.*
 import kotlinx.android.synthetic.main.fragment_home.*
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +34,7 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     lateinit var nav : NavController
     val dropdownList = arrayOf("Option A","Option B", "Option C")
+    private lateinit var binding:ActivityMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +48,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        val items = listOf("Option  1", "Option 2", "Option 3")
+
+        val adapter = ArrayAdapter(this,R.layout.list_item, items)
+        binding.dropdown_field.setAdapter(adapter)
 
 //        nav = Navigation.findNavController(view)
 //        val spinner:Spinner= view.findViewById(com.ssrdi.co.id.myradboox.R.id.spinner_created)
@@ -81,6 +91,10 @@ class HomeFragment : Fragment() {
 //            // // idnya bisa dilihat pada mode Text nav_graph.xml
 //            nav.navigate(R.id.action_homeFragment_to_sessionFragment3)
 //        }
+    }
+
+    private fun setContentView(root: ConstraintLayout) {
+
     }
 
 
