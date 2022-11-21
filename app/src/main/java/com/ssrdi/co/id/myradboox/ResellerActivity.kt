@@ -9,8 +9,16 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.ssrdi.co.id.myradboox.api.Api
+import com.ssrdi.co.id.myradboox.api.RetrofitClient
+import com.ssrdi.co.id.myradboox.fragmentreseller.HistoryFragment
 import com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment
+import com.ssrdi.co.id.myradboox.fragmentreseller.SessionFragment
+import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ResellerActivity : AppCompatActivity() {
@@ -18,12 +26,16 @@ class ResellerActivity : AppCompatActivity() {
     private lateinit var mToggle: ActionBarDrawerToggle
     lateinit var drawerLayout : DrawerLayout
     private lateinit var preference : SharedPrefManager
+    lateinit var retro: Api
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        retro = RetrofitClient(this)
+            .getRetrofitClientInstance()
+            .create(Api::class.java)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reseller)
         drawerLayout = findViewById(R.id.drawerLayout)
+
         val navView: NavigationView = findViewById(R.id.nav_view)
 
 //         memunculkan tombol burger menu
@@ -36,10 +48,14 @@ class ResellerActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(mToggle)
         mToggle.syncState()
 
+        cekTokenAktif()
+
         navView.setNavigationItemSelectedListener {
             it.isChecked = true
             when (it.itemId) {
                 R.id.nav_home -> replaceFragment(HomeFragment(),it.title.toString())
+                R.id.nav_session-> replaceFragment(SessionFragment(),it.title.toString())
+                R.id.nav_history -> replaceFragment(HistoryFragment(),it.title.toString())
                 R.id.nav_logout -> prosesLogout()
                 //R.id.nav_logout -> Toast.makeText(applicationContext, "Clicked Logout", Toast.LENGTH_SHORT).show()
 
@@ -67,6 +83,31 @@ class ResellerActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
         return mToggle.onOptionsItemSelected(item)
+    }
+    private fun cekTokenAktif(){
+        var tokenLogin = SharedPrefManager.getInstance(this).tokenLogin
+        retro.detailAdmin("Bearer $tokenLogin").enqueue(object : Callback<DetailResponse> {
+            override fun onResponse(
+                call: Call<DetailResponse>,
+                response: Response<DetailResponse>
+            ) {
+                if(response.isSuccessful){
+                    //jika respon sukses disini
+                } else if(response.code() == 406){
+                    prosesLogout()
+                }else if(response.code() ==402){
+                    val intent=Intent(this@ResellerActivity, ExpiredActivity::class.java)
+                    startActivity(intent)
+                }
+
+
+            }
+
+            override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
 }

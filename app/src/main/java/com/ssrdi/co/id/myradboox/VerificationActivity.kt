@@ -32,7 +32,7 @@ class VerificationActivity : AppCompatActivity() {
             .create(Api::class.java)
 
 
-        testAmbilRoleUser()
+//        testAmbilRoleUser()
 
         btn_verification.setOnClickListener {
             val codeOtpStr: String = ed_verification.text.toString().trim()

@@ -1,19 +1,22 @@
 package com.ssrdi.co.id.myradboox.fragmentreseller
 
-import android.content.Context
-import android.content.Intent
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.ssrdi.co.id.myradboox.LoginActivity
 import com.ssrdi.co.id.myradboox.R
-import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_verification.*
 import kotlinx.android.synthetic.main.fragment_home.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,23 +30,60 @@ private const val ARG_PARAM2 = "param2"
  */
 class HomeFragment : Fragment() {
     lateinit var nav : NavController
+    val dropdownList = arrayOf("Option A","Option B", "Option C")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        nav = Navigation.findNavController(view)
 
-        btnAction.setOnClickListener {
-            // // idnya bisa dilihat pada mode Text nav_graph.xml
-            nav.navigate(R.id.action_homeFragment_to_sessionFragment3)
-        }
+//        nav = Navigation.findNavController(view)
+//        val spinner:Spinner= view.findViewById(com.ssrdi.co.id.myradboox.R.id.spinner_created)
+//        val adapter = ArrayAdapter.createFromResource(this,
+//            R.array.spinnerlist, android.R.layout.simple_spinner_item)
+//        // Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        // Apply the adapter to the spinner
+//        spinner.adapter = adapter
+
+
+//        val spinner:Spinner= view.findViewById(com.ssrdi.co.id.myradboox.R.id.spinner_created)
+//
+//        if (spinner != null) {
+//            val adapter = ArrayAdapter(this,
+//                android.R.layout.simple_spinner_item, languages)
+//            spinner.adapter = adapter
+//
+//            spinner.onItemSelectedListener = object :
+//                AdapterView.OnItemSelectedListener {
+//                override fun onItemSelected(parent: AdapterView<*>,
+//                                            view: View, position: Int, id: Long) {
+//                    Toast.makeText(this@HomeFragment,
+//                        getString(com.ssrdi.co.id.myradboox.R.string.selected_item) + " " +
+//                                "" + languages[position], Toast.LENGTH_SHORT).show()
+//                }
+//
+//                override fun onNothingSelected(parent: AdapterView<*>) {
+//                    // write code to perform some action
+//                }
+//            }
+//        }
+//        btnAction.setOnClickListener {
+//            // // idnya bisa dilihat pada mode Text nav_graph.xml
+//            nav.navigate(R.id.action_homeFragment_to_sessionFragment3)
+//        }
     }
+
+
 }
+
+

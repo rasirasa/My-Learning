@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         button_login.setOnClickListener {
             userLogin()
             counter++
-            if (counter >=5){
+            if (counter >=6){
                 logOff()
             }
 

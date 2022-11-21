@@ -85,7 +85,11 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         editor.apply()
 
     }
-
+    var tokenLogin : String
+        get() = preference.getString("token","") ?:""
+        set(value) {
+            editor.putString("token", value).apply()
+        }
     var role: String
         get() = preference.getString("role", "") ?: ""
         set(value) {

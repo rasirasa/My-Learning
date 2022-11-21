@@ -36,22 +36,22 @@ class SessionFragment : Fragment() {
 
         nav = Navigation.findNavController(view)
 
-        btnSubmit.setOnClickListener {
-            // exitAnim = waktu pindah ke fragment tujuan
-            // enterAnim = waktu sampai di fragment tujuan
-            // popupExitAnim = waktu back dari fragment
-            // popupEnterAnim = waktu sampai di fragment sebelumnya
-
-            //pengecekan dari input user
-            if (edInput.text.toString().isNotEmpty()) {
-
-                //kalau ngk kosong
-                val input = edInput.text.toString()
-                val bundle = Bundle()
-                bundle.putString("args", input)
-
-                nav.navigate(R.id.action_sessionFragment_to_historyFragment,bundle)
-            }
-        }
+//        btnSubmit.setOnClickListener {
+//            // exitAnim = waktu pindah ke fragment tujuan
+//            // enterAnim = waktu sampai di fragment tujuan
+//            // popupExitAnim = waktu back dari fragment
+//            // popupEnterAnim = waktu sampai di fragment sebelumnya
+//
+//            //pengecekan dari input user
+//            if (edInput.text.toString().isNotEmpty()) {
+//
+//                //kalau ngk kosong
+//                val input = edInput.text.toString()
+//                val bundle = Bundle()
+//                bundle.putString("args", input)
+//
+//                nav.navigate(R.id.action_sessionFragment_to_historyFragment,bundle)
+//            }
+//        }
     }
 }
