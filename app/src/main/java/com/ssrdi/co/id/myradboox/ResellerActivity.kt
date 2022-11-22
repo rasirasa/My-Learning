@@ -1,14 +1,17 @@
 package com.ssrdi.co.id.myradboox
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.ssrdi.co.id.myradboox.UserRoleUtils.checkUserRole
 import com.ssrdi.co.id.myradboox.api.Api
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.fragmentreseller.HistoryFragment
@@ -92,22 +95,22 @@ class ResellerActivity : AppCompatActivity() {
                 response: Response<DetailResponse>
             ) {
                 if(response.isSuccessful){
-                    //jika respon sukses disini
+                    var role = SharedPrefManager.getInstance(this@ResellerActivity).role
+                    //checkUserRole(this@ResellerActivity, role)
                 } else if(response.code() == 406){
                     prosesLogout()
                 }else if(response.code() ==402){
                     val intent=Intent(this@ResellerActivity, ExpiredActivity::class.java)
                     startActivity(intent)
-                }
+                }            }
 
-
-            }
 
             override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("Error", t.message.toString())
             }
 
         })
+
     }
 
 }

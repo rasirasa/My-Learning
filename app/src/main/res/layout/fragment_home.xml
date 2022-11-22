@@ -155,7 +155,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewx"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="168dp"
@@ -177,43 +177,27 @@
         tools:ignore="MissingConstraints" />
      <!-- Menu Select -->
 
-    <Spinner
-        android:id="@+id/spinner_created"
-        android:layout_width="160dp"
-        android:layout_height="20dp"
-       android:layout_marginTop="20dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="6dp" />
-    <Spinner
-        android:id="@+id/spinner_status"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="6dp" />
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Pilih Salat Satu"
-        style="@style/Theme.MyRadbooX"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/imageViewx"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="6dp">
+
         <AutoCompleteTextView
+            android:layout_marginTop="10dp"
             android:id="@+id/dropdown_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"/>
+            android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/btnAction"
+        android:id="@+id/rvM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Halaman Home Reseller"
-
         tools:ignore="MissingConstraints"
         tools:layout_conversion_absoluteHeight="194dp"
         tools:layout_conversion_absoluteWidth="40dp"

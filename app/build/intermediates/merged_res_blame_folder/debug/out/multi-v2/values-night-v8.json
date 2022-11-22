@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ssrdi.co.id.myradboox.app-mergeDebugResources-28:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.ssrdi.co.id.myradboox.app-mergeDebugResources-40:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Rasi\\.gradle\\caches\\transforms-3\\ad4a9900ee650cab445b7a64bbefb6e8\\transformed\\appcompat-1.4.1\\res\\values-night-v8\\values-night-v8.xml",
@@ -18,25 +18,6 @@
                         "startOffsets": "1203,1273,1357,1441,1537,1639,1741,5090",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "1268,1352,1436,1532,1634,1736,1830,5174"
-                    }
-                },
-                {
-                    "source": "F:\\PROJECT-RADBOOX\\My-RadbooX\\app\\src\\main\\res\\values-night\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "102",
-                        "endLines": "14",
-                        "endColumns": "12",
-                        "endOffsets": "833"
-                    },
-                    "to": {
-                        "startLines": "52",
-                        "startColumns": "4",
-                        "startOffsets": "4489",
-                        "endLines": "64",
-                        "endColumns": "12",
-                        "endOffsets": "5085"
                     }
                 },
                 {
@@ -71,6 +52,25 @@
                         "startOffsets": "100,164,223,277,339,396,455,516,575,631,695,753,809,873,926,979,1032,1089,1144",
                         "endColumns": "63,58,53,61,56,58,60,58,55,63,57,55,63,52,52,52,56,54,58",
                         "endOffsets": "159,218,272,334,391,450,511,570,626,690,748,804,868,921,974,1027,1084,1139,1198"
+                    }
+                },
+                {
+                    "source": "F:\\PROJECT-RADBOOX\\My-Learning\\My-Learning\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "833"
+                    },
+                    "to": {
+                        "startLines": "52",
+                        "startColumns": "4",
+                        "startOffsets": "4489",
+                        "endLines": "64",
+                        "endColumns": "12",
+                        "endOffsets": "5085"
                     }
                 }
             ]

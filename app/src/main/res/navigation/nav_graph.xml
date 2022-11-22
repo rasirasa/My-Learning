@@ -10,14 +10,4 @@
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/sessionFragment"
-        android:name="com.ssrdi.co.id.myradboox.fragmentreseller.SessionFragment"
-        android:label="fragment_session"
-        tools:layout="@layout/fragment_session" />
-    <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.ssrdi.co.id.myradboox.fragmentreseller.HistoryFragment"
-        android:label="fragment_history"
-        tools:layout="@layout/fragment_history_backup" />
 </navigation>

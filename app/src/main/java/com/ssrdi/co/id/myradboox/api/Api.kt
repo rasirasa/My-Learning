@@ -4,6 +4,7 @@ import android.widget.EditText
 import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.LoginResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
+import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import retrofit2.Call
 import retrofit2.http.*
 import retrofit2.http.Field
@@ -31,4 +32,9 @@ interface Api {
     fun detailAdmin(
        @Header("Authorization") Authorization: String
     ): Call<DetailResponse>
+
+    @GET("reseller/voucher")
+    fun getVoucher(
+        @Header("Authorization") Authorization: String
+    ): Call<VoucherResponse>
 }

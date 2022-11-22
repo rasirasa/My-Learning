@@ -1,103 +1,130 @@
 package com.ssrdi.co.id.myradboox.fragmentreseller
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.ssrdi.co.id.myradboox.ExpiredActivity
+import com.ssrdi.co.id.myradboox.LoginActivity
 import com.ssrdi.co.id.myradboox.R
-import com.ssrdi.co.id.myradboox.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.activity_verification.*
+import com.ssrdi.co.id.myradboox.adapter.VoucherAdapter
+import com.ssrdi.co.id.myradboox.api.Api
+import com.ssrdi.co.id.myradboox.api.RetrofitClient
+import com.ssrdi.co.id.myradboox.databinding.FragmentHomeBinding
+import com.ssrdi.co.id.myradboox.model.VoucherResponse
+import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    lateinit var nav : NavController
-    val dropdownList = arrayOf("Option A","Option B", "Option C")
-    private lateinit var binding:ActivityMainBinding
+    lateinit var retro: Api
+    lateinit var tokenLogin: String
+    private lateinit var mAdapter: VoucherAdapter
+
+    private lateinit var binding:FragmentHomeBinding
+    private lateinit var layoutManager:LayoutManager
+    private lateinit var adapter: VoucherAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+//        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val root:View = binding!!.root
+        val list = resources.getStringArray(R.array.spinnerlist)
+        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.list_item,list)
+        binding.dropdownField.setAdapter(arrayAdapter)
+        return root
     }
-
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        var tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+
         super.onViewCreated(view, savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val items = listOf("Option  1", "Option 2", "Option 3")
+        val retro = RetrofitClient(requireContext())
+            .getRetrofitClientInstance()
+            .create(Api::class.java)
 
-        val adapter = ArrayAdapter(this,R.layout.list_item, items)
-        binding.dropdown_field.setAdapter(adapter)
+        retro.getVoucher("Bearer $tokenLogin").enqueue(object : Callback<VoucherResponse> {
+            override fun onResponse(
+                call: Call<VoucherResponse>,
+                response: Response<VoucherResponse>
+            ) {
+//                val isiVoucher = response.body()!!.data
+                val isiVoucher = response.body()
+                val listHeroes = listOf(isiVoucher)
+                if(response.isSuccessful){
+//                    mAdapter = VoucherAdapter(listHeroes as List<VoucherResponse.DataObject>, context!!)
+//                    val mLayoutManager = LinearLayoutManager(context)
+//                    rvM.layoutManager = mLayoutManager
+//                    rvM.itemAnimator = DefaultItemAnimator()
+//                    rvM.adapter = mAdapter
+                    val mAdapter = VoucherAdapter(listHeroes as List<VoucherResponse.DataObject>){ voucher ->
+                            Toast.makeText(requireContext(), "hero clicked ${voucher.username}", Toast.LENGTH_SHORT).show()
+                        }
+                    rvM.apply {
+                        //            layoutManager = GridLayoutManager(this@MainActivity, 3)
+                        layoutManager = LinearLayoutManager(requireContext())
+                        adapter = mAdapter
+                    }
 
-//        nav = Navigation.findNavController(view)
-//        val spinner:Spinner= view.findViewById(com.ssrdi.co.id.myradboox.R.id.spinner_created)
-//        val adapter = ArrayAdapter.createFromResource(this,
-//            R.array.spinnerlist, android.R.layout.simple_spinner_item)
-//        // Specify the layout to use when the list of choices appears
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//        // Apply the adapter to the spinner
-//        spinner.adapter = adapter
+                    //jika respon sukses disini
+                } else if(response.code() == 406){
+                    prosesLogout()
+                }else if(response.code() ==402){
+                    val intent= Intent(requireContext(), ExpiredActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
+            override fun onFailure(call: Call<VoucherResponse>, t: Throwable) {
+                Log.e("Error", t.message.toString())
+            }
+
+        })
+
+            }
+
+    override fun onResume() {
+        super.onResume()
 
 
-//        val spinner:Spinner= view.findViewById(com.ssrdi.co.id.myradboox.R.id.spinner_created)
-//
-//        if (spinner != null) {
-//            val adapter = ArrayAdapter(this,
-//                android.R.layout.simple_spinner_item, languages)
-//            spinner.adapter = adapter
-//
-//            spinner.onItemSelectedListener = object :
-//                AdapterView.OnItemSelectedListener {
-//                override fun onItemSelected(parent: AdapterView<*>,
-//                                            view: View, position: Int, id: Long) {
-//                    Toast.makeText(this@HomeFragment,
-//                        getString(com.ssrdi.co.id.myradboox.R.string.selected_item) + " " +
-//                                "" + languages[position], Toast.LENGTH_SHORT).show()
-//                }
-//
-//                override fun onNothingSelected(parent: AdapterView<*>) {
-//                    // write code to perform some action
-//                }
-//            }
-//        }
-//        btnAction.setOnClickListener {
-//            // // idnya bisa dilihat pada mode Text nav_graph.xml
-//            nav.navigate(R.id.action_homeFragment_to_sessionFragment3)
-//        }
     }
 
-    private fun setContentView(root: ConstraintLayout) {
+    private fun prosesLogout(){
+        var preference = SharedPrefManager.getInstance(requireContext())
+        preference.clearAll()
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
 
+        finish()
     }
 
+    private fun finish() {
+        TODO("Not yet implemented")
+    }
 
+    class Hero(
+        val name: String, val image: String
+    )
 }
+
+
 
 

@@ -1,314 +1,598 @@
 [
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_baseline_message_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_baseline_message_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_vpn_key_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_vpn_key_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_baseline_share_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_baseline_share_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_round_supervised_user_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_round_supervised_user_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_baseline_message_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_baseline_message_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_baseline_home_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_history_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_history_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_baseline_login_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_baseline_login_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_logout_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_logout_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\menu_nav_menu.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\menu\\nav_menu.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_settings_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_settings_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_baseline_logout_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_baseline_logout_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\menu_nav_menu.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\menu\\nav_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_fragment_session.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\fragment_session.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_history_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_history_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_logout_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_logout_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_baseline_message_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_baseline_message_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_message_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_message_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bgcircle_black.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bgcircle_black.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_account_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_baseline_logout_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_baseline_logout_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_home_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_baseline_settings_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_baseline_settings_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_share_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_share_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-v24_logo.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable-v24\\logo.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_settings_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_settings_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_baseline_logout_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_baseline_logout_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_logout_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_logout_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_baseline_logout_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_baseline_logout_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_baseline_message_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_baseline_message_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_login_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_login_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_baseline_settings_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_baseline_settings_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_nav_header.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\nav_header.xml"
     },
     {
-        "merged": "com.ssrdi.co.id.myradboox.app-merged_res-30:/menu_nav_menu.xml.flat",
-        "source": "com.ssrdi.co.id.myradboox.app-main-32:/menu/nav_menu.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_activity_operator.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\activity_operator.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_wifi_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_wifi_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_baseline_logout_24.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_baseline_logout_24.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_home_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_activity_verification.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\activity_verification.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_share_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_share_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_baseline_share_24.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_baseline_share_24.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_fragment_history.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\fragment_history.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_baseline_login_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_baseline_login_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_account_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_share_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_share_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_baseline_message_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_baseline_message_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_round_supervised_user_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_round_supervised_user_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_wifi_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_wifi_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_baseline_logout_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_baseline_logout_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_message_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_message_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_logout_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_logout_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_baseline_share_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_baseline_share_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_baseline_login_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_baseline_login_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_add_box_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_add_box_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_vpn_key_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_vpn_key_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_baseline_share_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_baseline_share_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg_radius_left.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg_radius_left.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_baseline_logout_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_baseline_logout_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_print_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_print_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_list_item.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\list_item.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_baseline_home_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_add_box_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_add_box_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_activity_splash_screen.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\activity_splash_screen.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_baseline_share_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_baseline_share_24.png"
+        "merged": "com.ssrdi.co.id.myradboox.app-merged_res-42:/layout_fragment_home.xml.flat",
+        "source": "com.ssrdi.co.id.myradboox.app-main-44:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_baseline_message_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_baseline_message_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_print_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_print_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_baseline_home_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_print_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_print_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_baseline_home_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_admin.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_admin.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_baseline_login_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_baseline_login_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_baseline_home_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_round_supervised_user_circle_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_round_supervised_user_circle_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_baseline_share_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_baseline_share_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_add_box_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_add_box_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_account_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_baseline_settings_24.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_baseline_settings_24.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_share_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_share_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_baseline_settings_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_baseline_settings_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_print_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_print_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_activity_admin.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\activity_admin.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_round_supervised_user_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_round_supervised_user_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_baseline_settings_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_baseline_settings_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_login_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_login_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_baseline_login_24.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_baseline_login_24.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_home_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_activity_reseller.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\activity_reseller.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_account_circle_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg_res_expiredvoucher.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg_res_expiredvoucher.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\xml\\backup_rules.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_history_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_history_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-v24_logo.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\drawable-v24\\logo.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_vpn_key_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_vpn_key_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_login_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_login_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_nav_header.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\nav_header.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_expired.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_expired.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-ldpi_ic_baseline_settings_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-ldpi\\ic_baseline_settings_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_verification.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_verification.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_add_box_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_add_box_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg_res_hijau.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg_res_hijau.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_fragment_history.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\fragment_history.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_baseline_message_24.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_baseline_message_24.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_add_box_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_add_box_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xxxhdpi_ic_baseline_share_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xxxhdpi\\ic_baseline_share_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_share_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_share_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_activity_kasir.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\activity_kasir.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_print_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_print_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\layout_login_main.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\layout\\login_main.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\menu_nav_header.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\menu\\nav_header.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-32:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_vpn_key_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_vpn_key_24.xml"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_baseline_settings_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_baseline_settings_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_home_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-xhdpi_ic_baseline_home_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-xhdpi\\ic_baseline_home_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_history_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_history_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-hdpi_ic_baseline_login_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-hdpi\\ic_baseline_login_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_home_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-mdpi_ic_baseline_login_24.png.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-mdpi\\ic_baseline_login_24.png"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_login_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_login_24.png"
     },
     {
-        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-30:\\drawable-anydpi-v21_ic_baseline_home_24.xml.flat",
-        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-25:\\drawable-anydpi-v21\\ic_baseline_home_24.xml"
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_settings_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_settings_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_home_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bgcircle.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bgcircle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_fragment_session.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\fragment_session.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_round_supervised_user_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_round_supervised_user_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_fragment_history_backup.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\fragment_history_backup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_logout_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_logout_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_logoff.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_logoff.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg_res_print.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg_res_print.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_settings_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_settings_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_settings_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_settings_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_add_box_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_add_box_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_history_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_history_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_message_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_message_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_message_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_message_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_login_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_login_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_add_box_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_add_box_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_splash_screen.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_splash_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg_tombol.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg_tombol.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_wifi_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_wifi_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_history_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_history_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_login_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_login_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_wifi_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_wifi_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_message_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_message_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_settings_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_settings_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_share_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_share_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_login_main.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\login_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_vpn_key_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_vpn_key_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_share_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_share_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_print_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_print_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_settings_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_settings_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-mdpi_ic_baseline_home_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-mdpi\\ic_baseline_home_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_history_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_history_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_wifi_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_wifi_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_item_hero.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\item_hero.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_operator.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_operator.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_print_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_print_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_reseller.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_reseller.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_round_supervised_user_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_round_supervised_user_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_vpn_key_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_vpn_key_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_baseline_account_circle_24.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_logout_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_logout_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_kasir.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_kasir.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_account_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_account_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxhdpi_ic_baseline_vpn_key_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxhdpi\\ic_baseline_vpn_key_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_baseline_wifi_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_baseline_wifi_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_wifi_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_wifi_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_login_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_login_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-debug-43:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-hdpi_ic_round_supervised_user_circle_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-hdpi\\ic_round_supervised_user_circle_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-ldpi_ic_baseline_message_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-ldpi\\ic_baseline_message_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable_bg_res_totalvoucher.xml.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-main-44:\\drawable\\bg_res_totalvoucher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xhdpi_ic_baseline_message_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xhdpi\\ic_baseline_message_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-merged_res-42:\\drawable-xxxhdpi_ic_baseline_logout_24.png.flat",
+        "source": "C:\\Users\\Rasi\\.gradle\\daemon\\7.4\\com.ssrdi.co.id.myradboox.app-pngs-37:\\drawable-xxxhdpi\\ic_baseline_logout_24.png"
     }
 ]

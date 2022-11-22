@@ -1,25 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerificationActivity">
+    android:background="@color/utama_dark"
+    tools:context=".LoginActivity">
 
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg"
+        android:orientation="vertical"></View>
+
+    <View
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bgcircle_black"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        />
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bgcircle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="160dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="160dp"
+        />
+    <View
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:background="@drawable/bg_radius_left"
+        android:layout_marginTop="325dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="-110dp"
+        />
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="-110dp"
+        />
     <EditText
         android:id="@+id/ed_verification"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:hint="Masukkan Kode OTP"
-        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="16dp"
         android:textColor="@color/black"
-        android:inputType="number"/>
+        android:textSize="16sp"
+        android:paddingLeft="20dp"
+        android:inputType="number"
+        android:hint="Masukkan Kode OTP"
+        />
+
     <Button
         android:id="@+id/btn_verification"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ed_verification"
-        android:layout_centerHorizontal="true"
-        android:text="Verification"/>
-</RelativeLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="0dp"
+        android:background="@drawable/bg_tombol"
+        android:text="Login"/>
+</FrameLayout>

@@ -31,6 +31,21 @@
         android:testOnly="true"
         android:theme="@style/Theme.MyRadbooX" >
         <activity
+            android:name="com.ssrdi.co.id.myradboox.ExpiredActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.ssrdi.co.id.myradboox.LogoffActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Translucent" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.ssrdi.co.id.myradboox.AdminActivity"
             android:exported="false" >
             <meta-data
@@ -61,7 +76,7 @@
         <activity
             android:name="com.ssrdi.co.id.myradboox.SplashScreenActivity"
             android:exported="true"
-            android:theme="@style/Theme.MyRadbooX" >
+            android:theme="@style/SplashScreen" >
 
             <!--
              intent launcher tiap apps hanya ada 1, jika ada 2 intent launcher, maka nanti icon
@@ -83,14 +98,16 @@
         </activity>
         <activity
             android:name="com.ssrdi.co.id.myradboox.VerificationActivity"
-            android:exported="false" >
+            android:exported="true"
+            android:theme="@style/VerificationPage" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name="com.ssrdi.co.id.myradboox.LoginActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/LoginPage" />
         <activity
             android:name="com.chuckerteam.chucker.internal.ui.MainActivity"
             android:label="@string/chucker_name"
@@ -120,10 +137,12 @@
                 android:resource="@xml/chucker_provider_paths" />
         </provider>
 
-        <service
-            android:name="androidx.room.MultiInstanceInvalidationService"
-            android:directBootAware="true"
-            android:exported="false" />
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -136,6 +155,11 @@
                 android:name="androidx.lifecycle.ProcessLifecycleInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
     </application>
 
 </manifest>
