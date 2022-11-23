@@ -67,44 +67,38 @@ class HomeFragment : Fragment() {
                 call: Call<VoucherResponse>,
                 response: Response<VoucherResponse>
             ) {
-//                val isiVoucher = response.body()!!.data
-//                val isiVoucher = response.body()
-//                val listHeroes = listOf(isiVoucher)
-                if (response.isSuccessful) {
-//                    mAdapter = VoucherAdapter(listHeroes as List<VoucherResponse.DataObject>, context!!)
-//                    val mLayoutManager = LinearLayoutManager(context)
-//                    rvM.layoutManager = mLayoutManager
-//                    rvM.itemAnimator = DefaultItemAnimator()
-//                    rvM.adapter = mAdapter
 
+                if (response.isSuccessful) {
                     // ambil data dari response
                     val voucherResponse = response.body()
 
-
                     // ini coba debugging
-                    Log.d("debug","response get voucher success ${response.toString()}")
+                    Log.d("debug", "response get voucher success ${response.toString()}")
 
-                    val mAdapter =
-                        VoucherAdapter(listHeroes as List<VoucherResponse.DataObject>) { voucher ->
-                            Toast.makeText(
-                                requireContext(),
-                                "hero clicked ${voucher.username}",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                    // check dulu voucher response null apa nggak
+                    if (voucherResponse != null) {
+                        val mAdapter =
+                            VoucherAdapter(voucherResponse.data) { voucher ->
+                                Toast.makeText(
+                                    requireContext(),
+                                    "voucher  clicked ${voucher.username}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                        rvM.apply {
+                            layoutManager = LinearLayoutManager(requireContext())
+                            adapter = mAdapter
                         }
-
-                    rvM.apply {
-                        //            layoutManager = GridLayoutManager(this@MainActivity, 3)
-                        layoutManager = LinearLayoutManager(requireContext())
-                        adapter = mAdapter
                     }
+
 
                     //jika respon sukses disini
                 } else if (response.code() == 406) {
-                    Log.d("debug","response get voucher failed 406")
+                    Log.d("debug", "response get voucher failed 406")
                     prosesLogout()
                 } else if (response.code() == 402) {
-                    Log.d("debug","response get voucher failed 402")
+                    Log.d("debug", "response get voucher failed 402")
                     val intent = Intent(requireContext(), ExpiredActivity::class.java)
                     startActivity(intent)
                 }
@@ -117,8 +111,6 @@ class HomeFragment : Fragment() {
         })
 
     }
-
-
 
 
     private fun prosesLogout() {
