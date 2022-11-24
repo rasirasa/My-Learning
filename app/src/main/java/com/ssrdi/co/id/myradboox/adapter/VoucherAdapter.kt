@@ -24,7 +24,7 @@ import retrofit2.Response
 class VoucherAdapter(
     private val voucher: MutableList<VoucherItemResponse?>,
     private val adapterOnClick: (VoucherItemResponse) -> Unit
-) : RecyclerView.Adapter<VoucherAdapter.VoucherHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -53,7 +53,7 @@ class VoucherAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : VoucherAdapter.VoucherHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {
         return if (viewType == Constant.VIEW_TYPE_ITEM){
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_hero, parent, false)
             VoucherHolder(view)
@@ -69,18 +69,13 @@ class VoucherAdapter(
         }
     }
 
-//    override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): VoucherHolder {
-//        return VoucherHolder(
-//            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_hero, viewGroup, false)
-//        )
-//    }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
+    }
+
 
     override fun getItemCount(): Int = voucher.size
 
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        voucher[position]?.let { holder.bindVoucher(it) }
-// //       holder.bindVoucher(voucher[position])
-//    }
 
     inner class VoucherHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -103,8 +98,7 @@ class VoucherAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: VoucherHolder, position: Int) {
-        voucher[position]?.let { holder.bindVoucher(it) }
-    }
+
+
 }
 
