@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.ssrdi.co.id.myradboox"
-        minSdk 21
+        minSdk 20
         targetSdk 32
         versionCode 1
         versionName "1.0"

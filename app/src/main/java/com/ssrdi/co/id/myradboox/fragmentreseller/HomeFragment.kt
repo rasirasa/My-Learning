@@ -9,14 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-<<<<<<< HEAD
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import androidx.recyclerview.widget.DefaultItemAnimator
-=======
->>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.ssrdi.co.id.myradboox.ExpiredActivity
@@ -38,22 +36,16 @@ import retrofit2.Response
 class HomeFragment : Fragment() {
     lateinit var retro: Api
     lateinit var tokenLogin: String
+    private lateinit var mAdapter: VoucherAdapter
 
     private lateinit var binding: FragmentHomeBinding
-<<<<<<< HEAD
     private lateinit var layoutManager:LayoutManager
-=======
-
-    private lateinit var mAdapter: VoucherAdapter
-    private lateinit var layoutManager: LayoutManager
->>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
     private lateinit var adapter: VoucherAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-<<<<<<< HEAD
         return inflater.inflate(R.layout.fragment_home, container, false)
 //        binding = FragmentHomeBinding.inflate(inflater, container, false)
 //        val root:View = binding!!.root
@@ -61,28 +53,14 @@ class HomeFragment : Fragment() {
 //        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.list_item,list)
 //        binding.dropdownField.setAdapter(arrayAdapter)
 //        return root
-=======
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding!!.root
->>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
 
-        // ambil data list dari resource string
-        val list = resources.getStringArray(R.array.spinnerlist)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.list_item, list)
-        // tampilkan ke dropdown
-        binding.dropdownField.setAdapter(arrayAdapter)
+        super.onViewCreated(view, savedInstanceState)
 
-<<<<<<< HEAD
-=======
-
-        // buat client retrofit
->>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
         retro = RetrofitClient(requireContext())
             .getRetrofitClientInstance()
             .create(Api::class.java)
@@ -92,7 +70,6 @@ class HomeFragment : Fragment() {
                 call: Call<VoucherResponse>,
                 response: Response<VoucherResponse>
             ) {
-<<<<<<< HEAD
 //                val isiVoucher = response.body()!!.data
                 val isiVoucher = response.body()!!.data
                 val listHeroes = listOf(isiVoucher)
@@ -108,41 +85,18 @@ class HomeFragment : Fragment() {
 //                        }
                         findNavController().navigate(R.id.detailVoucherFragment,null)
 //                            Toast.makeText(requireContext(), "hero clicked ${voucher.username}", Toast.LENGTH_SHORT).show()
-=======
-
-                if (response.isSuccessful) {
-                    // ambil data dari response
-                    val voucherResponse = response.body()
-
-                    // ini coba debugging
-                    Log.d("debug", "response get voucher success ${response.toString()}")
-
-                    // check dulu voucher response null apa nggak
-                    if (voucherResponse != null) {
-                        val mAdapter =
-                            VoucherAdapter(voucherResponse.data) { voucher ->
-                                Toast.makeText(
-                                    requireContext(),
-                                    "voucher  clicked ${voucher.username}",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-
-                        rvM.apply {
-                            layoutManager = LinearLayoutManager(requireContext())
-                            adapter = mAdapter
->>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
                         }
+                    rvM.apply {
+                        //            layoutManager = GridLayoutManager(this@MainActivity, 3)
+                        layoutManager = LinearLayoutManager(requireContext())
+                        adapter = mAdapter
                     }
 
-
                     //jika respon sukses disini
-                } else if (response.code() == 406) {
-                    Log.d("debug", "response get voucher failed 406")
+                } else if(response.code() == 406){
                     prosesLogout()
-                } else if (response.code() == 402) {
-                    Log.d("debug", "response get voucher failed 402")
-                    val intent = Intent(requireContext(), ExpiredActivity::class.java)
+                }else if(response.code() ==402){
+                    val intent= Intent(requireContext(), ExpiredActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -153,10 +107,15 @@ class HomeFragment : Fragment() {
 
         })
 
+            }
+
+    override fun onResume() {
+        super.onResume()
+
+
     }
 
-
-    private fun prosesLogout() {
+    private fun prosesLogout(){
         var preference = SharedPrefManager.getInstance(requireContext())
         preference.clearAll()
         val intent = Intent(requireContext(), LoginActivity::class.java)

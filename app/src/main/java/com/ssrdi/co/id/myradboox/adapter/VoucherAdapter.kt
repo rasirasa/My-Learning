@@ -1,51 +1,86 @@
 package com.ssrdi.co.id.myradboox.adapter
 
 import android.content.Context
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.os.Build
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ssrdi.co.id.myradboox.R
+import com.ssrdi.co.id.myradboox.databinding.ProgressLoadingBinding
 import com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment
 import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
 import com.ssrdi.co.id.myradboox.model.VoucherResponse
+import com.ssrdi.co.id.myradboox.readmore.Constant
 import kotlinx.android.synthetic.main.item_hero.view.*
 import retrofit2.Response
 
-<<<<<<< HEAD
 class VoucherAdapter(
-    private val voucher: List<VoucherItemResponse>,
+    private val voucher: MutableList<VoucherItemResponse?>,
     private val adapterOnClick: (VoucherItemResponse) -> Unit
 ) : RecyclerView.Adapter<VoucherAdapter.VoucherHolder>() {
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    //class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 
-    fun addData(dataViews :List<VoucherItemResponse>){
-        dataViews.map {
-            voucher.add(it)
-        }
+    fun addData(dataViews: List<VoucherItemResponse>) {
+        voucher.addAll(dataViews)
         notifyDataSetChanged()
     }
 
-=======
-class VoucherAdapter(private val voucher: List<VoucherItemResponse>,
-                     private val adapterOnClick: (VoucherItemResponse) -> Unit) : RecyclerView.Adapter<VoucherAdapter.VoucherHolder>() {
-    private lateinit var mAdapter: VoucherAdapter
->>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
-    override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): VoucherHolder {
-        return VoucherHolder(
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_hero, viewGroup, false)
-        )
+    fun getItemAtPosition(position: Int): VoucherItemResponse? {
+        return voucher[position]
     }
+
+    fun addLoadingView() {
+        Handler().post {
+            voucher.add(null)
+            notifyItemInserted(voucher.size - 1)
+        }
+    }
+
+    fun removeLoadingView() {
+        if (voucher.size != 0) {
+            voucher.removeAt(voucher.size - 1)
+            notifyItemRemoved(voucher.size)
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : VoucherAdapter.VoucherHolder {
+        return if (viewType == Constant.VIEW_TYPE_ITEM){
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_hero, parent, false)
+            VoucherHolder(view)
+        }else {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.progress_loading, parent, false)
+            val binding = ProgressLoadingBinding.bind(view)
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                binding.progressbar.indeterminateDrawable.colorFilter = BlendModeColorFilter(Color.WHITE, BlendMode.SRC_ATOP)
+            }else {
+                binding.progressbar.indeterminateDrawable.setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY)
+            }
+            LoadingViewHolder(view)
+        }
+    }
+
+//    override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): VoucherHolder {
+//        return VoucherHolder(
+//            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_hero, viewGroup, false)
+//        )
+//    }
 
     override fun getItemCount(): Int = voucher.size
 
-    override fun onBindViewHolder(holder: VoucherHolder, position: Int) {
-        holder.bindVoucher(voucher[position])
-    }
+//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+//        voucher[position]?.let { holder.bindVoucher(it) }
+// //       holder.bindVoucher(voucher[position])
+//    }
 
     inner class VoucherHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -66,6 +101,10 @@ class VoucherAdapter(private val voucher: List<VoucherItemResponse>,
                 }
             }
         }
+    }
+
+    override fun onBindViewHolder(holder: VoucherHolder, position: Int) {
+        voucher[position]?.let { holder.bindVoucher(it) }
     }
 }
 
