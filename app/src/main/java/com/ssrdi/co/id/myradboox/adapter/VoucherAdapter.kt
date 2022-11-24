@@ -1,6 +1,5 @@
 package com.ssrdi.co.id.myradboox.adapter
 
-import android.content.Context
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.graphics.Color
@@ -11,12 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.ssrdi.co.id.myradboox.R
 import com.ssrdi.co.id.myradboox.databinding.ProgressLoadingBinding
-import com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment
 import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
-import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import com.ssrdi.co.id.myradboox.readmore.Constant
 import kotlinx.android.synthetic.main.item_hero.view.*
 import retrofit2.Response
@@ -70,12 +66,22 @@ class VoucherAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+//        voucher[position]?.let { holder.bindVoucher(it) }
+        if (holder is VoucherHolder){
+            holder.bindVoucher(voucher[position]!!)
+        }
     }
 
 
     override fun getItemCount(): Int = voucher.size
 
+    override fun getItemViewType(position: Int): Int {
+        return if (voucher[position] == null) {
+            Constant.VIEW_TYPE_LOADING
+        } else {
+            Constant.VIEW_TYPE_ITEM
+        }
+    }
 
     inner class VoucherHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

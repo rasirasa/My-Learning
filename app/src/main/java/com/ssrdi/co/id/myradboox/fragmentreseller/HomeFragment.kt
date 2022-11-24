@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
                 val isiVoucher = response.body()!!.data
                 val listHeroes = listOf(isiVoucher)
                 if(response.isSuccessful){
-                    val mAdapter = VoucherAdapter(isiVoucher.toMutableList()){ voucher ->
+                    val mAdapter = VoucherAdapter(isiVoucher.toMutableList()){ Unit ->
 //                        val options = navOptions {
 //                            anim {
 //                                enter = R.anim.slide_in_right
