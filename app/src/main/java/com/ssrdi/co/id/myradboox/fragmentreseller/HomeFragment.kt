@@ -11,6 +11,9 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
@@ -21,6 +24,7 @@ import com.ssrdi.co.id.myradboox.adapter.VoucherAdapter
 import com.ssrdi.co.id.myradboox.api.Api
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.databinding.FragmentHomeBinding
+import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
 import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -34,7 +38,7 @@ class HomeFragment : Fragment() {
     lateinit var tokenLogin: String
     private lateinit var mAdapter: VoucherAdapter
 
-    private lateinit var binding:FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var layoutManager:LayoutManager
     private lateinit var adapter: VoucherAdapter
 
@@ -42,22 +46,22 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        return inflater.inflate(R.layout.fragment_home, container, false)
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root:View = binding!!.root
-        val list = resources.getStringArray(R.array.spinnerlist)
-        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.list_item,list)
-        binding.dropdownField.setAdapter(arrayAdapter)
-        return root
+        return inflater.inflate(R.layout.fragment_home, container, false)
+//        binding = FragmentHomeBinding.inflate(inflater, container, false)
+//        val root:View = binding!!.root
+//        val list = resources.getStringArray(R.array.spinnerlist)
+//        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.list_item,list)
+//        binding.dropdownField.setAdapter(arrayAdapter)
+//        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        var tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+        tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
 
         super.onViewCreated(view, savedInstanceState)
 
-        val retro = RetrofitClient(requireContext())
+        retro = RetrofitClient(requireContext())
             .getRetrofitClientInstance()
             .create(Api::class.java)
 
@@ -67,16 +71,20 @@ class HomeFragment : Fragment() {
                 response: Response<VoucherResponse>
             ) {
 //                val isiVoucher = response.body()!!.data
-                val isiVoucher = response.body()
+                val isiVoucher = response.body()!!.data
                 val listHeroes = listOf(isiVoucher)
                 if(response.isSuccessful){
-//                    mAdapter = VoucherAdapter(listHeroes as List<VoucherResponse.DataObject>, context!!)
-//                    val mLayoutManager = LinearLayoutManager(context)
-//                    rvM.layoutManager = mLayoutManager
-//                    rvM.itemAnimator = DefaultItemAnimator()
-//                    rvM.adapter = mAdapter
-                    val mAdapter = VoucherAdapter(listHeroes as List<VoucherResponse.DataObject>){ voucher ->
-                            Toast.makeText(requireContext(), "hero clicked ${voucher.username}", Toast.LENGTH_SHORT).show()
+                    val mAdapter = VoucherAdapter(isiVoucher){ voucher ->
+//                        val options = navOptions {
+//                            anim {
+//                                enter = R.anim.slide_in_right
+//                                exit = R.anim.slide_out_left
+//                                popEnter = R.anim.slide_in_left
+//                                popExit = R.anim.slide_out_right
+//                            }
+//                        }
+                        findNavController().navigate(R.id.detailVoucherFragment,null)
+//                            Toast.makeText(requireContext(), "hero clicked ${voucher.username}", Toast.LENGTH_SHORT).show()
                         }
                     rvM.apply {
                         //            layoutManager = GridLayoutManager(this@MainActivity, 3)
@@ -115,6 +123,7 @@ class HomeFragment : Fragment() {
 
         finish()
     }
+
 
     private fun finish() {
         TODO("Not yet implemented")

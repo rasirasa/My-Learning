@@ -178,6 +178,7 @@
      <!-- Menu Select -->
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -187,22 +188,28 @@
         tools:layout_editor_absoluteX="6dp">
 
         <AutoCompleteTextView
-            android:layout_marginTop="10dp"
             android:id="@+id/dropdown_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        tools:ignore="MissingConstraints"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        tools:layout_conversion_absoluteHeight="194dp"
-        tools:layout_conversion_absoluteWidth="40dp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints" />
 
 
 

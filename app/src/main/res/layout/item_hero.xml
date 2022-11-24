@@ -1,30 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="8dp">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
+    <TextView
         android:id="@+id/txtUsername"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+         />
 
     <TextView
-        android:id="@+id/txtHeroName"
+        android:id="@+id/txtProfile"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtUsername"
+        tools:ignore="MissingConstraints"
+         />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@+id/txtProfile"
+        tools:ignore="MissingConstraints"
+         />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_baseline_arrow_left_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@+id/txtStatus"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
