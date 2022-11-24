@@ -13,6 +13,7 @@ import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import kotlinx.android.synthetic.main.item_hero.view.*
 import retrofit2.Response
 
+<<<<<<< HEAD
 class VoucherAdapter(
     private val voucher: List<VoucherItemResponse>,
     private val adapterOnClick: (VoucherItemResponse) -> Unit
@@ -29,6 +30,11 @@ class VoucherAdapter(
         notifyDataSetChanged()
     }
 
+=======
+class VoucherAdapter(private val voucher: List<VoucherItemResponse>,
+                     private val adapterOnClick: (VoucherItemResponse) -> Unit) : RecyclerView.Adapter<VoucherAdapter.VoucherHolder>() {
+    private lateinit var mAdapter: VoucherAdapter
+>>>>>>> 6f6c8647f8044e8d510be49f2b086dc627972d73
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): VoucherHolder {
         return VoucherHolder(
             LayoutInflater.from(viewGroup.context).inflate(R.layout.item_hero, viewGroup, false)
