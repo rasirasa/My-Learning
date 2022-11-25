@@ -6,6 +6,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -40,10 +41,13 @@ class RetrofitClient(context: Context) {
 
     fun getRetrofitClientInstance(): Retrofit {
         val BASE_URL = "https://api.radboox.com/"
+        val loggingInterceptor = HttpLoggingInterceptor()
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         val gson = GsonBuilder().setLenient().create()
         val okHttp = OkHttpClient.Builder()
             .addInterceptor(chuckerInterceptor)
+            .addInterceptor(loggingInterceptor)
             .build()
 
         return Retrofit.Builder()
