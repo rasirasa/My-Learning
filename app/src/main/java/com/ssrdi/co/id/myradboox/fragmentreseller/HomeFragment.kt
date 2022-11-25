@@ -3,7 +3,6 @@ package com.ssrdi.co.id.myradboox.fragmentreseller
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -34,20 +33,18 @@ class HomeFragment : Fragment() {
     lateinit var tokenLogin: String
 
     private var page = 1
+    private var tampilanPerItem = 20
 
-    //private lateinit var mAdapter: VoucherAdapter
-    private lateinit var voucher: VoucherItemResponse
     private lateinit var binding: FragmentHomeBinding
 
     private lateinit var voucherAdapter: VoucherAdapter
 
     // penampung data response dari backend
-    private var voucherItemResponse = mutableListOf<VoucherItemResponse?>()
+    private var voucherItemResponseAllData = mutableListOf<VoucherItemResponse?>()
+    private var voucherItemPaging = mutableListOf<VoucherItemResponse?>()
 
-    lateinit var itemsCells: MutableList<VoucherItemResponse?>
-    lateinit var loadMoreItemsCells: List<VoucherItemResponse?>
     lateinit var scrollListener: RecyclerViewLoadMoreScroll
-    lateinit var mLayoutManager: LayoutManager
+    lateinit var linearLayoutManager: LayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,16 +76,16 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         // create adapter
-        voucherAdapter = VoucherAdapter(voucherItemResponse) {
+        voucherAdapter = VoucherAdapter(voucherItemPaging) {
             // set click listener
             Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
                 .show()
         }
 
         // buat layout manager untuk recyclerview
-        mLayoutManager = LinearLayoutManager(requireContext())
+        linearLayoutManager = LinearLayoutManager(requireContext())
         // set layout manager recyclerview
-        binding.rvM.layoutManager = mLayoutManager
+        binding.rvM.layoutManager = linearLayoutManager
 
         // set adapter ke recyclerview
         binding.rvM.adapter = voucherAdapter
@@ -98,56 +95,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setRVScrollListener() {
-        scrollListener = RecyclerViewLoadMoreScroll(mLayoutManager as LinearLayoutManager)
-        scrollListener.setOnLoadMoreListener(object :
-            OnLoadMoreListener {
+        scrollListener = RecyclerViewLoadMoreScroll(linearLayoutManager as LinearLayoutManager)
+
+        scrollListener.setOnLoadMoreListener(object : OnLoadMoreListener {
             override fun onLoadMore() {
-                loadMoreData()
+                Log.d("debug", "on loadmore")
+                page++
+                getVoucherPaging(page)
             }
         })
         binding.rvM.addOnScrollListener(scrollListener)
     }
 
-    private fun loadMoreData() {
-        //Add the Loading View
-        voucherAdapter.addLoadingView()
-
-        page++
-
-        getVoucherPaging(page)
-
-//        //Create the loadMoreItemsCells Arraylist
-//        loadMoreItemsCells = mutableListOf<VoucherItemResponse?>()
-//        //Get the number of the current Items of the main Arraylist
-//        val start = voucherAdapter.itemCount
-//        //Load 16 more items
-//        val end = start + 16
-//        //Use Handler if the items are loading too fast.
-//        //If you remove it, the data will load so fast that you can't even see the LoadingView
-//        Handler().postDelayed({
-//            for (i in start..end) {
-//                //Get data and add them to loadMoreItemsCells ArrayList
-//                (loadMoreItemsCells as MutableList<VoucherItemResponse?>).add(null)
-//            }
-//            //Remove the Loading View
-//            voucherAdapter.removeLoadingView()
-//            //We adding the data to our main ArrayList
-//
-//            // TODO: gak tau ini mau ngapain
-////            voucherAdapter.addData()
-//
-//            //Change the boolean isLoading to false
-//            scrollListener.setLoaded()
-//            //Update the recyclerView in the main thread
-//            binding.rvM.post {
-//                voucherAdapter.notifyDataSetChanged()
-//            }
-//        }, 3000)
-    }
-
     private fun getVoucherPaging(page: Int) {
-        Toast.makeText(requireContext(), "Panggil retrofit page $page", Toast.LENGTH_SHORT).show()
-        // bikin fungsi retrofit untuk panggil page voucher selanjutnya
+        val ambilData = page * tampilanPerItem
+
+        Log.d("debug", "get voucher page $page ambilData $ambilData")
+
+        val displayedList = voucherItemResponseAllData.take(ambilData)
+        voucherItemPaging.clear()
+        displayedList.map {
+            voucherItemPaging.add(it)
+        }
+        Log.d("debug", "jumlah voucher item paging ${voucherItemPaging.size}")
+
+        voucherAdapter.notifyDataSetChanged()
     }
 
 
@@ -164,12 +136,17 @@ class HomeFragment : Fragment() {
 
                     if (isiVoucher != null) {
 
+                        Log.d("debug", "jumlah data server ${isiVoucher.data.size}")
+
                         isiVoucher.data.map {
                             // log biar tau data nya ada apa ngga
-                            Log.d("debug", "ini data response be -> ${it.toString()}")
-
                             // masukkan response voucher dari  be ke penampung
-                            voucherItemResponse.add(it)
+                            voucherItemResponseAllData.add(it)
+                        }
+
+                        // ambil 10 voucher pertama
+                        voucherItemResponseAllData.take(tampilanPerItem).map {
+                            voucherItemPaging.add(it)
                         }
 
                         // kasih tau adapter kalo ada data baru, biar muncul data barunya
