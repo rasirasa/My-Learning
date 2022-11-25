@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
@@ -33,12 +32,18 @@ import retrofit2.Response
 
 
 class HomeFragment : Fragment() {
+
     lateinit var retro: Api
     lateinit var tokenLogin: String
 
     //private lateinit var mAdapter: VoucherAdapter
     private lateinit var voucher: VoucherItemResponse
     private lateinit var binding: FragmentHomeBinding
+
+    private lateinit var voucherAdapter: VoucherAdapter
+
+    // penampung data response dari backend
+    private var voucherItemResponse = mutableListOf<VoucherItemResponse?>()
 
     lateinit var itemsCells: MutableList<VoucherItemResponse?>
     lateinit var loadMoreItemsCells: List<VoucherItemResponse?>
@@ -54,35 +59,47 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    // go function
-    private fun setItemsData() {
-        itemsCells = mutableListOf<VoucherItemResponse?>()
-        for (i in 0..40) {
-            itemsCells.add(null)
-        }
+    // sop disini
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+        // ambil token dari shared pref
+        tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+
+        // setup config buat recyclerview
+        setupRecyclerView()
+
+        // buat object retrofit
+        retro = RetrofitClient(requireContext())
+            .getRetrofitClientInstance()
+            .create(Api::class.java)
+
+        // panggil api voucher
+        getVoucher()
     }
 
-    private fun setAdapter() {
-        loadMoreItemsCells = mutableListOf<VoucherItemResponse?>()
-        adapterLinear = VoucherAdapter(itemsCells) { voucher ->
-            Toast.makeText(
-                requireContext(),
-                "voucher klik -> ${voucher.username}",
-                Toast.LENGTH_SHORT
-            ).show()
+    private fun setupRecyclerView() {
+        // create adapter
+        voucherAdapter = VoucherAdapter(voucherItemResponse) {
+            // set click listener
+            Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
+                .show()
         }
-        adapterLinear.notifyDataSetChanged()
-        binding.rvM.adapter = adapterLinear
+
+        // buat layout manager untuk recyclerview
+        mLayoutManager = LinearLayoutManager(requireContext())
+        // set layout manager recyclerview
+        binding.rvM.layoutManager = mLayoutManager
+
+        // set adapter ke recyclerview
+        binding.rvM.adapter = voucherAdapter
+
+        // setup scroll listener buat recyclerview
+        setRVScrollListener()
     }
-
-//    private fun setRVLayoutManager() {
-//        mLayoutManager = LinearLayoutManager(requireContext())
-//        binding.rvM.layoutManager = mLayoutManager
-//        binding.rvM.setHasFixedSize(true)
-
 
     private fun setRVScrollListener() {
-        mLayoutManager = LinearLayoutManager(requireContext())
         scrollListener = RecyclerViewLoadMoreScroll(mLayoutManager as LinearLayoutManager)
         scrollListener.setOnLoadMoreListener(object :
             OnLoadMoreListener {
@@ -95,11 +112,11 @@ class HomeFragment : Fragment() {
 
     private fun loadMoreData() {
         //Add the Loading View
-        adapterLinear.addLoadingView()
+        voucherAdapter.addLoadingView()
         //Create the loadMoreItemsCells Arraylist
         loadMoreItemsCells = mutableListOf<VoucherItemResponse?>()
         //Get the number of the current Items of the main Arraylist
-        val start = adapterLinear.itemCount
+        val start = voucherAdapter.itemCount
         //Load 16 more items
         val end = start + 16
         //Use Handler if the items are loading too fast.
@@ -110,52 +127,24 @@ class HomeFragment : Fragment() {
                 (loadMoreItemsCells as MutableList<VoucherItemResponse?>).add(null)
             }
             //Remove the Loading View
-            adapterLinear.removeLoadingView()
+            voucherAdapter.removeLoadingView()
             //We adding the data to our main ArrayList
 
-            // bagian ini saya gak tau mau dikasih apa, silahkan diperbaiki sendiri, berdasarkan logika
-            // yang mas rahmat pahami
-//            adapterLinear.addData()
-
+            // TODO: gak tau ini mau ngapain
+//            voucherAdapter.addData()
 
             //Change the boolean isLoading to false
             scrollListener.setLoaded()
             //Update the recyclerView in the main thread
             binding.rvM.post {
-                adapterLinear.notifyDataSetChanged()
+                voucherAdapter.notifyDataSetChanged()
             }
         }, 3000)
     }
 
-    // sop disini
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        super.onViewCreated(view, savedInstanceState)
-
-        tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
-
-        //** Set the data for our ArrayList
-//        setItemsData()
-
-        //** Set the adapterLinear of the RecyclerView
-//        setAdapter()
-//
-//        //** Set the Layout Manager of the RecyclerView
-//        setRVLayoutManager()
-
-        //** Set the scrollListener of the RecyclerView
-        setRVScrollListener()
-
-
-        retro = RetrofitClient(requireContext())
-            .getRetrofitClientInstance()
-            .create(Api::class.java)
-
-        getVoucher()
-
-    }
 
     private fun getVoucher() {
+        Log.d("debug", "panggil api voucher")
         retro.getVoucher("Bearer $tokenLogin").enqueue(object : Callback<VoucherResponse> {
             override fun onResponse(
                 call: Call<VoucherResponse>,
@@ -166,18 +155,20 @@ class HomeFragment : Fragment() {
                     val isiVoucher = response.body()
 
                     if (isiVoucher != null) {
-                        val adapterLinear =
-                            VoucherAdapter(isiVoucher.data.toMutableList()) {
-                                findNavController().navigate(R.id.detailVoucherFragment, null)
-                            }
 
+                        isiVoucher.data.map {
+                            // log biar tau data nya ada apa ngga
+                            Log.d("debug", "ini data response be -> ${it.toString()}")
 
-                        // ini buat set layout manager
-                        rvM.apply {
-                            layoutManager = LinearLayoutManager(requireContext())
-                            adapter = adapterLinear
+                            // masukkan response voucher dari  be ke penampung
+                            voucherItemResponse.add(it)
                         }
+
+                        // kasih tau adapter kalo ada data baru, biar muncul data barunya
+                        voucherAdapter.notifyDataSetChanged()
+
                     } else {
+                        Log.e("debug", "api voucher error, response null")
                         Toast.makeText(requireContext(), "Isi voucher null", Toast.LENGTH_SHORT)
                             .show()
                     }
@@ -185,9 +176,11 @@ class HomeFragment : Fragment() {
 
                     //jika respon sukses disini
                 } else if (response.code() == 406) {
+                    Log.e("debug", "api voucher error, response 406")
                     Toast.makeText(requireContext(), "error 406", Toast.LENGTH_SHORT).show()
                     prosesLogout()
                 } else if (response.code() == 402) {
+                    Log.e("debug", "api voucher error, response 406")
                     Toast.makeText(requireContext(), "error 402", Toast.LENGTH_SHORT).show()
                     val intent = Intent(requireContext(), ExpiredActivity::class.java)
                     startActivity(intent)
@@ -195,7 +188,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<VoucherResponse>, t: Throwable) {
-                Log.e("Error", t.message.toString())
+                Log.e("Error", "error " + t.message.toString())
             }
 
         })
