@@ -108,6 +108,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getVoucherPaging(page: Int) {
+        Toast.makeText(requireContext(), "Loadmore $page", Toast.LENGTH_SHORT).show()
         val ambilData = page * tampilanPerItem
 
         Log.d("debug", "get voucher page $page ambilData $ambilData")
