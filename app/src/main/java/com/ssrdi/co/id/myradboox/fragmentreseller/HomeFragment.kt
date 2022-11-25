@@ -8,16 +8,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.ssrdi.co.id.myradboox.ExpiredActivity
 import com.ssrdi.co.id.myradboox.LoginActivity
@@ -44,6 +38,7 @@ class HomeFragment : Fragment() {
     //private lateinit var mAdapter: VoucherAdapter
     private lateinit var voucher: VoucherItemResponse
     private lateinit var binding: FragmentHomeBinding
+
     lateinit var itemsCells: MutableList<VoucherItemResponse?>
     lateinit var loadMoreItemsCells: List<VoucherItemResponse?>
     lateinit var adapterLinear: VoucherAdapter
@@ -54,23 +49,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//       return inflater.inflate(R.layout.fragment_home, container, false)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-//        val root:View = binding!!.root
-//        val list = resources.getStringArray(R.array.spinnerlist)
-//        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.list_item,list)
-//        binding.dropdownField.setAdapter(arrayAdapter)
-        //** Set the data for our ArrayList
-        setItemsData()
-
-        //** Set the adapterLinear of the RecyclerView
-        setAdapter()
-
-        //** Set the Layout Manager of the RecyclerView
-        setRVLayoutManager()
-
-        //** Set the scrollListener of the RecyclerView
-        setRVScrollListener()
         return binding.root
     }
 
@@ -84,17 +63,21 @@ class HomeFragment : Fragment() {
 
     private fun setAdapter() {
         loadMoreItemsCells = mutableListOf<VoucherItemResponse?>()
-        adapterLinear = VoucherAdapter(itemsCells){ voucher ->
-            Toast.makeText(requireContext(), "voucher klik -> ${voucher.username}", Toast.LENGTH_SHORT).show()
+        adapterLinear = VoucherAdapter(itemsCells) { voucher ->
+            Toast.makeText(
+                requireContext(),
+                "voucher klik -> ${voucher.username}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
         adapterLinear.notifyDataSetChanged()
         binding.rvM.adapter = adapterLinear
     }
 
-    private fun setRVLayoutManager() {
-        mLayoutManager = LinearLayoutManager(requireContext())
-        binding.rvM.layoutManager = mLayoutManager
-        binding.rvM.setHasFixedSize(true)
+//    private fun setRVLayoutManager() {
+//        mLayoutManager = LinearLayoutManager(requireContext())
+//        binding.rvM.layoutManager = mLayoutManager
+//        binding.rvM.setHasFixedSize(true)
     }
 
     private fun setRVScrollListener() {
@@ -146,45 +129,65 @@ class HomeFragment : Fragment() {
     // sop disini
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        super.onViewCreated(view, savedInstanceState)
+
         tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
 
-        super.onViewCreated(view, savedInstanceState)
+        //** Set the data for our ArrayList
+//        setItemsData()
+
+        //** Set the adapterLinear of the RecyclerView
+//        setAdapter()
+//
+//        //** Set the Layout Manager of the RecyclerView
+//        setRVLayoutManager()
+
+        //** Set the scrollListener of the RecyclerView
+        setRVScrollListener()
+
 
         retro = RetrofitClient(requireContext())
             .getRetrofitClientInstance()
             .create(Api::class.java)
 
+        getVoucher()
+
+    }
+
+    private fun getVoucher() {
         retro.getVoucher("Bearer $tokenLogin").enqueue(object : Callback<VoucherResponse> {
             override fun onResponse(
                 call: Call<VoucherResponse>,
                 response: Response<VoucherResponse>
             ) {
-//                val isiVoucher = response.body()!!.data
-                val isiVoucher = response.body()!!.data
-                val listHeroes = listOf(isiVoucher)
                 if (response.isSuccessful) {
-                    val adapterLinear = VoucherAdapter(isiVoucher.toMutableList()) { Unit ->
-//                        val options = navOptions {
-//                            anim {
-//                                enter = R.anim.slide_in_right
-//                                exit = R.anim.slide_out_left
-//                                popEnter = R.anim.slide_in_left
-//                                popExit = R.anim.slide_out_right
-//                            }
-//                        }
-                        findNavController().navigate(R.id.detailVoucherFragment, null)
-//                            Toast.makeText(requireContext(), "hero clicked ${voucher.username}", Toast.LENGTH_SHORT).show()
+
+                    val isiVoucher = response.body()
+
+                    if (isiVoucher != null) {
+                        val adapterLinear =
+                            VoucherAdapter(isiVoucher.data.toMutableList()) {
+                                findNavController().navigate(R.id.detailVoucherFragment, null)
+                            }
+
+
+                        // ini buat set layout manager
+                        rvM.apply {
+                            layoutManager = LinearLayoutManager(requireContext())
+                            adapter = adapterLinear
+                        }
+                    } else {
+                        Toast.makeText(requireContext(), "Isi voucher null", Toast.LENGTH_SHORT)
+                            .show()
                     }
-                    rvM.apply {
-                        //            layoutManager = GridLayoutManager(this@MainActivity, 3)
-                        layoutManager = LinearLayoutManager(requireContext())
-                        adapter = adapterLinear
-                    }
+
 
                     //jika respon sukses disini
                 } else if (response.code() == 406) {
+                    Toast.makeText(requireContext(), "error 406", Toast.LENGTH_SHORT).show()
                     prosesLogout()
                 } else if (response.code() == 402) {
+                    Toast.makeText(requireContext(), "error 402", Toast.LENGTH_SHORT).show()
                     val intent = Intent(requireContext(), ExpiredActivity::class.java)
                     startActivity(intent)
                 }
@@ -195,32 +198,17 @@ class HomeFragment : Fragment() {
             }
 
         })
-
     }
 
-    override fun onResume() {
-        super.onResume()
-
-
-    }
 
     private fun prosesLogout() {
         var preference = SharedPrefManager.getInstance(requireContext())
         preference.clearAll()
         val intent = Intent(requireContext(), LoginActivity::class.java)
         startActivity(intent)
-
-        finish()
+        requireActivity().finish()
     }
 
-
-    private fun finish() {
-        TODO("Not yet implemented")
-    }
-
-    class Hero(
-        val name: String, val image: String
-    )
 }
 
 
