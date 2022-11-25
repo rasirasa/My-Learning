@@ -40,6 +40,7 @@ import retrofit2.Response
 class HomeFragment : Fragment() {
     lateinit var retro: Api
     lateinit var tokenLogin: String
+
     //private lateinit var mAdapter: VoucherAdapter
     private lateinit var voucher: VoucherItemResponse
     private lateinit var binding: FragmentHomeBinding
@@ -72,28 +73,31 @@ class HomeFragment : Fragment() {
         setRVScrollListener()
         return binding.root
     }
-// go function
-private fun setItemsData() {
-    itemsCells = mutableListOf<VoucherItemResponse?>()
-    for (i in 0..40) {
-        itemsCells.add(null)
+
+    // go function
+    private fun setItemsData() {
+        itemsCells = mutableListOf<VoucherItemResponse?>()
+        for (i in 0..40) {
+            itemsCells.add(null)
+        }
     }
-}
 
     private fun setAdapter() {
         loadMoreItemsCells = mutableListOf<VoucherItemResponse?>()
-        adapterLinear = VoucherAdapter(itemsCells, loadMoreItemsCells)
+        adapterLinear = VoucherAdapter(itemsCells){ voucher ->
+            Toast.makeText(requireContext(), "voucher klik -> ${voucher.username}", Toast.LENGTH_SHORT).show()
+        }
         adapterLinear.notifyDataSetChanged()
         binding.rvM.adapter = adapterLinear
     }
 
     private fun setRVLayoutManager() {
-        mLayoutManager = LinearLayoutManager(this)
+        mLayoutManager = LinearLayoutManager(requireContext())
         binding.rvM.layoutManager = mLayoutManager
         binding.rvM.setHasFixedSize(true)
     }
 
-    private  fun setRVScrollListener() {
+    private fun setRVScrollListener() {
         mLayoutManager = LinearLayoutManager(requireContext())
         scrollListener = RecyclerViewLoadMoreScroll(mLayoutManager as LinearLayoutManager)
         scrollListener.setOnLoadMoreListener(object :
@@ -124,7 +128,12 @@ private fun setItemsData() {
             //Remove the Loading View
             adapterLinear.removeLoadingView()
             //We adding the data to our main ArrayList
-            adapterLinear.addData(mutableListOf<VoucherItemResponse?>())
+
+            // bagian ini saya gak tau mau dikasih apa, silahkan diperbaiki sendiri, berdasarkan logika
+            // yang mas rahmat pahami
+//            adapterLinear.addData()
+
+
             //Change the boolean isLoading to false
             scrollListener.setLoaded()
             //Update the recyclerView in the main thread
@@ -134,7 +143,7 @@ private fun setItemsData() {
         }, 3000)
     }
 
-// sop disini
+    // sop disini
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
@@ -153,8 +162,8 @@ private fun setItemsData() {
 //                val isiVoucher = response.body()!!.data
                 val isiVoucher = response.body()!!.data
                 val listHeroes = listOf(isiVoucher)
-                if(response.isSuccessful){
-                    val adapterLinear = VoucherAdapter(isiVoucher.toMutableList()){ Unit ->
+                if (response.isSuccessful) {
+                    val adapterLinear = VoucherAdapter(isiVoucher.toMutableList()) { Unit ->
 //                        val options = navOptions {
 //                            anim {
 //                                enter = R.anim.slide_in_right
@@ -163,9 +172,9 @@ private fun setItemsData() {
 //                                popExit = R.anim.slide_out_right
 //                            }
 //                        }
-                        findNavController().navigate(R.id.detailVoucherFragment,null)
+                        findNavController().navigate(R.id.detailVoucherFragment, null)
 //                            Toast.makeText(requireContext(), "hero clicked ${voucher.username}", Toast.LENGTH_SHORT).show()
-                        }
+                    }
                     rvM.apply {
                         //            layoutManager = GridLayoutManager(this@MainActivity, 3)
                         layoutManager = LinearLayoutManager(requireContext())
@@ -173,10 +182,10 @@ private fun setItemsData() {
                     }
 
                     //jika respon sukses disini
-                } else if(response.code() == 406){
+                } else if (response.code() == 406) {
                     prosesLogout()
-                }else if(response.code() ==402){
-                    val intent= Intent(requireContext(), ExpiredActivity::class.java)
+                } else if (response.code() == 402) {
+                    val intent = Intent(requireContext(), ExpiredActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -187,7 +196,7 @@ private fun setItemsData() {
 
         })
 
-            }
+    }
 
     override fun onResume() {
         super.onResume()
@@ -195,7 +204,7 @@ private fun setItemsData() {
 
     }
 
-    private fun prosesLogout(){
+    private fun prosesLogout() {
         var preference = SharedPrefManager.getInstance(requireContext())
         preference.clearAll()
         val intent = Intent(requireContext(), LoginActivity::class.java)
@@ -213,7 +222,5 @@ private fun setItemsData() {
         val name: String, val image: String
     )
 }
-
-
 
 
