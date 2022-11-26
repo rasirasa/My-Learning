@@ -21,7 +21,7 @@ import com.ssrdi.co.id.myradboox.databinding.FragmentHomeBinding
 import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
 import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
-import com.ssrdi.co.id.myradboox.utils.PaginationScrollListener
+import com.ssrdi.co.id.myradboox.utility.PaginationScrollListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
