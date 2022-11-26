@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ssrdi.co.id.myradboox.ExpiredActivity
 import com.ssrdi.co.id.myradboox.LoginActivity
 import com.ssrdi.co.id.myradboox.adapter.VoucherAdapter
-import com.ssrdi.co.id.myradboox.api.Api
+import com.ssrdi.co.id.myradboox.api.RadbooxApi
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.databinding.FragmentHomeBinding
 import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
@@ -30,7 +30,7 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
-    lateinit var retro: Api
+    lateinit var retro: RadbooxApi
     lateinit var tokenLogin: String
 
     private var page = 1
@@ -73,9 +73,7 @@ class HomeFragment : Fragment() {
         setupRecyclerView()
 
         // buat object retrofit
-        retro = RetrofitClient(requireContext())
-            .getRetrofitClientInstance()
-            .create(Api::class.java)
+        retro = RetrofitClient.getInstance(requireContext())
 
         // panggil api voucher
         getVoucher()

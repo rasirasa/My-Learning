@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ssrdi.co.id.myradboox.api.Api
+import com.ssrdi.co.id.myradboox.api.RadbooxApi
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.model.LoginRequest
 import com.ssrdi.co.id.myradboox.model.LoginResponse
@@ -64,9 +64,7 @@ class LoginActivity : AppCompatActivity() {
             //return@setOnClickListener
         }
 
-        val retro = RetrofitClient(this)
-            .getRetrofitClientInstance()
-            .create(Api::class.java)
+        val retro = RetrofitClient.getInstance(this)
 
         retro.userLogin(username, password).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
