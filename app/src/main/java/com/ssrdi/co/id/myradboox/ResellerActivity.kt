@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.widget.Toast
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
@@ -67,6 +69,30 @@ class ResellerActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * menu ditoolbar
+     */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_reseller, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_generate -> {
+                Toast.makeText(this, "Pindah ke halaman generate", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, GenerateActivity::class.java))
+                true
+            }
+            else -> {
+                mToggle.onOptionsItemSelected(item)
+            }
+        }
+
+    }
+
+
     //Set ke Fragment    }
     private fun replaceFragment(fragment: Fragment, title: String) {
         val fragmentManager = supportFragmentManager
@@ -84,10 +110,6 @@ class ResellerActivity : AppCompatActivity() {
         startActivity(intent)
 
         finish()
-    }
-
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        return mToggle.onOptionsItemSelected(item)
     }
 
     private fun cekTokenAktif() {
