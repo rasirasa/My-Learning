@@ -4,6 +4,7 @@ package com.ssrdi.co.id.myradboox.fragmentreseller
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.ssrdi.co.id.myradboox.ExpiredActivity
 import com.ssrdi.co.id.myradboox.LoginActivity
 import com.ssrdi.co.id.myradboox.adapter.VoucherAdapter
@@ -20,9 +20,8 @@ import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.databinding.FragmentHomeBinding
 import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
 import com.ssrdi.co.id.myradboox.model.VoucherResponse
-import com.ssrdi.co.id.myradboox.readmore.OnLoadMoreListener
-import com.ssrdi.co.id.myradboox.readmore.RecyclerViewLoadMoreScroll
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
+import com.ssrdi.co.id.myradboox.utils.PaginationScrollListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,20 +33,24 @@ class HomeFragment : Fragment() {
     lateinit var tokenLogin: String
 
     private var page = 1
+    private var tampilanPerItem = 20
 
-    //private lateinit var mAdapter: VoucherAdapter
-    private lateinit var voucher: VoucherItemResponse
     private lateinit var binding: FragmentHomeBinding
 
-    private lateinit var voucherAdapter: VoucherAdapter
+    private val PAGE_START = 0
+    private var isLoading = false
+    private var isLastPage = false
+
+    private var currentPage: Int = PAGE_START
 
     // penampung data response dari backend
-    private var voucherItemResponse = mutableListOf<VoucherItemResponse?>()
+    private var voucherItemResponseAllData = mutableListOf<VoucherItemResponse?>()
+    private var voucherItemChunk = listOf<List<VoucherItemResponse?>>()
+    private var voucherItemPaging = mutableListOf<VoucherItemResponse?>()
 
-    lateinit var itemsCells: MutableList<VoucherItemResponse?>
-    lateinit var loadMoreItemsCells: List<VoucherItemResponse?>
-    lateinit var scrollListener: RecyclerViewLoadMoreScroll
-    lateinit var mLayoutManager: LayoutManager
+    private lateinit var voucherAdapter: VoucherAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,75 +82,63 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         // create adapter
-        voucherAdapter = VoucherAdapter(voucherItemResponse) {
+        voucherAdapter = VoucherAdapter(voucherItemPaging) {
             // set click listener
             Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
                 .show()
         }
 
         // buat layout manager untuk recyclerview
-        mLayoutManager = LinearLayoutManager(requireContext())
+        linearLayoutManager = LinearLayoutManager(requireContext())
         // set layout manager recyclerview
-        binding.rvM.layoutManager = mLayoutManager
-
+        binding.rvM.layoutManager = linearLayoutManager
         // set adapter ke recyclerview
         binding.rvM.adapter = voucherAdapter
 
-        // setup scroll listener buat recyclerview
-        setRVScrollListener()
-    }
 
-    private fun setRVScrollListener() {
-        scrollListener = RecyclerViewLoadMoreScroll(mLayoutManager as LinearLayoutManager)
-        scrollListener.setOnLoadMoreListener(object :
-            OnLoadMoreListener {
-            override fun onLoadMore() {
-                loadMoreData()
+        binding.rvM.addOnScrollListener(object : PaginationScrollListener(linearLayoutManager) {
+            override fun isLastPage() = isLastPage
+
+            override fun isLoading() = isLoading
+
+            override fun loadMoreItems() {
+                isLoading = true
+                currentPage += 1
+
+                loadNextVoucher()
             }
         })
-        binding.rvM.addOnScrollListener(scrollListener)
     }
 
-    private fun loadMoreData() {
-        //Add the Loading View
-        voucherAdapter.addLoadingView()
+    private fun loadNextVoucher() {
+        val delay = 2_000L // 2 sec
+        binding.loading.visibility = View.VISIBLE
 
-        page++
+        try {
+            // delay 2sec
+            Handler(Looper.getMainLooper()).postDelayed({
 
-        getVoucherPaging(page)
+                voucherItemChunk[currentPage].map {
+                    voucherItemPaging.add(it)
+                    binding.rvM.post {
+                        voucherAdapter.notifyItemInserted(voucherItemPaging.size - 1)
+                    }
+                }
 
-//        //Create the loadMoreItemsCells Arraylist
-//        loadMoreItemsCells = mutableListOf<VoucherItemResponse?>()
-//        //Get the number of the current Items of the main Arraylist
-//        val start = voucherAdapter.itemCount
-//        //Load 16 more items
-//        val end = start + 16
-//        //Use Handler if the items are loading too fast.
-//        //If you remove it, the data will load so fast that you can't even see the LoadingView
-//        Handler().postDelayed({
-//            for (i in start..end) {
-//                //Get data and add them to loadMoreItemsCells ArrayList
-//                (loadMoreItemsCells as MutableList<VoucherItemResponse?>).add(null)
-//            }
-//            //Remove the Loading View
-//            voucherAdapter.removeLoadingView()
-//            //We adding the data to our main ArrayList
-//
-//            // TODO: gak tau ini mau ngapain
-////            voucherAdapter.addData()
-//
-//            //Change the boolean isLoading to false
-//            scrollListener.setLoaded()
-//            //Update the recyclerView in the main thread
-//            binding.rvM.post {
-//                voucherAdapter.notifyDataSetChanged()
-//            }
-//        }, 3000)
-    }
+                Log.d("debug", "load data page $currentPage")
+                Log.d("debug", "size data paging ${voucherItemPaging.size}")
 
-    private fun getVoucherPaging(page: Int) {
-        Toast.makeText(requireContext(), "Panggil retrofit page $page", Toast.LENGTH_SHORT).show()
-        // bikin fungsi retrofit untuk panggil page voucher selanjutnya
+                isLoading = false
+                binding.loading.visibility = View.GONE
+
+                Toast.makeText(requireContext(), "Sukses load next page", Toast.LENGTH_SHORT)
+                    .show()
+
+            }, delay)
+
+        } catch (e: Exception) {
+            Log.e("debug", "error ${e.localizedMessage}")
+        }
     }
 
 
@@ -164,15 +155,23 @@ class HomeFragment : Fragment() {
 
                     if (isiVoucher != null) {
 
+                        Log.d("debug", "jumlah data server ${isiVoucher.data.size}")
+
                         isiVoucher.data.map {
                             // log biar tau data nya ada apa ngga
-                            Log.d("debug", "ini data response be -> ${it.toString()}")
-
                             // masukkan response voucher dari  be ke penampung
-                            voucherItemResponse.add(it)
+                            voucherItemResponseAllData.add(it)
                         }
 
-                        // kasih tau adapter kalo ada data baru, biar muncul data barunya
+                        // ambil data item dibagi per 10
+                        voucherItemChunk = voucherItemResponseAllData.chunked(10)
+
+                        Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
+
+                        // ambil data item yang sudah dibagi per 10, ambil by index 0
+                        voucherItemPaging.addAll(voucherItemChunk[PAGE_START])
+
+                        // update adapter
                         voucherAdapter.notifyDataSetChanged()
 
                     } else {

@@ -17,93 +17,99 @@
     <View
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:background="@drawable/bgcircle_black"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="150dp"
-        />
+        android:background="@drawable/bgcircle_black" />
+
     <View
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@drawable/bgcircle"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="160dp"
-        />
+        android:background="@drawable/bgcircle" />
 
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/logo"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="160dp"
-        />
+        android:src="@drawable/logo" />
+
     <View
         android:layout_width="40dp"
         android:layout_height="30dp"
-        android:background="@drawable/bg_radius_left"
-        android:layout_marginTop="300dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="-110dp"
-        />
+        android:layout_marginTop="300dp"
+        android:background="@drawable/bg_radius_left" />
+
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_baseline_account_circle_24"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="305dp"
         android:layout_marginLeft="-110dp"
-        />
+        android:layout_marginTop="305dp"
+        android:src="@drawable/ic_baseline_account_circle_24" />
+
     <EditText
         android:id="@+id/q_username"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="295dp"
         android:layout_marginLeft="16dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:paddingLeft="20dp"
-        android:inputType="text"
+        android:layout_marginTop="295dp"
         android:hint="Masukkan Username"
-        />
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <View
         android:layout_width="40dp"
         android:layout_height="30dp"
-        android:background="@drawable/bg_radius_left"
-        android:layout_marginTop="340dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="-110dp"
-        />
+        android:layout_marginTop="340dp"
+        android:background="@drawable/bg_radius_left" />
+
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_baseline_vpn_key_24"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="345dp"
         android:layout_marginLeft="-110dp"
+        android:layout_marginTop="345dp"
+        android:src="@drawable/ic_baseline_vpn_key_24"
 
         />
+
     <EditText
         android:id="@+id/q_password"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="335dp"
         android:layout_marginLeft="16dp"
-        android:textSize="16sp"
+        android:layout_marginTop="335dp"
+        android:hint="Masukkan Password"
+        android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:textColor="@color/black"
-        android:inputType="textPassword"
-        android:hint="Masukkan Password"
-        />
+        android:textSize="16sp" />
+
     <Button
         android:id="@+id/button_login"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
         android:layout_marginLeft="0dp"
+        android:layout_marginTop="400dp"
         android:background="@drawable/bg_tombol"
-        android:text="Login"/>
+        android:text="Login" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 </FrameLayout>

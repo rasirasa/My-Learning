@@ -3,6 +3,7 @@ package com.ssrdi.co.id.myradboox
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ssrdi.co.id.myradboox.api.Api
@@ -70,12 +71,16 @@ class VerificationActivity : AppCompatActivity() {
      */
     private fun prosesOtp(codeOtpInt: Int) {
 
+        loading.visibility = View.VISIBLE
+
         retro.loginVerification(codeOtpInt, "Bearer $tokenFromLogin")
             .enqueue(object : Callback<VerificationResponse> {
                 override fun onResponse(
                     call: Call<VerificationResponse>,
                     response: Response<VerificationResponse>
                 ) {
+
+                    loading.visibility = View.GONE
                     if (response.isSuccessful) {
 //
                         val loginVerif = response.body()
@@ -99,6 +104,11 @@ class VerificationActivity : AppCompatActivity() {
 
                     } else {
                         Log.e("tag", "error gak sukses di login")
+                        Toast.makeText(
+                            this@VerificationActivity,
+                            "Verif failed ${response.isSuccessful}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
 
@@ -109,6 +119,7 @@ class VerificationActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<VerificationResponse>, t: Throwable) {
                     Log.e("tag", "gagal response")
+                    loading.visibility = View.GONE
                 }
             })
 

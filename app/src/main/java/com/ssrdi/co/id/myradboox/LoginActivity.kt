@@ -3,6 +3,7 @@ package com.ssrdi.co.id.myradboox
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ssrdi.co.id.myradboox.api.Api
@@ -23,14 +24,19 @@ class LoginActivity : AppCompatActivity() {
 
         initAction()
 
+        if (BuildConfig.DEBUG) {
+            q_username.setText("ono")
+            q_password.setText("ono123")
+        }
+
     }
 
     private fun initAction() {
-        var counter:Int = 0
+        var counter: Int = 0
         button_login.setOnClickListener {
             userLogin()
             counter++
-            if (counter >=6){
+            if (counter >= 6) {
                 logOff()
             }
 
@@ -43,6 +49,8 @@ class LoginActivity : AppCompatActivity() {
         val request = LoginRequest()
         request.username = q_username.text.toString().trim()
         request.password = q_password.text.toString().trim()
+
+        loading.visibility = View.VISIBLE
 
         if (username.isEmpty()) {
             q_username.error = "Email required"
@@ -62,6 +70,8 @@ class LoginActivity : AppCompatActivity() {
 
         retro.userLogin(username, password).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+
+                loading.visibility = View.GONE
 
                 val user = response.body()
                 val userStatusResponse = user?.status.toString()
@@ -89,13 +99,15 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.e("Error", t.message.toString())
+
+                loading.visibility = View.GONE
             }
 
         })
 
     }
 
-    private fun logOff(){
+    private fun logOff() {
         val intent = Intent(this@LoginActivity, LogoffActivity::class.java)
         startActivity(intent)
 
