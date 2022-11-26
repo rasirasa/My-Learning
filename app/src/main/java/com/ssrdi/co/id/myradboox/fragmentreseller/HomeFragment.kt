@@ -22,6 +22,7 @@ import com.ssrdi.co.id.myradboox.model.VoucherItemResponse
 import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import com.ssrdi.co.id.myradboox.utility.PaginationScrollListener
+import com.ssrdi.co.id.myradboox.utility.checkIfFragmentAttached
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -131,8 +132,11 @@ class HomeFragment : Fragment() {
                 isLoading = false
                 binding.loading.visibility = View.GONE
 
-                Toast.makeText(requireContext(), "Sukses load next page", Toast.LENGTH_SHORT)
-                    .show()
+                checkIfFragmentAttached {
+                    Toast.makeText(requireContext(), "Sukses load next page", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
 
             }, delay)
 
@@ -176,10 +180,11 @@ class HomeFragment : Fragment() {
 
                     } else {
                         Log.e("debug", "api voucher error, response null")
-                        Toast.makeText(requireContext(), "Isi voucher null", Toast.LENGTH_SHORT)
-                            .show()
+                        checkIfFragmentAttached {
+                            Toast.makeText(requireContext(), "Isi voucher null", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
-
 
                     //jika respon sukses disini
                 } else if (response.code() == 406) {
