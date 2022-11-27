@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.ssrdi.co.id.myradboox.api.Api
+import com.ssrdi.co.id.myradboox.api.RadbooxApi
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
@@ -18,7 +18,7 @@ import retrofit2.Response
 
 class VerificationActivity : AppCompatActivity() {
 
-    lateinit var retro: Api
+    lateinit var retro: RadbooxApi
     lateinit var tokenFromLogin: String
 
 
@@ -28,9 +28,7 @@ class VerificationActivity : AppCompatActivity() {
         tokenFromLogin = intent.getStringExtra("token_login") ?: ""
 
 
-        retro = RetrofitClient(this)
-            .getRetrofitClientInstance()
-            .create(Api::class.java)
+        retro = RetrofitClient.getInstance(this)
 
 
 //        testAmbilRoleUser()

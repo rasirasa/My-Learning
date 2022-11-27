@@ -1,6 +1,5 @@
 package com.ssrdi.co.id.myradboox.api
 
-import android.widget.EditText
 import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.LoginResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
@@ -12,7 +11,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Header
 import retrofit2.http.POST
 
-interface Api {
+interface RadbooxApi {
 
     @FormUrlEncoded
     @POST("account/login")
