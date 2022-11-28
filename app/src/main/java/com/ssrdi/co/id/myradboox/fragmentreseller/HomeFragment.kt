@@ -90,7 +90,9 @@ class HomeFragment : Fragment() {
             if (text != null && text.length >= 3) {
                 // do on search
                 voucherSearchResult =
-                    voucherItemResponseAllData.filter { it!!.username.contains(text) }
+                    voucherItemResponseAllData.filter {
+                        it!!.username.lowercase().contains(text.toString().lowercase())
+                    }
                         .toMutableList()
 
                 voucherSearchResult.map {
