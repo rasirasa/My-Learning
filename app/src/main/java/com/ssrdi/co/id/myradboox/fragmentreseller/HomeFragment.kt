@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ssrdi.co.id.myradboox.ExpiredActivity
@@ -48,8 +49,10 @@ class HomeFragment : Fragment() {
     private var voucherItemResponseAllData = mutableListOf<VoucherItemResponse?>()
     private var voucherItemChunk = listOf<List<VoucherItemResponse?>>()
     private var voucherItemPaging = mutableListOf<VoucherItemResponse?>()
+    private var voucherSearchResult = mutableListOf<VoucherItemResponse?>()
 
     private lateinit var voucherAdapter: VoucherAdapter
+    private lateinit var voucherSearchResultAdapter: VoucherAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
 
 
@@ -72,6 +75,9 @@ class HomeFragment : Fragment() {
         // setup config buat recyclerview
         setupRecyclerView()
 
+        // setupSearch
+        setupSearch()
+
         // buat object retrofit
         retro = RetrofitClient.getInstance(requireContext())
 
@@ -79,9 +85,41 @@ class HomeFragment : Fragment() {
         getVoucher()
     }
 
+    private fun setupSearch() {
+        binding.inputSearch.doOnTextChanged { text, start, before, count ->
+            if (text != null && text.length >= 3) {
+                // do on search
+                voucherSearchResult =
+                    voucherItemResponseAllData.filter {
+                        it!!.username.lowercase().contains(text.toString().lowercase())
+                    }
+                        .toMutableList()
+
+                voucherSearchResult.map {
+                    Log.d("debug", "hasil search -> ${it!!.username}")
+                }
+
+                binding.rvM.adapter = voucherSearchResultAdapter
+                voucherSearchResultAdapter.notifyDataSetChanged()
+
+                // swapping adapter
+            } else {
+                voucherSearchResult.clear()
+                binding.rvM.adapter = voucherAdapter
+                voucherAdapter.notifyDataSetChanged()
+            }
+        }
+    }
+
     private fun setupRecyclerView() {
         // create adapter
         voucherAdapter = VoucherAdapter(voucherItemPaging) {
+            // set click listener
+            Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        voucherSearchResultAdapter = VoucherAdapter(voucherSearchResult) {
             // set click listener
             Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
                 .show()
