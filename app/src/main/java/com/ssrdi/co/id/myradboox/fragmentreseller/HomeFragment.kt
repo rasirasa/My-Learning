@@ -99,14 +99,10 @@ class HomeFragment : Fragment() {
                     Log.d("debug", "hasil search -> ${it!!.username}")
                 }
 
-                binding.rvM.adapter = voucherSearchResultAdapter
-                voucherSearchResultAdapter.notifyDataSetChanged()
-
-                // swapping adapter
+                voucherAdapter.updateData(voucherSearchResult)
             } else {
                 voucherSearchResult.clear()
-                binding.rvM.adapter = voucherAdapter
-                voucherAdapter.notifyDataSetChanged()
+                voucherAdapter.updateData(voucherItemPaging)
             }
         }
     }
@@ -114,12 +110,6 @@ class HomeFragment : Fragment() {
     private fun setupRecyclerView() {
         // create adapter
         voucherAdapter = VoucherAdapter(voucherItemPaging) {
-            // set click listener
-            Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
-                .show()
-        }
-
-        voucherSearchResultAdapter = VoucherAdapter(voucherSearchResult) {
             // set click listener
             Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
                 .show()
