@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.item_hero.view.*
 import retrofit2.Response
 
 class VoucherAdapter(
-    private val voucher: MutableList<VoucherItemResponse?>,
+    private var voucher: MutableList<VoucherItemResponse?>,
     private val adapterOnClick: (VoucherItemResponse) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -28,6 +28,11 @@ class VoucherAdapter(
 
     fun addData(dataViews: List<VoucherItemResponse>) {
         voucher.addAll(dataViews)
+        notifyDataSetChanged()
+    }
+
+    fun updateData(data: MutableList<VoucherItemResponse?>) {
+        voucher = data
         notifyDataSetChanged()
     }
 
@@ -49,17 +54,23 @@ class VoucherAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {
-        return if (viewType == Constant.VIEW_TYPE_ITEM){
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_hero, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == Constant.VIEW_TYPE_ITEM) {
+            val view =
+                LayoutInflater.from(parent.context).inflate(R.layout.item_hero, parent, false)
             VoucherHolder(view)
-        }else {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.progress_loading, parent, false)
+        } else {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.progress_loading, parent, false)
             val binding = ProgressLoadingBinding.bind(view)
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
-                binding.progressbar.indeterminateDrawable.colorFilter = BlendModeColorFilter(Color.WHITE, BlendMode.SRC_ATOP)
-            }else {
-                binding.progressbar.indeterminateDrawable.setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                binding.progressbar.indeterminateDrawable.colorFilter =
+                    BlendModeColorFilter(Color.WHITE, BlendMode.SRC_ATOP)
+            } else {
+                binding.progressbar.indeterminateDrawable.setColorFilter(
+                    Color.WHITE,
+                    PorterDuff.Mode.MULTIPLY
+                )
             }
             LoadingViewHolder(view)
         }
@@ -67,7 +78,7 @@ class VoucherAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 //        voucher[position]?.let { holder.bindVoucher(it) }
-        if (holder is VoucherHolder){
+        if (holder is VoucherHolder) {
             holder.bindVoucher(voucher[position]!!)
         }
     }
@@ -103,7 +114,6 @@ class VoucherAdapter(
             }
         }
     }
-
 
 
 }
