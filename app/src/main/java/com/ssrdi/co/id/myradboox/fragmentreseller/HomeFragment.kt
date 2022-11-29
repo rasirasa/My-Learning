@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ssrdi.co.id.myradboox.DetailVoucherActivity
 import com.ssrdi.co.id.myradboox.ExpiredActivity
 import com.ssrdi.co.id.myradboox.LoginActivity
 import com.ssrdi.co.id.myradboox.adapter.VoucherAdapter
@@ -36,6 +37,8 @@ class HomeFragment : Fragment() {
 
     private var page = 1
     private var tampilanPerItem = 20
+
+    private val minSearch = 1
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -87,7 +90,7 @@ class HomeFragment : Fragment() {
 
     private fun setupSearch() {
         binding.inputSearch.doOnTextChanged { text, start, before, count ->
-            if (text != null && text.length >= 3) {
+            if (text != null && text.length >= minSearch) {
                 // do on search
                 voucherSearchResult =
                     voucherItemResponseAllData.filter {
@@ -113,6 +116,10 @@ class HomeFragment : Fragment() {
             // set click listener
             Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
                 .show()
+
+            val intent = Intent(requireContext(), DetailVoucherActivity::class.java)
+            intent.putExtra("voucher_id", it.id)
+            startActivity(intent)
         }
 
         // buat layout manager untuk recyclerview
