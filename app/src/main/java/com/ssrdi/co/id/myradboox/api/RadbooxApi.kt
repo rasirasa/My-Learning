@@ -16,8 +16,8 @@ interface RadbooxApi {
     @FormUrlEncoded
     @POST("account/login")
     fun userLogin(
-        @Field("username") username:String,
-        @Field("password") password:String,
+        @Field("username") username: String,
+        @Field("password") password: String,
     ): Call<LoginResponse>
 
     @FormUrlEncoded
@@ -29,11 +29,17 @@ interface RadbooxApi {
 
     @GET("admin/detail")
     fun detailAdmin(
-       @Header("Authorization") Authorization: String
+        @Header("Authorization") Authorization: String
     ): Call<DetailResponse>
 
     @GET("reseller/voucher")
     fun getVoucher(
         @Header("Authorization") Authorization: String
+    ): Call<VoucherResponse>
+
+    @GET("reseller/voucher/{voucher_id}")
+    fun getVoucherById(
+        @Header("Authorization") Authorization: String,
+        @Path("voucher_id") voucherId: Int
     ): Call<VoucherResponse>
 }
