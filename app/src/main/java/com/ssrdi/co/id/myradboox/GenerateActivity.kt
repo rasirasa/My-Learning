@@ -62,5 +62,6 @@ class GenerateActivity : AppCompatActivity() {
     ) {
         val adapter = ArrayAdapter(this, R.layout.dropdown_item, data)
         autoCompleteView.setAdapter(adapter)
+        autoCompleteView.setText(adapter.getItem(0), false)
     }
 }
