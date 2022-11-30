@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "400742029165",
+    "project_id": "radboox-crashlytics",
+    "storage_bucket": "radboox-crashlytics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400742029165:android:fbc3f4f368683e3f6bec64",
+        "android_client_info": {
+          "package_name": "com.ssrdi.co.id.myradboox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400742029165-va6krgu1jr7dsp8bbb0jftlksqri66is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssrdi.co.id.myradboox",
+            "certificate_hash": "fa50e911a29b4332fca2c0c5f5986031e6e63b43"
+          }
+        },
+        {
+          "client_id": "400742029165-t3q1r9fvftj74m1e1evkvsh5vket3fjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3UqgA_6iH-ysLHzMHTQrgVNULNWkGN7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400742029165-t3q1r9fvftj74m1e1evkvsh5vket3fjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
