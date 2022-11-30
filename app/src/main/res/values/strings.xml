@@ -13,4 +13,33 @@
         <item>Item 3</item>
         <item>Item 4</item>
     </string-array>
+
+    <string-array name="list_username">
+        <item>Username = Password</item>
+        <item>Username + Password</item>
+    </string-array>
+
+    <string-array name="list_user_character">
+        <item>abcABC0123</item>
+        <item>abcdefghij</item>
+        <item>0123456789</item>
+    </string-array>
+
+    <string-array name="list_username_length">
+        <item>3</item>
+        <item>4</item>
+        <item>5 s/d 8</item>
+    </string-array>
+
+    <string-array name="list_assign_profile">
+        <item>none</item>
+        <item>harian</item>
+        <item>12jam</item>
+    </string-array>
+
+    <string-array name="list_router_hotspot">
+        <item>all</item>
+        <item>Hanya 1 Default all saja</item>
+    </string-array>
+
 </resources>

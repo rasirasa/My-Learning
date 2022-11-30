@@ -19,6 +19,6 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
         }, splashTimeOut)
 
-//        startActivity(Intent(this, DemoActivity::class.java))
+//        startActivity(Intent(this, GenerateActivity::class.java))
     }
 }
