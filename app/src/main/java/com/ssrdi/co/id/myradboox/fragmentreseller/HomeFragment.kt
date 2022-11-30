@@ -152,25 +152,29 @@ class HomeFragment : Fragment() {
             // delay 2sec
             Handler(Looper.getMainLooper()).postDelayed({
 
-                voucherItemChunk[currentPage].map {
-                    voucherItemPaging.add(it)
-                    binding.rvM.post {
-                        voucherAdapter.notifyItemInserted(voucherItemPaging.size - 1)
+                if (currentPage < voucherItemChunk.size) {
+                    voucherItemChunk[currentPage].map {
+                        voucherItemPaging.add(it)
+                        binding.rvM.post {
+                            voucherAdapter.notifyItemInserted(voucherItemPaging.size - 1)
+                        }
+                    }
+
+                    Log.d("debug", "load data page $currentPage")
+                    Log.d("debug", "size data paging ${voucherItemPaging.size}")
+
+                    isLoading = false
+                    binding.loading.visibility = View.GONE
+
+                    checkIfFragmentAttached {
+                        Toast.makeText(
+                            requireContext(),
+                            "Sukses load next page",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
                     }
                 }
-
-                Log.d("debug", "load data page $currentPage")
-                Log.d("debug", "size data paging ${voucherItemPaging.size}")
-
-                isLoading = false
-                binding.loading.visibility = View.GONE
-
-                checkIfFragmentAttached {
-                    Toast.makeText(requireContext(), "Sukses load next page", Toast.LENGTH_SHORT)
-                        .show()
-                }
-
-
             }, delay)
 
         } catch (e: Exception) {
