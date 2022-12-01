@@ -7,11 +7,13 @@ import com.chuckerteam.chucker.api.RetentionManager
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RetrofitClient {
+class RetrofitClient(context: Context) {
+
 
     /**
      * buat retrofit jadi singleton, biar tidak duplicate object
@@ -72,4 +74,7 @@ class RetrofitClient {
                 .build()
         }
     }
+
 }
+
+

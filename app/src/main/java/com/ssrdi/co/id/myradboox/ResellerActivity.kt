@@ -6,14 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.navigation.NavigationView
 import com.ssrdi.co.id.myradboox.api.RadbooxApi
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
+import com.ssrdi.co.id.myradboox.databinding.ActivityResellerBinding
+import com.ssrdi.co.id.myradboox.fragmentreseller.GenerateFragment
 import com.ssrdi.co.id.myradboox.fragmentreseller.HistoryFragment
 import com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment
 import com.ssrdi.co.id.myradboox.fragmentreseller.SessionFragment
@@ -25,19 +27,23 @@ import retrofit2.Response
 
 
 class ResellerActivity : AppCompatActivity() {
-
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityResellerBinding
     private lateinit var mToggle: ActionBarDrawerToggle
-    lateinit var drawerLayout: DrawerLayout
-    private lateinit var preference: SharedPrefManager
+    lateinit var drawerLayout : DrawerLayout
+    private lateinit var preference : SharedPrefManager
     lateinit var retro: RadbooxApi
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        retro = RetrofitClient.getInstance(this)
         super.onCreate(savedInstanceState)
+
+//        binding = ActivityResellerBinding.inflate(layoutInflater)
+//       setContentView(binding.root)
+
         setContentView(R.layout.activity_reseller)
 
-        retro = RetrofitClient.getInstance(this)
+
 
         drawerLayout = findViewById(R.id.drawerLayout)
 
@@ -58,52 +64,28 @@ class ResellerActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             it.isChecked = true
             when (it.itemId) {
-                R.id.nav_home -> replaceFragment(HomeFragment(), it.title.toString())
-                R.id.nav_session -> replaceFragment(SessionFragment(), it.title.toString())
-                R.id.nav_history -> replaceFragment(HistoryFragment(), it.title.toString())
+                R.id.nav_home -> replaceFragment(HomeFragment(),it.title.toString())
+                R.id.nav_session-> replaceFragment(SessionFragment(),it.title.toString())
+                R.id.nav_history -> replaceFragment(HistoryFragment(),it.title.toString())
                 R.id.nav_logout -> prosesLogout()
                 //R.id.nav_logout -> Toast.makeText(applicationContext, "Clicked Logout", Toast.LENGTH_SHORT).show()
 
             }
             true
         }
-    }
-
-    /**
-     * menu ditoolbar
-     */
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_reseller, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_generate -> {
-                Toast.makeText(this, "Pindah ke halaman generate", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, GenerateActivity::class.java))
-                true
-            }
-            else -> {
-                mToggle.onOptionsItemSelected(item)
-            }
-        }
 
     }
-
-
     //Set ke Fragment    }
-    private fun replaceFragment(fragment: Fragment, title: String) {
+    private fun replaceFragment(fragment: Fragment, title:String){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+        fragmentTransaction.replace(R.id.nav_host_fragment,fragment)
+        fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
         drawerLayout.closeDrawers()
         setTitle(title)
     }
-
-    private fun prosesLogout() {
+    private fun prosesLogout(){
         var preference = SharedPrefManager.getInstance(applicationContext)
         preference.clearAll()
         val intent = Intent(this@ResellerActivity, LoginActivity::class.java)
@@ -112,20 +94,45 @@ class ResellerActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun cekTokenAktif() {
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.mn_generate -> {
+                replaceFragment(GenerateFragment(), "Generate Voucher")
+                true
+            }
+            else -> {
+                mToggle.onOptionsItemSelected(item)
+            }
+        }
+
+
+
+
+        return mToggle.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.generate, menu)
+        return true
+    }
+
+
+
+    private fun cekTokenAktif(){
         var tokenLogin = SharedPrefManager.getInstance(this).tokenLogin
         retro.detailAdmin("Bearer $tokenLogin").enqueue(object : Callback<DetailResponse> {
             override fun onResponse(
                 call: Call<DetailResponse>,
                 response: Response<DetailResponse>
             ) {
-                if (response.isSuccessful) {
+                if(response.isSuccessful){
                     var role = SharedPrefManager.getInstance(this@ResellerActivity).role
                     //checkUserRole(this@ResellerActivity, role)
-                } else if (response.code() == 406) {
+                } else if(response.code() == 406){
                     prosesLogout()
-                } else if (response.code() == 402) {
-                    val intent = Intent(this@ResellerActivity, ExpiredActivity::class.java)
+                }else if(response.code() ==402){
+                    val intent=Intent(this@ResellerActivity, ExpiredActivity::class.java)
                     startActivity(intent)
                 }
             }

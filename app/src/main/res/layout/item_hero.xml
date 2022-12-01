@@ -1,50 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="8dp">
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:background="@color/white"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
-    <TextView
-        android:id="@+id/txtUsername"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        tools:ignore="MissingConstraints"
-         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="5dp">
 
-    <TextView
-        android:id="@+id/txtProfile"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        app:layout_constraintStart_toEndOf="@+id/txtUsername"
-        tools:ignore="MissingConstraints"
-         />
+        <LinearLayout
+            android:weightSum="100"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtStatus"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        app:layout_constraintStart_toEndOf="@+id/txtProfile"
-        tools:ignore="MissingConstraints"
-         />
+            <TextView
+                android:layout_weight="30"
+                android:id="@+id/txtUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_baseline_arrow_left_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtStatus"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="8dp" />
+            <TextView
+                android:layout_weight="30"
+                android:id="@+id/txtProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/utama_dark"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_weight="30"
+                android:id="@+id/txtStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/utama_dark"
+                android:textSize="18sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:layout_weight="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_left_24"
+                android:textAlignment="textEnd"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
 

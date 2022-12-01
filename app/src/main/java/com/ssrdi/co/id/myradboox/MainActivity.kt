@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         val retro = RetrofitClient.getInstance(this)
-
         retro.userLogin(username, password).enqueue(object :Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 

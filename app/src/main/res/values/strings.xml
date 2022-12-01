@@ -1,18 +1,11 @@
 <resources>
-    <string name="app_name">My RadbooX</string>
+    <string name="app_name">RadbooX</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="dtvoucher">Detail Voucher</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-
-    <string-array name="spinnerlist">
-        <item>Item 1</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
-        <item>Item 3</item>
-        <item>Item 4</item>
-    </string-array>
 
     <string-array name="list_username">
         <item>Username = Password</item>
@@ -28,7 +21,10 @@
     <string-array name="list_username_length">
         <item>3</item>
         <item>4</item>
-        <item>5 s/d 8</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="list_assign_profile">
@@ -39,7 +35,5 @@
 
     <string-array name="list_router_hotspot">
         <item>all</item>
-        <item>Hanya 1 Default all saja</item>
     </string-array>
-
 </resources>

@@ -12,6 +12,7 @@ import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_verification.*
+import kotlinx.android.synthetic.main.login_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,18 +70,17 @@ class VerificationActivity : AppCompatActivity() {
      */
     private fun prosesOtp(codeOtpInt: Int) {
 
-        loading.visibility = View.VISIBLE
-
+        loadingverif.visibility = View.VISIBLE
         retro.loginVerification(codeOtpInt, "Bearer $tokenFromLogin")
             .enqueue(object : Callback<VerificationResponse> {
                 override fun onResponse(
                     call: Call<VerificationResponse>,
                     response: Response<VerificationResponse>
                 ) {
-
-                    loading.visibility = View.GONE
                     if (response.isSuccessful) {
 //
+                        loadingverif.visibility = View.GONE
+
                         val loginVerif = response.body()
                         val loginStatusResponse = loginVerif?.status.toString()
                         val loginTokenResponse = loginVerif?.token.toString()
@@ -102,11 +102,6 @@ class VerificationActivity : AppCompatActivity() {
 
                     } else {
                         Log.e("tag", "error gak sukses di login")
-                        Toast.makeText(
-                            this@VerificationActivity,
-                            "Verif failed ${response.isSuccessful}",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }
 
 
@@ -117,7 +112,6 @@ class VerificationActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<VerificationResponse>, t: Throwable) {
                     Log.e("tag", "gagal response")
-                    loading.visibility = View.GONE
                 }
             })
 
