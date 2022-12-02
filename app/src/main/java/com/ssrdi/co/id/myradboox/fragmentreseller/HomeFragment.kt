@@ -144,6 +144,10 @@ class HomeFragment : Fragment() {
         binding.inputSearch.doOnTextChanged { text, start, before, count ->
             if (text != null && text.length >= minSearch) {
                 // do on search
+                if (voucherSearchResult.isNotEmpty()) {
+                    voucherSearchResult.clear()
+                }
+
                 voucherSearchResult =
                     voucherItemResponseAllData.filter {
                         it!!.username.lowercase().contains(text.toString().lowercase())
