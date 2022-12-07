@@ -144,6 +144,7 @@ class HomeFragment : Fragment() {
         binding.inputSearch.doOnTextChanged { text, start, before, count ->
             if (text != null && text.length >= minSearch) {
                 // do on search
+                Log.d("debug", "hasil search awal -> ${voucherSearchResult.size}")
                 if (voucherSearchResult.isNotEmpty()) {
                     voucherSearchResult.clear()
                 }
@@ -216,6 +217,8 @@ class HomeFragment : Fragment() {
                     if (isiVoucher != null) {
                         Log.d("debug", "jumlah data server ${isiVoucher.data.size}")
 
+                        voucherItemResponseAllData.clear()
+
                         isiVoucher.data.map {
                             // log biar tau data nya ada apa ngga
                             Log.d("debug", "ini data response be -> ${it.toString()}")
@@ -225,6 +228,8 @@ class HomeFragment : Fragment() {
                         }
 
                         // ambil data item dibagi per 10
+                        if (voucherItemChunk.isNotEmpty()) voucherItemChunk = emptyList()
+
                         voucherItemChunk = voucherItemResponseAllData.chunked(10)
                         Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
 
