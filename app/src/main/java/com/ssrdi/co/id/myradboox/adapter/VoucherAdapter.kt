@@ -32,8 +32,10 @@ class VoucherAdapter(
     }
 
     fun updateData(data: MutableList<VoucherItemResponse?>) {
+        voucher.clear()
         voucher = data
         notifyDataSetChanged()
+
     }
 
     fun getItemAtPosition(position: Int): VoucherItemResponse? {

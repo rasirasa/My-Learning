@@ -8,11 +8,12 @@
     android:layout_marginStart="16dp"
     >
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/logo"/>
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/user_name_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"

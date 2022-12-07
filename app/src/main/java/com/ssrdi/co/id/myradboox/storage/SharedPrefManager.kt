@@ -54,6 +54,18 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
 
     }
 
+    fun saveUserPassword(userLogin: String, passLogin:String) {
+
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putString("userLogin", userLogin)
+        editor.putString("passLogin", passLogin)
+
+        editor.apply()
+
+    }
+
     fun clear() {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -96,6 +108,17 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
             editor.putString("role", value).apply()
         }
 
+    var userLogin:String
+        get() = preference.getString("userLogin","")?:""
+        set(value) {
+            editor.putString("userLogin", value).apply()
+        }
+
+    var passLogin:String
+        get() = preference.getString("passLogin","")?:""
+        set(value) {
+            editor.putString("passLogin", value).apply()
+        }
     companion object {
         private val SHARED_PREF_NAME = "my_shared_preff"
         private var mInstance: SharedPrefManager? = null

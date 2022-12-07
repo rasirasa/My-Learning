@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,27 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRadbooX"
         tools:targetApi="31">
-        <activity
-            android:name=".DetailVoucherActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".DemoActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".GenerateActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".ExpiredActivity"
             android:exported="false">
@@ -73,6 +59,7 @@
         </activity>
         <activity
             android:name=".ResellerActivity"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -80,19 +67,18 @@
         </activity>
         <activity
             android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/SplashScreen">
 
             <!--
-             intent launcher tiap apps hanya ada 1, jika ada 2 intent launcher, maka nanti icon
-             appsnya yang muncul ada 2
+             intent harus ada 1
             -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <!--
-                 intent.category.LAUNCHER  ini gunanya buat menentukan activity mana yang pertama kali dipanggil ketika user
-                 pencet icon pada hp androidnya
+                 [panggil activity awal saat pencet aplikasi]
                 -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -103,16 +89,21 @@
         </activity>
         <activity
             android:name=".VerificationActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
-            android:theme="@style/VerificationPage">
+            android:theme="@style/VerificationPage"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
-            android:theme="@style/LoginPage" />
+            android:theme="@style/LoginPage"
+
+            />
     </application>
 
 </manifest>

@@ -1,14 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/utama_dark"
     tools:context=".fragmentreseller.DetailVoucherFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/utama_dark"
+        android:padding="20dp">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail User Voucher "
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/user_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_round_supervised_user_circle_24"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitle"/>
+
+            <TextView
+                android:id="@+id/txt_username1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detailisi"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/user_img"
+                app:layout_constraintTop_toTopOf="@+id/user_img"
+                app:layout_constraintStart_toEndOf="@id/user_img"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/profile_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_round_supervised_user_circle_24"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/user_img"/>
+
+            <TextView
+                android:id="@+id/txt_Profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detailisi"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_img"
+                app:layout_constraintTop_toTopOf="@+id/profile_img"
+                app:layout_constraintStart_toEndOf="@id/profile_img"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/status_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_round_supervised_user_circle_24"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/profile_img"/>
+
+            <TextView
+                android:id="@+id/txt_Status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detailisi"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/status_img"
+                app:layout_constraintTop_toTopOf="@+id/status_img"
+                app:layout_constraintStart_toEndOf="@id/status_img"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/firstTime_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_round_supervised_user_circle_24"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/status_img"/>
+
+            <TextView
+                android:id="@+id/txt_CreateFirstTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detailisi"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/firstTime_img"
+                app:layout_constraintTop_toTopOf="@+id/firstTime_img"
+                app:layout_constraintStart_toEndOf="@id/firstTime_img"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/startTime_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_round_supervised_user_circle_24"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/firstTime_img"/>
+
+            <TextView
+                android:id="@+id/txt_StartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detailisi"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/startTime_img"
+                app:layout_constraintTop_toTopOf="@+id/startTime_img"
+                app:layout_constraintStart_toEndOf="@id/startTime_img"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/endTime_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_round_supervised_user_circle_24"
+                tools:ignore="MissingConstraints"
+                app:layout_constraintTop_toBottomOf="@id/startTime_img"/>
+
+            <TextView
+                android:id="@+id/txt_EndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detailisi"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/endTime_img"
+                app:layout_constraintTop_toTopOf="@+id/endTime_img"
+                app:layout_constraintStart_toEndOf="@id/endTime_img"
+                tools:ignore="MissingConstraints" />
+
+            <!---      -->
+            <!---
+            <LinearLayout
+                android:id="@+id/linear_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/utama"
+                android:padding="6dp"
+                android:weightSum="100"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/txt_username1"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="Profile :"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_Profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_right_bottom"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/utama"
+                android:padding="6dp"
+                android:weightSum="100"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout1"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="Status :"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_Status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_right_bottom"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/utama"
+                android:padding="6dp"
+                android:weightSum="100"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout2"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="Create First Time :"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_CreateFirstTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_right_bottom"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/utama"
+                android:padding="6dp"
+                android:weightSum="100"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout3"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="Start Time :"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_StartTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_right_bottom"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/utama"
+                android:padding="6dp"
+                android:weightSum="100"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout4"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="End Time :"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_EndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_right_bottom"
+                    android:textSize="16sp" />
+            </LinearLayout>
+-->
+
+
+            <Button
+                android:id="@+id/btn_print"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="PRINT"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

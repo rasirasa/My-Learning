@@ -12,6 +12,7 @@ import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.VerificationResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_verification.*
+import kotlinx.android.synthetic.main.login_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,7 +33,7 @@ class VerificationActivity : AppCompatActivity() {
 
 
 //        testAmbilRoleUser()
-
+        var counter:Int = 0
         btn_verification.setOnClickListener {
             val codeOtpStr: String = ed_verification.text.toString().trim()
 
@@ -47,7 +48,10 @@ class VerificationActivity : AppCompatActivity() {
                 val codeOtpInt = codeOtpStr.toInt()
                 prosesOtp(codeOtpInt)
             }
-
+            counter++
+            if (counter >=6){
+                logOff()
+            }
         }
 
     }
@@ -69,28 +73,25 @@ class VerificationActivity : AppCompatActivity() {
      */
     private fun prosesOtp(codeOtpInt: Int) {
 
-        loading.visibility = View.VISIBLE
-
+        loadingverif.visibility = View.VISIBLE
         retro.loginVerification(codeOtpInt, "Bearer $tokenFromLogin")
             .enqueue(object : Callback<VerificationResponse> {
                 override fun onResponse(
                     call: Call<VerificationResponse>,
                     response: Response<VerificationResponse>
                 ) {
-
-                    loading.visibility = View.GONE
                     if (response.isSuccessful) {
-//
+
+                        loadingverif.visibility = View.GONE
+
                         val loginVerif = response.body()
                         val loginStatusResponse = loginVerif?.status.toString()
                         val loginTokenResponse = loginVerif?.token.toString()
-//                            if (loginStatusResponse == "success") {
 
                         SharedPrefManager.getInstance(applicationContext)
                             .saveToken(loginVerif?.token.toString())
 
                         ambilDetailAdmin(loginTokenResponse)
-
 
 //  NANTI DISINI PEMBAGIAN ROLE AWAL --- BYPASS LANGSUNG KE RESELLERACTIVITY
                         val intent =
@@ -100,13 +101,16 @@ class VerificationActivity : AppCompatActivity() {
 
                         startActivity(intent)
 
-                    } else {
-                        Log.e("tag", "error gak sukses di login")
-                        Toast.makeText(
-                            this@VerificationActivity,
-                            "Verif failed ${response.isSuccessful}",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    } else if(response.body()?.status !== "success") {
+                        Toast.makeText(this@VerificationActivity, "Token Salah, Silahkan Ulangi Kembali", Toast.LENGTH_SHORT).show()
+                        loadingverif.visibility = View.GONE
+//                        Log.e("tag", "error gak sukses di login")
+                    }
+                    else if(response.code() == 406){
+                        prosesLogout()
+                    } else if (response.code() == 402){
+                        val intent=Intent(this@VerificationActivity, ExpiredActivity::class.java)
+                        startActivity(intent)
                     }
 
 
@@ -117,7 +121,6 @@ class VerificationActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<VerificationResponse>, t: Throwable) {
                     Log.e("tag", "gagal response")
-                    loading.visibility = View.GONE
                 }
             })
 
@@ -144,6 +147,19 @@ class VerificationActivity : AppCompatActivity() {
             }
 
         })
+    }
+    private fun logOff(){
+        val intent = Intent(this@VerificationActivity, LogoffActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    private fun prosesLogout() {
+        var preference = SharedPrefManager.getInstance(applicationContext)
+        preference.clearAll()
+        val intent = Intent(applicationContext, LoginActivity::class.java)
+        startActivity(intent)
+        VerificationActivity().finish()
     }
 }
 
