@@ -101,10 +101,13 @@ class HomeFragment : Fragment() {
                             .show()
                     }
                     if (isiStock != null) {
-                        Log.d("debug", "jumlah data Stok ${isiStock.data.size}")
-                        binding.totalVoucher.text = isiStock.data[0].total.toString()
-                        binding.expiredVoucher.text = isiStock.data[0].expire.toString()
-                        binding.activeVoucher.text = isiStock.data[0].active.toString()
+                        val dataStockItem = isiStock.data
+
+                        Log.d("debug", "jumlah data Stok ${isiStock.data}")
+                        binding.totalVoucher.text = dataStockItem.total.toString()
+                        binding.expiredVoucher.text = dataStockItem.expire.toString()
+                        binding.activeVoucher.text = dataStockItem.active.toString()
+
                     } else {
                         Log.e("debug", "api Stok error, response null")
                         checkIfFragmentAttached {
