@@ -1,5 +1,6 @@
 package com.ssrdi.co.id.myradboox.api
 
+import com.ssrdi.co.id.myradboox.api.model.ResellerResponse
 import com.ssrdi.co.id.myradboox.model.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -13,8 +14,8 @@ interface RadbooxApi {
     @FormUrlEncoded
     @POST("account/login")
     fun userLogin(
-        @Field("username") username:String,
-        @Field("password") password:String,
+        @Field("username") username: String,
+        @Field("password") password: String,
     ): Call<LoginResponse>
 
     @FormUrlEncoded
@@ -26,7 +27,7 @@ interface RadbooxApi {
 
     @GET("admin/detail")
     fun detailAdmin(
-       @Header("Authorization") Authorization: String
+        @Header("Authorization") Authorization: String
     ): Call<DetailResponse>
 
     @GET("reseller/voucher")
@@ -46,14 +47,19 @@ interface RadbooxApi {
     ): Call<StockResponse>
 
     @POST("")
-    fun generateVoucher (
-        @Field("stok_voucher") stok_voucher:Int,
-        @Field("active_voucher") active_voucher:Int,
-        @Field("total_sales") total_sales:Int,
-        @Field("total_amount") total_amount:Int,
-        @Field("total_deposit") total_deposit:Int,
-        @Field("total_profit_reseller") total_profit_reseller:Int,
-        @Field("balance") balance:Int,
-        @Field("amount_due") amount_due:Int,
+    fun generateVoucher(
+        @Field("stok_voucher") stok_voucher: Int,
+        @Field("active_voucher") active_voucher: Int,
+        @Field("total_sales") total_sales: Int,
+        @Field("total_amount") total_amount: Int,
+        @Field("total_deposit") total_deposit: Int,
+        @Field("total_profit_reseller") total_profit_reseller: Int,
+        @Field("balance") balance: Int,
+        @Field("amount_due") amount_due: Int,
     ): Call<GenerateResponse>
+
+    @GET("reseller/options")
+    fun getResellerOptions(
+        @Header("Authorization") Authorization: String
+    ): Call<ResellerResponse>
 }

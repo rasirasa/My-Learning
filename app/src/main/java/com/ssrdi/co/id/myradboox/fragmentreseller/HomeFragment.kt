@@ -267,8 +267,6 @@ class HomeFragment : Fragment() {
 
                         isiVoucher.data.map {
                             // log biar tau data nya ada apa ngga
-                            Log.d("debug", "ini data response be -> ${it.toString()}")
-
                             // masukkan response voucher dari  be ke penampung
                             voucherItemResponseAllData.add(it)
                         }

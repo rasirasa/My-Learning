@@ -28,12 +28,18 @@ class LoginActivity : AppCompatActivity() {
 
         initAction()
 
+        if (BuildConfig.DEBUG) {
+            q_username.setText("ono")
+            q_password.setText("ono123")
+        }
+
         rememberme.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
+            if (isChecked) {
                 SharedPrefManager.getInstance(applicationContext)
-                    .saveUserPassword(q_username.text.toString(),q_password.text.toString())
-                Toast.makeText(this@LoginActivity,"Save Shared Preference",Toast.LENGTH_SHORT).show()
-            }else {
+                    .saveUserPassword(q_username.text.toString(), q_password.text.toString())
+                Toast.makeText(this@LoginActivity, "Save Shared Preference", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
 
             }
         }
@@ -42,15 +48,15 @@ class LoginActivity : AppCompatActivity() {
     private fun initAction() {
         val userLogin = SharedPrefManager.getInstance(this).userLogin
         val passLogin = SharedPrefManager.getInstance(this).passLogin
-        if (userLogin != null && passLogin !=null){
+        if (userLogin != null && passLogin != null) {
             q_username.setText(userLogin)
             q_password.setText(passLogin)
         }
-        var counter:Int = 0
+        var counter: Int = 0
         button_login.setOnClickListener {
             userLogin()
             counter++
-            if (counter >=6){
+            if (counter >= 6) {
                 logOff()
             }
 
@@ -118,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun logOff(){
+    private fun logOff() {
         val intent = Intent(this@LoginActivity, LogoffActivity::class.java)
         startActivity(intent)
 
