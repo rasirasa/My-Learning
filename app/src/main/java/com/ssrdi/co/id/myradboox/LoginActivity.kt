@@ -29,8 +29,8 @@ class LoginActivity : AppCompatActivity() {
         initAction()
 
         if (BuildConfig.DEBUG) {
-            q_username.setText("ono")
-            q_password.setText("ono123")
+            q_username.setText("rahmat")
+            q_password.setText("rahmat")
         }
 
         rememberme.setOnCheckedChangeListener { _, isChecked ->

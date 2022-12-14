@@ -46,6 +46,7 @@ interface RadbooxApi {
         @Header("Authorization") Authorization: String
     ): Call<VoucherResponse>
 
+    @FormUrlEncoded
     @POST("reseller/voucher")
     fun generateResellerVoucher(
         @Header("Authorization") authorization: String,
