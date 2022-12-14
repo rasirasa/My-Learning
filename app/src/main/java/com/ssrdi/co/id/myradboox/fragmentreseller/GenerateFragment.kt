@@ -76,8 +76,6 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
         )
 
         binding.btnGenerate.setOnClickListener {
-            Toast.makeText(requireContext(), "Btn Generate Click", Toast.LENGTH_SHORT).show()
-
             // ambil jumlah voucher
             var jumlahVoucher = binding.inputNumberOfUser.text.toString().toInt()
             if (jumlahVoucher > 1_000) {
@@ -137,7 +135,7 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
         showLoading(true)
 
         api.generateResellerVoucher(
-            authorization = tokenLogin,
+            authorization = "Bearer $tokenLogin",
             jumlah = jumlahVoucher,
             model = userModel,
             character = userCharacter,
@@ -154,7 +152,8 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
             ) {
                 showLoading(false)
                 if (response.isSuccessful) {
-
+                    Toast.makeText(requireContext(), "Sukses Create Voucher", Toast.LENGTH_SHORT)
+                        .show()
                 } else {
                     showError("error data reseller null")
                 }
@@ -171,7 +170,9 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun getCurrentTime(): String {
         val sdf = SimpleDateFormat("HH:mm:ss")
-        return sdf.format(Date())
+        val currentTime = sdf.format(Date())
+        Log.d("debug", "current time $currentTime")
+        return currentTime
     }
 
     private fun getOptionsData() {
