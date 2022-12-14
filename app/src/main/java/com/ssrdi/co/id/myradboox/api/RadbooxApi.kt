@@ -57,7 +57,7 @@ interface RadbooxApi {
         @Field("profile") profile: String,
         @Field("nas") nas: String,
         @Field("server") server: String,
-        @Field("time") time: Long
+        @Field("time") time: String
     ): Call<GenerateResponse>
 
 
