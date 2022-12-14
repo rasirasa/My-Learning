@@ -4,230 +4,241 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/utama_dark"
+    android:padding="16dp"
     tools:context=".fragmentreseller.GenerateFragment">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_search"
-        android:padding="6dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Generate Voucher Hotspot"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_search"
+            android:orientation="vertical"
+            android:padding="6dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#FF000000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Main"
-            android:textSize="22sp"
-            />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#FF000000" />
-
-        <!--        number of user-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Number of Users">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_number_of_user"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:text="Generate Voucher Hotspot"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-        <!--        user model-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF000000" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="User Model">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Main"
+                android:textSize="22sp" />
 
-            <AutoCompleteTextView
-                android:id="@+id/input_user_model"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF000000" />
+
+            <!--        number of user-->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                 />
+                android:layout_marginTop="20dp"
+                android:hint="Number of Users">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_number_of_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="User Character">
+            <!--        user model-->
 
-            <AutoCompleteTextView
-                android:id="@+id/input_user_character"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="abc" />
+                android:layout_marginTop="10dp"
+                android:hint="User Model">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/input_user_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Username Length">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <AutoCompleteTextView
-                android:id="@+id/input_user_length"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="3" />
+                android:layout_marginTop="10dp"
+                android:hint="User Character">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/input_user_character"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="abc" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Username Prefix">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_username_prefix"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:text="" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="10dp"
+                android:hint="Username Length">
 
+                <AutoCompleteTextView
+                    android:id="@+id/input_user_length"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="3" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Constraint - Optional"
-            android:textSize="22sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#FF000000" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Assign Profile">
-
-            <AutoCompleteTextView
-                android:id="@+id/input_user_assign_profile"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="none" />
+                android:layout_marginTop="10dp"
+                android:hint="Username Prefix">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_username_prefix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Router NAS">
 
-            <AutoCompleteTextView
-                android:id="@+id/input_router_nas"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Constraint - Optional"
+                android:textSize="22sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF000000" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="all" />
+                android:layout_marginTop="10dp"
+                android:hint="Assign Profile">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/input_user_assign_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="none" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Hotspot Server">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <AutoCompleteTextView
-                android:id="@+id/input_hotspot_server"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="all" />
+                android:layout_marginTop="10dp"
+                android:hint="Router NAS">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/input_router_nas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="all" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Payment - Optional"
-            android:textSize="22sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#FF000000" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Price">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_price"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="10dp"
+                android:hint="Hotspot Server">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Price">
+                <AutoCompleteTextView
+                    android:id="@+id/input_hotspot_server"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="all" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_reseller_price"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Payment - Optional"
+                android:textSize="22sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FF000000" />
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="0" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="20dp"
+                android:hint="Price">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_generate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Generate"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/purple_700" />
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="0" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Price">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_reseller_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="0" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_generate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Generate"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/purple_700" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
 </ScrollView>

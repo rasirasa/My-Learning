@@ -30,11 +30,6 @@ interface RadbooxApi {
         @Header("Authorization") Authorization: String
     ): Call<DetailResponse>
 
-    @GET("reseller/voucher")
-    fun getVoucher(
-        @Header("Authorization") Authorization: String
-    ): Call<VoucherResponse>
-
     @GET("reseller/voucher/{voucher_id}")
     fun getVoucherById(
         @Header("Authorization") Authorization: String,
@@ -46,17 +41,25 @@ interface RadbooxApi {
         @Header("Authorization") Authorization: String
     ): Call<StockResponse>
 
-    @POST("")
-    fun generateVoucher(
-        @Field("stok_voucher") stok_voucher: Int,
-        @Field("active_voucher") active_voucher: Int,
-        @Field("total_sales") total_sales: Int,
-        @Field("total_amount") total_amount: Int,
-        @Field("total_deposit") total_deposit: Int,
-        @Field("total_profit_reseller") total_profit_reseller: Int,
-        @Field("balance") balance: Int,
-        @Field("amount_due") amount_due: Int,
+    @GET("reseller/voucher")
+    fun getVoucher(
+        @Header("Authorization") Authorization: String
+    ): Call<VoucherResponse>
+
+    @POST("reseller/voucher")
+    fun generateResellerVoucher(
+        @Header("Authorization") authorization: String,
+        @Field("jumlah") jumlah: Int,
+        @Field("model") model: Int,
+        @Field("character") character: Int,
+        @Field("length") length: Int,
+        @Field("prefix") prefix: String,
+        @Field("profile") profile: String,
+        @Field("nas") nas: String,
+        @Field("server") server: String,
+        @Field("time") time: String
     ): Call<GenerateResponse>
+
 
     @GET("reseller/options")
     fun getResellerOptions(

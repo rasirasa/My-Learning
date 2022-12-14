@@ -2,29 +2,40 @@ package com.ssrdi.co.id.myradboox.fragmentreseller
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.annotation.ArrayRes
+import androidx.fragment.app.Fragment
 import com.ssrdi.co.id.myradboox.R
 import com.ssrdi.co.id.myradboox.api.RadbooxApi
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
 import com.ssrdi.co.id.myradboox.api.model.ResellerOptionsData
 import com.ssrdi.co.id.myradboox.api.model.ResellerResponse
-import com.ssrdi.co.id.myradboox.databinding.FragmentDetailVoucherBinding
 import com.ssrdi.co.id.myradboox.databinding.FragmentGenerateBinding
+import com.ssrdi.co.id.myradboox.model.GenerateResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
-class GenerateFragment : Fragment() {
+class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: FragmentGenerateBinding
-    lateinit var retro: RadbooxApi
+
+    private lateinit var tokenLogin: String
+    private lateinit var api: RadbooxApi
+
+    private var nasSelected = 0
+    private var profileSelected = 0
+    private var serverSelected = 0
+    private var userCharSelected = 0
+    private var userModelSelected = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +50,14 @@ class GenerateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+        api = RetrofitClient.getInstance(requireContext())
+
         getOptionsData()
+
+        binding.inputRouterNas.onItemSelectedListener = this
+        binding.inputUserCharacter.onItemSelectedListener = this
+        binding.inputUserModel.onItemSelectedListener = this
 
         // user model
         setupContentDropdown(
@@ -59,18 +77,112 @@ class GenerateFragment : Fragment() {
 
         binding.btnGenerate.setOnClickListener {
             Toast.makeText(requireContext(), "Btn Generate Click", Toast.LENGTH_SHORT).show()
+
+            // ambil jumlah voucher
+            var jumlahVoucher = binding.inputNumberOfUser.text.toString().toInt()
+            if (jumlahVoucher > 1_000) {
+                jumlahVoucher = 1_000
+            }
+
+            var profile = binding.inputUserAssignProfile.text.toString()
+            var userNameLength = binding.inputUserLength.text.toString()
+            var userPrefix = binding.inputUsernamePrefix.text.toString()
+
+            generateVoucher(
+                jumlahVoucher,
+                nas = "",
+                server = "",
+                profile = profile,
+                usernameLength = userNameLength.toInt(),
+                userCharacter = userCharSelected,
+                usernamePrefix = userPrefix,
+                userModel = userModelSelected
+            )
         }
     }
 
+    override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, p3: Long) {
+        if (view == binding.inputRouterNas) {
+            Log.d("debug", "nas selected -> $pos")
+            nasSelected = pos
+        } else if (view == binding.inputUserAssignProfile) {
+            Log.d("debug", "profile selected -> $pos")
+            profileSelected = pos
+        } else if (view == binding.inputHotspotServer) {
+            Log.d("debug", "server selected -> $pos")
+            serverSelected = pos
+        } else if (view == binding.inputUserCharacter) {
+            Log.d("debug", "user character selected -> $pos")
+            userCharSelected = pos
+        } else if (view == binding.inputUserModel) {
+            Log.d("debug", "user model selected -> $pos")
+            userModelSelected = pos
+        }
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+    }
+
+    private fun generateVoucher(
+        jumlahVoucher: Int,
+        profile: String,
+        nas: String = "",
+        server: String = "",
+        usernameLength: Int,
+        userCharacter: Int,
+        userModel: Int,
+        usernamePrefix: String = "voucher"
+    ) {
+
+        showLoading(true)
+
+        api.generateResellerVoucher(
+            authorization = tokenLogin,
+            jumlah = jumlahVoucher,
+            model = userModel,
+            character = userCharacter,
+            length = usernameLength,
+            prefix = usernamePrefix,
+            profile = profile,
+            nas = nas,
+            server = server,
+            time = getCurrentTime()
+        ).enqueue(object : Callback<GenerateResponse> {
+            override fun onResponse(
+                call: Call<GenerateResponse>,
+                response: Response<GenerateResponse>
+            ) {
+                showLoading(false)
+                if (response.isSuccessful) {
+
+                } else {
+                    showError("error data reseller null")
+                }
+            }
+
+            override fun onFailure(call: Call<GenerateResponse>, t: Throwable) {
+                Log.e("error", "error ->${t.localizedMessage}")
+                showLoading(false)
+            }
+
+        })
+
+    }
+
+    private fun getCurrentTime(): String {
+        val sdf = SimpleDateFormat("HH:mm:ss")
+        return sdf.format(Date())
+    }
+
     private fun getOptionsData() {
-        val api = RetrofitClient.getInstance(requireContext())
-        val tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+        showLoading(true)
 
         api.getResellerOptions("Bearer $tokenLogin").enqueue(object : Callback<ResellerResponse> {
             override fun onResponse(
                 call: Call<ResellerResponse>,
                 response: Response<ResellerResponse>
             ) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     Log.d("debug", "response -> ${response}")
                     val dataResellerOpt = response.body()?.data
@@ -94,6 +206,7 @@ class GenerateFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<ResellerResponse>, t: Throwable) {
+                showLoading(false)
                 showError("error ${t.localizedMessage}")
             }
 
@@ -123,5 +236,9 @@ class GenerateFragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, data)
         autoCompleteView.setAdapter(adapter)
         autoCompleteView.setText(adapter.getItem(0), false)
+    }
+
+    private fun showLoading(show: Boolean) {
+        binding.loading.visibility = if (show) View.VISIBLE else View.GONE
     }
 }
