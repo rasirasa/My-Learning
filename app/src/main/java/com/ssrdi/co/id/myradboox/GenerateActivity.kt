@@ -2,11 +2,18 @@ package com.ssrdi.co.id.myradboox
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.annotation.ArrayRes
+import com.ssrdi.co.id.myradboox.api.RetrofitClient
+import com.ssrdi.co.id.myradboox.api.model.ResellerResponse
 import com.ssrdi.co.id.myradboox.databinding.ActivityGenerateBinding
+import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class GenerateActivity : AppCompatActivity() {
 
@@ -18,6 +25,8 @@ class GenerateActivity : AppCompatActivity() {
         binding = ActivityGenerateBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+
 
         // user model
         setupContentDropdown(
