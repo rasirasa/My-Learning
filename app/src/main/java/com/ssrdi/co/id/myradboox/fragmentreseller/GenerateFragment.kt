@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
@@ -17,14 +18,21 @@ import com.ssrdi.co.id.myradboox.api.model.ResellerOptionsData
 import com.ssrdi.co.id.myradboox.api.model.ResellerResponse
 import com.ssrdi.co.id.myradboox.databinding.FragmentDetailVoucherBinding
 import com.ssrdi.co.id.myradboox.databinding.FragmentGenerateBinding
+import com.ssrdi.co.id.myradboox.model.GenerateResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class GenerateFragment : Fragment() {
+class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: FragmentGenerateBinding
-    lateinit var retro: RadbooxApi
+
+    private lateinit var tokenLogin: String
+    private lateinit var api: RadbooxApi
+
+    private var nasSelected = 0
+    private var profileSelected = 0
+    private var serverSelected = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +47,12 @@ class GenerateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+        api = RetrofitClient.getInstance(requireContext())
+
         getOptionsData()
+
+        binding.inputRouterNas.onItemSelectedListener = this
 
         // user model
         setupContentDropdown(
@@ -59,13 +72,68 @@ class GenerateFragment : Fragment() {
 
         binding.btnGenerate.setOnClickListener {
             Toast.makeText(requireContext(), "Btn Generate Click", Toast.LENGTH_SHORT).show()
+
+            // ambil jumlah voucher
+            var jumlahVoucher = binding.inputNumberOfUser.text.toString().toInt()
+            if (jumlahVoucher > 1_000) {
+                jumlahVoucher = 1_000
+            }
+
+
+            generateVoucher(jumlahVoucher, nas = "")
         }
     }
 
-    private fun getOptionsData() {
-        val api = RetrofitClient.getInstance(requireContext())
-        val tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
+    override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, p3: Long) {
+        if (view == binding.inputRouterNas) {
+            Log.d("debug", "nas selected -> $pos")
+            nasSelected = pos
+        } else if (view == binding.inputUserAssignProfile) {
+            Log.d("debug", "profile selected -> $pos")
+            profileSelected = pos
+        } else if (view == binding.inputHotspotServer) {
+            Log.d("debug", "server selected -> $pos")
+            serverSelected = pos
+        }
+    }
 
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+    }
+
+    private fun generateVoucher(jumlahVoucher: Int, nas: String) {
+
+        api.generateResellerVoucher(
+            authorization = tokenLogin,
+            jumlah = jumlahVoucher,
+            model = 1,
+            character = 1,
+            length = 1,
+            prefix = "",
+            profile = "",
+            nas = "",
+            server = "",
+            time = System.currentTimeMillis()
+        ).enqueue(object : Callback<GenerateResponse> {
+            override fun onResponse(
+                call: Call<GenerateResponse>,
+                response: Response<GenerateResponse>
+            ) {
+                if (response.isSuccessful) {
+
+                } else {
+                    showError("error data reseller null")
+                }
+            }
+
+            override fun onFailure(call: Call<GenerateResponse>, t: Throwable) {
+                Log.e("error", "error ->${t.localizedMessage}")
+            }
+
+        })
+
+    }
+
+    private fun getOptionsData() {
         api.getResellerOptions("Bearer $tokenLogin").enqueue(object : Callback<ResellerResponse> {
             override fun onResponse(
                 call: Call<ResellerResponse>,
