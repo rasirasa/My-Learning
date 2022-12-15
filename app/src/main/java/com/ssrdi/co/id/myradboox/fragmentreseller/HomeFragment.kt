@@ -258,6 +258,10 @@ class HomeFragment : Fragment() {
                 call: Call<VoucherResponse>,
                 response: Response<VoucherResponse>
             ) {
+
+                binding.rvM.visibility = View.VISIBLE
+                binding.textVoucherKosong.visibility = View.GONE
+
                 if (response.isSuccessful) {
 
                     val isiVoucher = response.body()
@@ -287,6 +291,7 @@ class HomeFragment : Fragment() {
                             // kasih tau adapter kalo ada data baru, biar muncul data barunya
                             voucherAdapter.notifyDataSetChanged()
                         } else {
+                            showVoucherKosong()
                             Log.e("debug", "data voucher dari server kosong")
                         }
                     } else {
@@ -316,6 +321,11 @@ class HomeFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun showVoucherKosong() {
+        binding.rvM.visibility = View.GONE
+        binding.textVoucherKosong.visibility = View.VISIBLE
     }
 
     private fun prosesLogout() {
