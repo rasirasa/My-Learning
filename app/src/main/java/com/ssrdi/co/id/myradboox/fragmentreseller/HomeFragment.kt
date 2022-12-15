@@ -274,16 +274,16 @@ class HomeFragment : Fragment() {
 
                         isiVoucher.data.map {
                             // log biar tau data nya ada apa ngga
+                            Log.d("debug", "ini data response be -> ${it.toString()}")
+
                             // masukkan response voucher dari  be ke penampung
                             voucherItemResponseAllData.add(it)
                         }
 
                         // ambil data item dibagi per 10
                         if (voucherItemChunk.isNotEmpty()) voucherItemChunk = emptyList()
-
-                        if (voucherItemResponseAllData.isNotEmpty()) {
-                            voucherItemChunk = voucherItemResponseAllData.reversed().chunked(10)
-                            Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
+                        voucherItemChunk = voucherItemResponseAllData.reversed().chunked(10)
+                        Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
 
                             // ambil data item yang sudah dibagi per 10, ambil by index 0
                             voucherItemPaging.addAll(voucherItemChunk[PAGE_START])
