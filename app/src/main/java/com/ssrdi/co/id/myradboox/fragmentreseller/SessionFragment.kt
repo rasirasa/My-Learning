@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.ssrdi.co.id.myradboox.R
 import kotlinx.android.synthetic.main.fragment_session.*
 
@@ -21,7 +22,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class SessionFragment : Fragment() {
-    lateinit var nav: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +34,13 @@ class SessionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        nav = Navigation.findNavController(view)
+        val navHostFragment =
+            parentFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        // cara ambil nav controller
+        val navController = navHostFragment.navController
+
+//        navController.navigate(R.id.action_generateFragment_to_homeFragment)
 
 //        btnSubmit.setOnClickListener {
 //            // exitAnim = waktu pindah ke fragment tujuan
@@ -50,7 +56,8 @@ class SessionFragment : Fragment() {
 //                val bundle = Bundle()
 //                bundle.putString("args", input)
 //
-//                nav.navigate(R.id.action_sessionFragment_to_historyFragment,bundle)
+//               navController.navigate(R.id.action_generateFragment_to_homeFragment)
+//                nav.navigate(R.id.action_sessionFragment_to_historyFragment, bundle)
 //            }
 //        }
     }

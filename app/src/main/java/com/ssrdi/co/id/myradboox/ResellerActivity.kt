@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,7 +15,10 @@ import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.ssrdi.co.id.myradboox.api.RadbooxApi
@@ -32,27 +36,48 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class ResellerActivity : AppCompatActivity() {
+class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityResellerBinding
     private lateinit var mToggle: ActionBarDrawerToggle
-    lateinit var drawerLayout : DrawerLayout
-    private lateinit var preference : SharedPrefManager
+    private lateinit var preference: SharedPrefManager
+
     lateinit var retro: RadbooxApi
-    var tokenLogin = SharedPrefManager.getInstance(this).tokenLogin
+
+    private var tokenLogin: String = ""
+
+
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+    private lateinit var navController: NavController
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-        retro = RetrofitClient.getInstance(this)
         super.onCreate(savedInstanceState)
-
-//       binding = ActivityResellerBinding.inflate(layoutInflater)
-//       setContentView(binding.root)
-
         setContentView(R.layout.activity_reseller)
 
-        drawerLayout = findViewById(R.id.drawerLayout)
+        retro = RetrofitClient.getInstance(this)
+        tokenLogin = SharedPrefManager.getInstance(this).tokenLogin
 
-        val navView: NavigationView = findViewById(R.id.nav_view)
+
+        setupNavigationDrawer()
+
+        cekTokenAktif()
+
+    }
+
+    private fun setupNavigationDrawer() {
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        navController = navHostFragment.navController
+
+        drawerLayout = findViewById(R.id.drawerLayout)
+        navigationView = findViewById(R.id.nav_view)
+
+        NavigationUI.setupWithNavController(navigationView, navController)
+        navigationView.setNavigationItemSelectedListener(this)
 
 //         memunculkan tombol burger menu
         supportActionBar?.setHomeButtonEnabled(true)
@@ -64,37 +89,33 @@ class ResellerActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(mToggle)
         mToggle.syncState()
 
-        cekTokenAktif()
-
-        navView.setNavigationItemSelectedListener {
-            it.isChecked = true
-            when (it.itemId) {
-                R.id.nav_home -> replaceFragment(HomeFragment(),it.title.toString())
-                R.id.nav_session-> replaceFragment(SessionFragment(),it.title.toString())
-                R.id.nav_history -> replaceFragment(HistoryFragment(),it.title.toString())
-                R.id.nav_share -> shareApp()
-                R.id.nav_logout -> prosesLogout()
-                //R.id.nav_logout -> Toast.makeText(applicationContext, "Clicked Logout", Toast.LENGTH_SHORT).show()
-
-            }
-            true
-        }
-
     }
 
-
-
-    //Set ke Fragment    }
-    private fun replaceFragment(fragment: Fragment, title:String){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.nav_host_fragment,fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        item.isChecked = true
         drawerLayout.closeDrawers()
-        setTitle(title)
+
+        when (item.itemId) {
+            R.id.nav_home -> {
+                navController.navigate(R.id.homeFragment)
+            }
+            R.id.nav_session -> {
+                navController.navigate(R.id.sessionFragment)
+            }
+            R.id.nav_history -> {
+                navController.navigate(R.id.historyFragment)
+            }
+            R.id.nav_share -> {
+                shareApp()
+            }
+            R.id.nav_logout -> {
+                prosesLogout()
+            }
+        }
+        return true
     }
-    private fun prosesLogout(){
+
+    private fun prosesLogout() {
         var preference = SharedPrefManager.getInstance(applicationContext)
         preference.clearAll()
         val intent = Intent(this@ResellerActivity, LoginActivity::class.java)
@@ -106,7 +127,7 @@ class ResellerActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
         return when (item.itemId) {
             R.id.mn_generate -> {
-                replaceFragment(GenerateFragment(), "Generate Voucher")
+                navController.navigate(R.id.action_home_to_generateVoucherFragment)
                 true
             }
             else -> {
@@ -124,15 +145,14 @@ class ResellerActivity : AppCompatActivity() {
     }
 
 
-
-    private fun cekTokenAktif(){
+    private fun cekTokenAktif() {
 
         retro.detailAdmin("Bearer $tokenLogin").enqueue(object : Callback<DetailResponse> {
             override fun onResponse(
                 call: Call<DetailResponse>,
                 response: Response<DetailResponse>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     var role = SharedPrefManager.getInstance(this@ResellerActivity).role
 
                     //Jika Api Sudah Dapat Ke Url Image
@@ -156,10 +176,10 @@ class ResellerActivity : AppCompatActivity() {
 //                Picasso.get().load(hero.image).into(imgHeroes)
 
                     //checkUserRole(this@ResellerActivity, role)
-                } else if(response.code() == 406){
+                } else if (response.code() == 406) {
                     prosesLogout()
-                }else if(response.code() ==402){
-                    val intent=Intent(this@ResellerActivity, ExpiredActivity::class.java)
+                } else if (response.code() == 402) {
+                    val intent = Intent(this@ResellerActivity, ExpiredActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -172,15 +192,17 @@ class ResellerActivity : AppCompatActivity() {
         })
 
     }
-    private fun shareApp(){
+
+    private fun shareApp() {
         val intent = Intent()
         intent.action = Intent.ACTION_SEND
-        intent.putExtra(Intent.EXTRA_SUBJECT,"My Application Name")
-        intent.type="text/plain"
-        var shareMessage : String = "\nLet Me Recommend You This Application\n\n"
-        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=com.ssr.radboox" + BuildConfig.APPLICATION_ID +"\n\n"
+        intent.putExtra(Intent.EXTRA_SUBJECT, "My Application Name")
+        intent.type = "text/plain"
+        var shareMessage: String = "\nLet Me Recommend You This Application\n\n"
+        shareMessage =
+            shareMessage + "https://play.google.com/store/apps/details?id=com.ssr.radboox" + BuildConfig.APPLICATION_ID + "\n\n"
         intent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-        startActivity(Intent.createChooser(intent,"Share To :"))
+        startActivity(Intent.createChooser(intent, "Share To :"))
 
     }
 
