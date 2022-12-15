@@ -80,6 +80,8 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         NavigationUI.setupWithNavController(navigationView, navController)
         navigationView.setNavigationItemSelectedListener(this)
 
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+
 //         memunculkan tombol burger menu
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
