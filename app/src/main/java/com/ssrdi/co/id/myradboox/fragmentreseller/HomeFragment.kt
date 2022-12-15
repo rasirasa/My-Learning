@@ -282,8 +282,10 @@ class HomeFragment : Fragment() {
 
                         // ambil data item dibagi per 10
                         if (voucherItemChunk.isNotEmpty()) voucherItemChunk = emptyList()
-                        voucherItemChunk = voucherItemResponseAllData.reversed().chunked(10)
-                        Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
+
+                        if (voucherItemResponseAllData.isNotEmpty()) {
+                            voucherItemChunk = voucherItemResponseAllData.reversed().chunked(10)
+                            Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
 
                             // ambil data item yang sudah dibagi per 10, ambil by index 0
                             voucherItemPaging.addAll(voucherItemChunk[PAGE_START])
