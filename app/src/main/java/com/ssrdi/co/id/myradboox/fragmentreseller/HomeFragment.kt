@@ -276,15 +276,19 @@ class HomeFragment : Fragment() {
 
                         // ambil data item dibagi per 10
                         if (voucherItemChunk.isNotEmpty()) voucherItemChunk = emptyList()
-                        voucherItemChunk = voucherItemResponseAllData.reversed().chunked(10)
-                        Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
 
-                        // ambil data item yang sudah dibagi per 10, ambil by index 0
-                        voucherItemPaging.addAll(voucherItemChunk[PAGE_START])
+                        if (voucherItemResponseAllData.isNotEmpty()) {
+                            voucherItemChunk = voucherItemResponseAllData.reversed().chunked(10)
+                            Log.d("debug", "jumlah chunk ${voucherItemChunk.size}")
 
-                        // kasih tau adapter kalo ada data baru, biar muncul data barunya
-                        voucherAdapter.notifyDataSetChanged()
+                            // ambil data item yang sudah dibagi per 10, ambil by index 0
+                            voucherItemPaging.addAll(voucherItemChunk[PAGE_START])
 
+                            // kasih tau adapter kalo ada data baru, biar muncul data barunya
+                            voucherAdapter.notifyDataSetChanged()
+                        } else {
+                            Log.e("debug", "data voucher dari server kosong")
+                        }
                     } else {
                         Log.e("debug", "api voucher error, response null")
                         checkIfFragmentAttached {
