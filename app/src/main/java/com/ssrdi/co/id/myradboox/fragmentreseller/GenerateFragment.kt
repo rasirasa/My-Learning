@@ -157,11 +157,7 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     Toast.makeText(requireContext(), "Sukses Create Voucher", Toast.LENGTH_SHORT)
                         .show()
 
-                    val navHostFragment =
-                        parentFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                    val navController = navHostFragment.navController
-
-                    navController.popBackStack()
+                    findNavController().popBackStack()
 
                 } else {
                     showError("error data reseller null")
