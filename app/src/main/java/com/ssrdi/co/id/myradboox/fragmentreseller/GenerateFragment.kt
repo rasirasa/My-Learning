@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.annotation.ArrayRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.ssrdi.co.id.myradboox.R
 import com.ssrdi.co.id.myradboox.api.RadbooxApi
@@ -155,8 +156,12 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 if (response.isSuccessful) {
                     Toast.makeText(requireContext(), "Sukses Create Voucher", Toast.LENGTH_SHORT)
                         .show()
-                    val action = GenerateFragmentDirections.actionGenerateFragmentToHomeFragment()
-                    findNavController().navigate(action)
+
+                    val navHostFragment =
+                        parentFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+                    val navController = navHostFragment.navController
+
+                    navController.popBackStack()
 
                 } else {
                     showError("error data reseller null")
