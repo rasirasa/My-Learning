@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -79,6 +80,8 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         NavigationUI.setupWithNavController(navigationView, navController)
         navigationView.setNavigationItemSelectedListener(this)
 
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+
 //         memunculkan tombol burger menu
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -89,6 +92,10 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         drawerLayout.addDrawerListener(mToggle)
         mToggle.syncState()
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
