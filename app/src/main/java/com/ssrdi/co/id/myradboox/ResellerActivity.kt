@@ -106,7 +106,7 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         arguments: Bundle?
     ) {
         title = when (destination.id) {
-            R.id.homeFragment -> "Radbox"
+            R.id.homeFragment -> "Radboox"
             R.id.detailVoucherFragment -> "Detail Voucher"
             R.id.generateFragment -> "Generate Voucher"
             R.id.sessionFragment -> "Session"
@@ -125,13 +125,13 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         when (item.itemId) {
             R.id.nav_home -> {
-                navController.navigateSafe(R.id.homeFragment)
+                navController.navigate(R.id.homeFragment)
             }
             R.id.nav_session -> {
-                navController.navigateSafe(R.id.sessionFragment)
+                navController.navigate(R.id.sessionFragment)
             }
             R.id.nav_history -> {
-                navController.navigateSafe(R.id.historyFragment)
+                navController.navigate(R.id.historyFragment)
             }
             R.id.nav_share -> {
                 shareApp()
