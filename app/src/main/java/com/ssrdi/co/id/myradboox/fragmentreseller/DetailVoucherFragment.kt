@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.dantsu.escposprinter.EscPosPrinter
 import com.dantsu.escposprinter.connection.bluetooth.BluetoothPrintersConnections
 import com.dantsu.escposprinter.textparser.PrinterTextParserImg
@@ -44,34 +45,20 @@ class DetailVoucherFragment : Fragment() {
 
     lateinit var tokenLogin: String
 
+    private val args: DetailVoucherFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_detail_voucher, container, false)
-
-
         binding = FragmentDetailVoucherBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        var idfromdetail: Int
         super.onViewCreated(view, savedInstanceState)
 
-
-//        val appBarConfiguration = AppBarConfiguration(navController.graph)
-//
-//
-//        val navController = findNavController(R.id.nav_host_fragment)
-//        val appBarConfiguration = AppBarConfiguration(navController.graph)
-//        findViewById<Toolbar>(R.id.toolbar)
-//            .setupWithNavController(navController, appBarConfiguration)
-
-        val args = this.arguments
-        val idDetail: String = args?.get("id") as String
+        val idDetail: Int = args.voucherId
 
         // buat object retrofit
         retro = RetrofitClient.getInstance(requireContext())
@@ -86,11 +73,11 @@ class DetailVoucherFragment : Fragment() {
 
     }
 
-    private fun getDetailVoucher(idDetail: String) {
+    private fun getDetailVoucher(idDetail: Int) {
 
         tokenLogin = SharedPrefManager.getInstance(requireContext()).tokenLogin
 
-        retro.getVoucherById("Bearer $tokenLogin", idDetail.toInt())
+        retro.getVoucherById("Bearer $tokenLogin", idDetail)
             .enqueue(object : Callback<VoucherResponse> {
                 override fun onResponse(
                     call: Call<VoucherResponse>,
@@ -133,17 +120,19 @@ class DetailVoucherFragment : Fragment() {
                 if (activity?.let {
                         ContextCompat.checkSelfPermission(
                             it,
-                            Manifest.permission.BLUETOOTH)
+                            Manifest.permission.BLUETOOTH
+                        )
                     }
                     != PackageManager.PERMISSION_GRANTED) {
 
                     // request the permission
-                    requestPermissions(arrayOf(Manifest.permission.BLUETOOTH),
-                        PERMISSION_BLUETOOTH);
-                }
-                else {
+                    requestPermissions(
+                        arrayOf(Manifest.permission.BLUETOOTH),
+                        PERMISSION_BLUETOOTH
+                    );
+                } else {
                     // has the permission.
-                    Toast.makeText(requireContext(),"Test", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Test", Toast.LENGTH_SHORT).show()
                 }
 
                 ///// ---------------
@@ -158,10 +147,11 @@ class DetailVoucherFragment : Fragment() {
                     val printer = EscPosPrinter(connection, 203, 48f, 32)
                     val text = "[C]<img>" + PrinterTextParserImg.bitmapToHexadecimalString(
                         printer,
-                        this.getActivity()?.getApplicationContext()?.getResources()?.getDrawableForDensity(
-                            R.drawable.logo,
-                            DisplayMetrics.DENSITY_LOW, getContext()?.getTheme()
-                        )
+                        this.getActivity()?.getApplicationContext()?.getResources()
+                            ?.getDrawableForDensity(
+                                R.drawable.logo,
+                                DisplayMetrics.DENSITY_LOW, getContext()?.getTheme()
+                            )
                     ) + "</img>\n" +
                             "[L]\n" +
                             "[L]" + df.format(Date()) + "\n" +
@@ -186,7 +176,11 @@ class DetailVoucherFragment : Fragment() {
                             "[L]<qrcode>https://kodejava.org</qrcode>\n"
                     printer.printFormattedText(text)
                 } else {
-                    Toast.makeText(requireContext(), "No printer was connected!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "No printer was connected!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         } catch (e: Exception) {

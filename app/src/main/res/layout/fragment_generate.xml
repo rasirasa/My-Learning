@@ -119,7 +119,8 @@
                     android:id="@+id/input_username_prefix"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+                    android:inputType="textFilter"
                     android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
 

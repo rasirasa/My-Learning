@@ -24,6 +24,7 @@ import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -43,8 +44,6 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_generate, container, false)
         binding = FragmentGenerateBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -78,26 +77,36 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
         )
 
         binding.btnGenerate.setOnClickListener {
-            // ambil jumlah voucher
-            var jumlahVoucher = binding.inputNumberOfUser.text.toString().toInt()
-            if (jumlahVoucher > 1_000) {
-                jumlahVoucher = 1_000
+
+            if (binding.inputUsernamePrefix.text.toString().isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Mohon isi username prefix terlebih dahulu",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                // ambil jumlah voucher
+                var jumlahVoucher = binding.inputNumberOfUser.text.toString().toInt()
+                if (jumlahVoucher > 1_000) {
+                    jumlahVoucher = 1_000
+                }
+
+                var profile = binding.inputUserAssignProfile.text.toString()
+                var userNameLength = binding.inputUserLength.text.toString()
+                var userPrefix = binding.inputUsernamePrefix.text.toString().replace(" ", "")
+
+                generateVoucher(
+                    jumlahVoucher,
+                    nas = "",
+                    server = "",
+                    profile = profile,
+                    usernameLength = userNameLength.toInt(),
+                    userCharacter = userCharSelected,
+                    usernamePrefix = userPrefix,
+                    userModel = userModelSelected
+                )
             }
 
-            var profile = binding.inputUserAssignProfile.text.toString()
-            var userNameLength = binding.inputUserLength.text.toString()
-            var userPrefix = binding.inputUsernamePrefix.text.toString()
-
-            generateVoucher(
-                jumlahVoucher,
-                nas = "",
-                server = "",
-                profile = profile,
-                usernameLength = userNameLength.toInt(),
-                userCharacter = userCharSelected,
-                usernamePrefix = userPrefix,
-                userModel = userModelSelected
-            )
         }
     }
 
@@ -165,7 +174,7 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
             }
 
             override fun onFailure(call: Call<GenerateResponse>, t: Throwable) {
-                Log.e("error", "error ->${t.localizedMessage}")
+                Timber.e("error", "error ->${t.localizedMessage}")
                 showLoading(false)
             }
 

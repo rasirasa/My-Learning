@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.login_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 
 class LoginActivity : AppCompatActivity() {
@@ -117,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.e("Error", t.message.toString())
+                Timber.e("Error", "error  ${t.localizedMessage}")
             }
 
         })

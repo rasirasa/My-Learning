@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,32 +25,33 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initAction(){
+    private fun initAction() {
         button_login.setOnClickListener {
             userLogin()
         }
     }
-    private fun userLogin(){
+
+    private fun userLogin() {
         val username = q_username.text.toString().trim()
         val password = q_password.text.toString().trim()
         val request = LoginRequest()
         request.username = q_username.text.toString().trim()
         request.username = q_username.text.toString().trim()
 
-        if(username.isEmpty()){
+        if (username.isEmpty()) {
             q_username.error = "Email required"
             q_username.requestFocus()
             //return@setOnClickListener
         }
 
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             q_password.error = "Password required"
             q_username.requestFocus()
             //return@setOnClickListener
         }
 
         val retro = RetrofitClient.getInstance(this)
-        retro.userLogin(username, password).enqueue(object :Callback<LoginResponse>{
+        retro.userLogin(username, password).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
                 val user = response.body()
@@ -61,7 +63,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
 //                    startActivity(Intent(this@MainActivity, VerificationActivity::class.java))
                 } else {
-                    Toast.makeText(applicationContext,"Username atau Password Tidak Cocock, Silahkan Ulangi",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Username atau Password Tidak Cocock, Silahkan Ulangi",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 //                if (user != null) {
 //                    Log.e("token", user.token.toString())
@@ -69,10 +75,10 @@ class MainActivity : AppCompatActivity() {
 //                    Log.e("status", user.status.toString())
 //                    Log.e("message", user.message.toString())
 //                }
-           }
+            }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.e("Error", t.message.toString())
+                Timber.e("Error", "error ${t.localizedMessage}")
             }
 
         })

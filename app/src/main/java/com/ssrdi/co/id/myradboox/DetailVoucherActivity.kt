@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_detail_voucher.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 class DetailVoucherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +67,7 @@ class DetailVoucherActivity : AppCompatActivity() {
 
 
                 override fun onFailure(call: Call<VoucherResponse>, t: Throwable) {
-                    Log.e("debug", "error -> ${t.localizedMessage}")
+                    Timber.e("debug", "error -> ${t.localizedMessage}")
                 }
 
 

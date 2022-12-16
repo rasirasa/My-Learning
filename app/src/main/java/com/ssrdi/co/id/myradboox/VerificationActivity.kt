@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.login_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 class VerificationActivity : AppCompatActivity() {
 
@@ -33,7 +34,7 @@ class VerificationActivity : AppCompatActivity() {
 
 
 //        testAmbilRoleUser()
-        var counter:Int = 0
+        var counter: Int = 0
         btn_verification.setOnClickListener {
             val codeOtpStr: String = ed_verification.text.toString().trim()
 
@@ -49,7 +50,7 @@ class VerificationActivity : AppCompatActivity() {
                 prosesOtp(codeOtpInt)
             }
             counter++
-            if (counter >=6){
+            if (counter >= 6) {
                 logOff()
             }
         }
@@ -101,15 +102,18 @@ class VerificationActivity : AppCompatActivity() {
 
                         startActivity(intent)
 
-                    } else if(response.body()?.status !== "success") {
-                        Toast.makeText(this@VerificationActivity, "Token Salah, Silahkan Ulangi Kembali", Toast.LENGTH_SHORT).show()
+                    } else if (response.body()?.status !== "success") {
+                        Toast.makeText(
+                            this@VerificationActivity,
+                            "Token Salah, Silahkan Ulangi Kembali",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         loadingverif.visibility = View.GONE
 //                        Log.e("tag", "error gak sukses di login")
-                    }
-                    else if(response.code() == 406){
+                    } else if (response.code() == 406) {
                         prosesLogout()
-                    } else if (response.code() == 402){
-                        val intent=Intent(this@VerificationActivity, ExpiredActivity::class.java)
+                    } else if (response.code() == 402) {
+                        val intent = Intent(this@VerificationActivity, ExpiredActivity::class.java)
                         startActivity(intent)
                     }
 
@@ -120,7 +124,7 @@ class VerificationActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<VerificationResponse>, t: Throwable) {
-                    Log.e("tag", "gagal response")
+                    Timber.e("tag", "gagal response ${t.localizedMessage}")
                 }
             })
 
@@ -143,12 +147,13 @@ class VerificationActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Timber.e("error ${t.localizedMessage}")
             }
 
         })
     }
-    private fun logOff(){
+
+    private fun logOff() {
         val intent = Intent(this@VerificationActivity, LogoffActivity::class.java)
         startActivity(intent)
 

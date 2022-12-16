@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ssrdi.co.id.myradboox.ExpiredActivity
 import com.ssrdi.co.id.myradboox.LoginActivity
@@ -33,6 +34,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 
 class HomeFragment : Fragment() {
@@ -137,29 +139,12 @@ class HomeFragment : Fragment() {
         voucherAdapter = VoucherAdapter(voucherItemPaging) {
             // set click listener
             val id = it.id
-            val bundle = Bundle()
-            bundle.putString("id", id.toString())
-            val fragment = DetailVoucherFragment()
-            fragment.arguments = bundle
+            val action =
+                HomeFragmentDirections.actionHomeFragmentToDetailVoucherFragment(voucherId = id)
+            findNavController().navigate(action)
 
-//            view?.let { it1 -> Navigation.findNavController(it1).navigate(R.id.action_homeFragment_to_detailVoucherFragment) }
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_host_fragment, fragment, "Voucher Detail")
-                ?.addToBackStack(null)?.commit()
-
-
-//            Toast.makeText(requireContext(), "Ini hasil klik $idku ", Toast.LENGTH_SHORT)
-//                .show()
-//            checkIfFragmentAttached {
-//                Toast.makeText(requireContext(), "Ini hasil klik ${id.toString()}", Toast.LENGTH_SHORT)
-//                    .show()
-//            }
         }
-//        voucherSearchResultAdapter = VoucherAdapter(voucherSearchResult) {
-//            // set click listener
-//            Toast.makeText(requireContext(), "Ini hasil klik ${it.toString()}", Toast.LENGTH_SHORT)
-//                .show()
-//        }
+
 
         // buat layout manager untuk recyclerview
         linearLayoutManager = LinearLayoutManager(requireContext())
@@ -221,32 +206,36 @@ class HomeFragment : Fragment() {
         val delay = 2_000L  // 2 detik
         val loading_rv = binding.loadingRv
         loading_rv.visibility = View.VISIBLE
+
         try {
             Handler(Looper.getMainLooper()).postDelayed({
+
                 if (currentPage < voucherItemChunk.size) {
+
                     voucherItemChunk[currentPage].map {
                         voucherItemPaging.add(it)
                         binding.rvM.post {
                             voucherAdapter.notifyItemInserted(voucherItemPaging.size - 1)
                         }
                     }
-//                Log.d("debug", "load data page $currentPage")
-//                Log.d("debug", "size data paging ${voucherItemPaging.size}")
 
                     isLoading = false
+
                     loading_rv.visibility = View.GONE
+
                     checkIfFragmentAttached {
                         Toast.makeText(
                             requireContext(),
                             "Sukses load next page",
                             Toast.LENGTH_SHORT
-                        )
-                            .show()
+                        ).show()
                     }
+                } else {
+                    loading_rv.visibility = View.GONE
                 }
             }, delay)
         } catch (e: Exception) {
-            Log.e("debug", "error ${e.localizedMessage}")
+            Timber.e("error ${e.localizedMessage}")
         }
     }
 
@@ -337,17 +326,6 @@ class HomeFragment : Fragment() {
         startActivity(intent)
         requireActivity().finish()
     }
-
-//    private fun replaceFragment(fragment: Fragment, title:String){
-//        val fragmentManager = getParentFragmentManager()
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.nav_host_fragment,fragment)
-//        fragmentTransaction.addToBackStack(null)
-//        fragmentTransaction.commit()
-//        drawerLayout.closeDrawers()
-//        setTitle(title)
-//    }
-
 }
 
 

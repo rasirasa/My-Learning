@@ -10,16 +10,28 @@
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_detailVoucherFragment"
-            app:destination="@id/detailVoucherFragment" />
-        <action
             android:id="@+id/action_home_to_generateVoucherFragment"
             app:destination="@id/generateFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailVoucherFragment"
+            app:destination="@id/detailVoucherFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim">
+            <argument
+                android:name="voucherId"
+                android:defaultValue=""
+                app:argType="int" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/detailVoucherFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.DetailVoucherFragment"
-        tools:layout="@layout/fragment_detail_voucher" />
+        tools:layout="@layout/fragment_detail_voucher">
+        <argument
+            android:name="voucherId"
+            android:defaultValue=""
+            app:argType="int" />
+    </fragment>
 
     <fragment
         android:id="@+id/sessionFragment"

@@ -218,7 +218,7 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
 
             override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
-                Log.e("Error", t.message.toString())
+                Timber.e("Error", "error ${t.localizedMessage}")
             }
 
         })
