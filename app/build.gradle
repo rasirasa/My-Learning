@@ -79,6 +79,8 @@ dependencies {
     //implementation 'com.github.dantsu:escpos-thermalprinter-android:2.0.11'
     implementation 'com.github.DantSu:ESCPOS-ThermalPrinter-Android:3.2.0'
 
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
     // firebase
     implementation platform('com.google.firebase:firebase-bom:30.3.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'

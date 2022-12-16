@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.HomeFragment"
-        android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailVoucherFragment"
@@ -20,24 +19,20 @@
     <fragment
         android:id="@+id/detailVoucherFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.DetailVoucherFragment"
-        android:label="fragment_detail_voucher"
         tools:layout="@layout/fragment_detail_voucher" />
 
     <fragment
         android:id="@+id/sessionFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.SessionFragment"
-        android:label="session_fragment"
         tools:layout="@layout/fragment_session" />
 
     <fragment
         android:id="@+id/generateFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.GenerateFragment"
-        android:label="fragment_generate"
         tools:layout="@layout/fragment_generate" />
 
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.HistoryFragment"
-        android:label="History Fragment"
         tools:layout="@layout/fragment_history" />
 </navigation>

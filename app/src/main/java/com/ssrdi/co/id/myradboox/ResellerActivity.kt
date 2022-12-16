@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -32,12 +33,15 @@ import com.ssrdi.co.id.myradboox.fragmentreseller.SessionFragment
 import com.ssrdi.co.id.myradboox.model.DetailResponse
 import com.ssrdi.co.id.myradboox.model.StockResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
+import com.ssrdi.co.id.myradboox.utility.navigateSafe
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 
-class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
+    NavController.OnDestinationChangedListener {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityResellerBinding
     private lateinit var mToggle: ActionBarDrawerToggle
@@ -92,6 +96,23 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         drawerLayout.addDrawerListener(mToggle)
         mToggle.syncState()
 
+        navController.addOnDestinationChangedListener(this)
+
+    }
+
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?
+    ) {
+        title = when (destination.id) {
+            R.id.homeFragment -> "Radbox"
+            R.id.detailVoucherFragment -> "Detail Voucher"
+            R.id.generateFragment -> "Generate Voucher"
+            R.id.sessionFragment -> "Session"
+            R.id.historyFragment -> "History"
+            else -> "Default"
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -104,13 +125,13 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         when (item.itemId) {
             R.id.nav_home -> {
-                navController.navigate(R.id.homeFragment)
+                navController.navigateSafe(R.id.homeFragment)
             }
             R.id.nav_session -> {
-                navController.navigate(R.id.sessionFragment)
+                navController.navigateSafe(R.id.sessionFragment)
             }
             R.id.nav_history -> {
-                navController.navigate(R.id.historyFragment)
+                navController.navigateSafe(R.id.historyFragment)
             }
             R.id.nav_share -> {
                 shareApp()
@@ -131,10 +152,14 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         finish()
     }
 
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.mn_generate -> {
-                navController.navigate(R.id.action_home_to_generateVoucherFragment)
+                try {
+                    navController.navigateSafe(R.id.action_home_to_generateVoucherFragment)
+                } catch (e: Exception) {
+                    Timber.e("error_navigation ${e.localizedMessage}")
+                }
                 true
             }
             else -> {
