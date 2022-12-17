@@ -9,12 +9,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.dantsu.escposprinter.EscPosPrinter
 import com.dantsu.escposprinter.connection.bluetooth.BluetoothPrintersConnections
 import com.dantsu.escposprinter.textparser.PrinterTextParserImg
+import com.google.android.material.snackbar.Snackbar
 import com.ssrdi.co.id.myradboox.R
 import com.ssrdi.co.id.myradboox.api.RadbooxApi
 import com.ssrdi.co.id.myradboox.api.RetrofitClient
@@ -26,6 +29,7 @@ import kotlinx.android.synthetic.main.fragment_detail_voucher.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 import java.text.DateFormat
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -65,11 +69,12 @@ class DetailVoucherFragment : Fragment() {
         getDetailVoucher(idDetail)
 
         btn_print.setOnClickListener {
-            doPrint()
+            requestPermissionBluetooth(view)
             Toast.makeText(requireContext(), "Btn Print", Toast.LENGTH_SHORT).show()
         }
 
     }
+
 
     private fun getDetailVoucher(idDetail: Int) {
 
@@ -108,85 +113,111 @@ class DetailVoucherFragment : Fragment() {
             })
     }
 
-    private fun doPrint() {
-        try {
-            if (ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.BLUETOOTH
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                if (activity?.let {
-                        ContextCompat.checkSelfPermission(
-                            it,
-                            Manifest.permission.BLUETOOTH
-                        )
-                    }
-                    != PackageManager.PERMISSION_GRANTED) {
-
-                    // request the permission
-                    requestPermissions(
-                        arrayOf(Manifest.permission.BLUETOOTH),
-                        PERMISSION_BLUETOOTH
-                    );
-                } else {
-                    // has the permission.
-                    Toast.makeText(requireContext(), "Test", Toast.LENGTH_SHORT).show()
-                }
-
-                ///// ---------------
-//                ActivityCompat.requestPermissions(
-//                    this@DetailVoucherFragment,
-//                    arrayOf(Manifest.permission.BLUETOOTH),
-//                    com.ssrdi.co.id.myradboox.fragmentreseller.MainActivity.PERMISSION_BLUETOOTH
-//                )
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                Timber.i("Permission: ", "Granted")
             } else {
-                val connection = BluetoothPrintersConnections.selectFirstPaired()
-                if (connection != null) {
-                    val printer = EscPosPrinter(connection, 203, 48f, 32)
-                    val text = "[C]<img>" + PrinterTextParserImg.bitmapToHexadecimalString(
-                        printer,
-                        this.getActivity()?.getApplicationContext()?.getResources()
-                            ?.getDrawableForDensity(
-                                R.drawable.logo,
-                                DisplayMetrics.DENSITY_LOW, getContext()?.getTheme()
-                            )
-                    ) + "</img>\n" +
-                            "[L]\n" +
-                            "[L]" + df.format(Date()) + "\n" +
-                            "[C]================================\n" +
-                            "[L]<b>Effective Java</b>\n" +
-                            "[L]    1 pcs[R]" + nf.format(25000) + "\n" +
-                            "[L]<b>Headfirst Android Development</b>\n" +
-                            "[L]    1 pcs[R]" + nf.format(45000) + "\n" +
-                            "[L]<b>The Martian</b>\n" +
-                            "[L]    1 pcs[R]" + nf.format(20000) + "\n" +
-                            "[C]--------------------------------\n" +
-                            "[L]TOTAL[R]" + nf.format(90000) + "\n" +
-                            "[L]DISCOUNT 15%[R]" + nf.format(13500) + "\n" +
-                            "[L]TAX 10%[R]" + nf.format(7650) + "\n" +
-                            "[L]<b>GRAND TOTAL[R]" + nf.format(84150) + "</b>\n" +
-                            "[C]--------------------------------\n" +
-                            "[C]<barcode type='ean13' height='10'>202105160005</barcode>\n" +
-                            "[C]--------------------------------\n" +
-                            "[C]Thanks For Shopping\n" +
-                            "[C]https://kodejava.org\n" +
-                            "[L]\n" +
-                            "[L]<qrcode>https://kodejava.org</qrcode>\n"
-                    printer.printFormattedText(text)
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "No printer was connected!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                Timber.i("Permission: ", "Denied")
+            }
+        }
+
+    private fun requestPermissionBluetooth(view: View) {
+        when {
+            // check punya permission belum
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.BLUETOOTH
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                // sudah punya permission bluetooth
+                doPrint()
+            }
+
+            ActivityCompat.shouldShowRequestPermissionRationale(
+                requireActivity(), Manifest.permission.BLUETOOTH
+            ) -> {
+                binding.root.showSnackbar(
+                    view,
+                    "Perlu permission bluetooth",
+                    Snackbar.LENGTH_INDEFINITE,
+                    "OK"
+                ) {
+                    requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH)
                 }
             }
-        } catch (e: Exception) {
-            Log.e("APP", "Can't print", e)
+
+            else -> {
+                requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH)
+            }
         }
+
+
     }
 
+    private fun doPrint() {
+        try {
+            val connection = BluetoothPrintersConnections.selectFirstPaired()
+            if (connection != null) {
+                val printer = EscPosPrinter(connection, 203, 48f, 32)
+                val text = "[C]<img>" + PrinterTextParserImg.bitmapToHexadecimalString(
+                    printer,
+                    this.requireActivity()?.applicationContext?.resources
+                        ?.getDrawableForDensity(
+                            R.drawable.logo,
+                            DisplayMetrics.DENSITY_LOW, context?.theme
+                        )
+                ) + "</img>\n" +
+                        "[L]\n" +
+                        "[L]" + df.format(Date()) + "\n" +
+                        "[C]================================\n" +
+                        "[L]<b>Effective Java</b>\n" +
+                        "[L]    1 pcs[R]" + nf.format(25000) + "\n" +
+                        "[L]<b>Headfirst Android Development</b>\n" +
+                        "[L]    1 pcs[R]" + nf.format(45000) + "\n" +
+                        "[L]<b>The Martian</b>\n" +
+                        "[L]    1 pcs[R]" + nf.format(20000) + "\n" +
+                        "[C]--------------------------------\n" +
+                        "[L]TOTAL[R]" + nf.format(90000) + "\n" +
+                        "[L]DISCOUNT 15%[R]" + nf.format(13500) + "\n" +
+                        "[L]TAX 10%[R]" + nf.format(7650) + "\n" +
+                        "[L]<b>GRAND TOTAL[R]" + nf.format(84150) + "</b>\n" +
+                        "[C]--------------------------------\n" +
+                        "[C]<barcode type='ean13' height='10'>202105160005</barcode>\n" +
+                        "[C]--------------------------------\n" +
+                        "[C]Thanks For Shopping\n" +
+                        "[C]https://kodejava.org\n" +
+                        "[L]\n" +
+                        "[L]<qrcode>https://kodejava.org</qrcode>\n"
+                printer.printFormattedText(text)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "No printer was connected!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        } catch (e: Exception) {
+            Timber.e("APP", "Can't print", e)
+        }
 
+    }
 }
 
-
+fun View.showSnackbar(
+    view: View,
+    msg: String,
+    length: Int,
+    actionMessage: CharSequence?,
+    action: (View) -> Unit
+) {
+    val snackbar = Snackbar.make(view, msg, length)
+    if (actionMessage != null) {
+        snackbar.setAction(actionMessage) {
+            action(this)
+        }.show()
+    } else {
+        snackbar.show()
+    }
+}
