@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
@@ -11,6 +13,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
@@ -235,7 +238,25 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             shareMessage + "https://play.google.com/store/apps/details?id=com.ssr.radboox" + BuildConfig.APPLICATION_ID + "\n\n"
         intent.putExtra(Intent.EXTRA_TEXT, shareMessage)
         startActivity(Intent.createChooser(intent, "Share To :"))
+    }
 
+        private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        //Checking for fragment count on backstack
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment?
+        val backStackEntryCount = navHostFragment!!.childFragmentManager.backStackEntryCount
+        if (backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else if (!doubleBackToExitPressedOnce) {
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(this, "Please click BACK again to exit.", Toast.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+        } else {
+            super.onBackPressed()
+            return
+//            finishAffinity()
+        }
     }
 
 }
