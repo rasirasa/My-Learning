@@ -47,7 +47,6 @@ class DetailVoucherFragment : Fragment() {
 
     lateinit var tokenLogin: String
 
-    private val args: DetailVoucherFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +59,7 @@ class DetailVoucherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val idDetail: Int = args.voucherId
+        val idDetail: Int = arguments?.getInt("voucherId") ?: 0
 
         // buat object retrofit
         retro = RetrofitClient.getInstance(requireContext())

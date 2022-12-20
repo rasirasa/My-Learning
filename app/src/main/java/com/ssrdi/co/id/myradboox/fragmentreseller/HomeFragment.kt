@@ -29,6 +29,7 @@ import com.ssrdi.co.id.myradboox.model.VoucherResponse
 import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import com.ssrdi.co.id.myradboox.utility.PaginationScrollListener
 import com.ssrdi.co.id.myradboox.utility.checkIfFragmentAttached
+import com.ssrdi.co.id.myradboox.utility.navigateSafe
 import kotlinx.android.synthetic.main.activity_reseller.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
@@ -139,10 +140,13 @@ class HomeFragment : Fragment() {
         voucherAdapter = VoucherAdapter(voucherItemPaging) {
             // set click listener
             val id = it.id
-            val action =
-                HomeFragmentDirections.actionHomeFragmentToDetailVoucherFragment(voucherId = id)
-            findNavController().navigate(action)
+            val bundle = Bundle()
+            bundle.putInt("voucherId", id)
 
+            findNavController().navigateSafe(
+                R.id.action_homeFragment_to_detailVoucherFragment,
+                bundle
+            )
         }
 
 

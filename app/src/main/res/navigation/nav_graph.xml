@@ -17,20 +17,12 @@
             app:destination="@id/detailVoucherFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim">
-            <argument
-                android:name="voucherId"
-                android:defaultValue="0"
-                app:argType="integer" />
         </action>
     </fragment>
     <fragment
         android:id="@+id/detailVoucherFragment"
         android:name="com.ssrdi.co.id.myradboox.fragmentreseller.DetailVoucherFragment"
         tools:layout="@layout/fragment_detail_voucher">
-        <argument
-            android:name="voucherId"
-            android:defaultValue="0"
-            app:argType="integer" />
     </fragment>
 
     <fragment
