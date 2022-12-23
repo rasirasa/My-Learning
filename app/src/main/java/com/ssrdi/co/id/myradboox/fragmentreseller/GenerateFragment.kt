@@ -24,7 +24,6 @@ import com.ssrdi.co.id.myradboox.storage.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -174,7 +173,7 @@ class GenerateFragment : Fragment(), AdapterView.OnItemSelectedListener {
             }
 
             override fun onFailure(call: Call<GenerateResponse>, t: Throwable) {
-                Timber.e("error", "error ->${t.localizedMessage}")
+//                Timber.e("error", "error ->${t.localizedMessage}")
                 showLoading(false)
             }
 

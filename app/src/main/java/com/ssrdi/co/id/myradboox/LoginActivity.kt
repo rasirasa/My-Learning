@@ -22,10 +22,16 @@ import timber.log.Timber
 
 
 class LoginActivity : AppCompatActivity() {
+
+    private var isRememberMechecked = false
+    private lateinit var pref: SharedPrefManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
+
+        pref = SharedPrefManager.getInstance(this)
 
         initAction()
 
@@ -34,16 +40,20 @@ class LoginActivity : AppCompatActivity() {
             q_password.setText("rahmat")
         }
 
-        rememberme.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                SharedPrefManager.getInstance(applicationContext)
-                    .saveUserPassword(q_username.text.toString(), q_password.text.toString())
-                Toast.makeText(this@LoginActivity, "Save Shared Preference", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-
-            }
+        // check jika user rememberpassword
+        val pairUserPass = pref.getUserPassword()
+        if (pairUserPass.first.isNotBlank()) {
+            q_username.setText(pairUserPass.first)
+            q_password.setText(pairUserPass.second)
         }
+
+        rememberme.setOnCheckedChangeListener { _, isChecked ->
+            isRememberMechecked = true
+        }
+    }
+
+    private fun saveRememberMe() {
+        pref.saveUserPassword(q_username.text.toString(), q_password.text.toString())
     }
 
     private fun initAction() {
@@ -76,13 +86,11 @@ class LoginActivity : AppCompatActivity() {
         if (username.isEmpty()) {
             q_username.error = "Email required"
             q_username.requestFocus()
-            //return@setOnClickListener
         }
 
         if (password.isEmpty()) {
             q_password.error = "Password required"
             q_password.requestFocus()
-            //return@setOnClickListener
         }
 
         val retro = RetrofitClient.getInstance(this)
@@ -97,10 +105,12 @@ class LoginActivity : AppCompatActivity() {
                 val userTokenResponse = user?.token.toString()
                 if (userStatusResponse == "success") {
 
+                    if (isRememberMechecked) {
+                        saveRememberMe()
+                    }
                     val intent = Intent(this@LoginActivity, VerificationActivity::class.java)
                     intent.putExtra("token_login", userTokenResponse)
                     startActivity(intent)
-//                  startActivity(Intent(this@LoginActivity, VerificationActivity::class.java))
 
                 } else {
                     Toast.makeText(
@@ -109,12 +119,6 @@ class LoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-//                if (user != null) {
-//                    Log.e("token", user.token.toString())
-//                    Log.e("phone", user.phone.toString())
-//                    Log.e("status", user.status.toString())
-//                    Log.e("message", user.message.toString())
-//                }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -122,14 +126,10 @@ class LoginActivity : AppCompatActivity() {
             }
 
         })
-
     }
 
     private fun logOff() {
         val intent = Intent(this@LoginActivity, LogoffActivity::class.java)
         startActivity(intent)
-
     }
-
-
 }

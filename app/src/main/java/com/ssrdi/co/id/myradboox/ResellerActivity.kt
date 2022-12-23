@@ -129,12 +129,15 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         when (item.itemId) {
             R.id.nav_home -> {
                 navController.navigate(R.id.homeFragment)
+                supportActionBar?.title = "Radboox"
             }
             R.id.nav_session -> {
                 navController.navigate(R.id.sessionFragment)
+                supportActionBar?.title = "Session"
             }
             R.id.nav_history -> {
                 navController.navigate(R.id.historyFragment)
+                supportActionBar?.title = "History"
             }
             R.id.nav_share -> {
                 shareApp()
@@ -240,7 +243,7 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         startActivity(Intent.createChooser(intent, "Share To :"))
     }
 
-        private var doubleBackToExitPressedOnce = false
+    private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         //Checking for fragment count on backstack
         val navHostFragment =
@@ -251,7 +254,10 @@ class ResellerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         } else if (!doubleBackToExitPressedOnce) {
             this.doubleBackToExitPressedOnce = true
             Toast.makeText(this, "Please click BACK again to exit.", Toast.LENGTH_SHORT).show()
-            Handler(Looper.getMainLooper()).postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+            Handler(Looper.getMainLooper()).postDelayed(
+                { doubleBackToExitPressedOnce = false },
+                2000
+            )
         } else {
             super.onBackPressed()
             return
